@@ -34,6 +34,7 @@
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.contextForDocPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeAllButThis = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextCloseSession = new System.Windows.Forms.ToolStripMenuItem();
             this.contextDuplicateSession = new System.Windows.Forms.ToolStripMenuItem();
             this.contextRestartSession = new System.Windows.Forms.ToolStripMenuItem();
             this.contextRenameForDocPanel = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,6 @@
             this.contextResetTerminal = new System.Windows.Forms.ToolStripMenuItem();
             this.contextResetAndClear = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextCloseSession = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileNewDatabase = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +111,8 @@
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuImportDatabase = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenuDisconnect = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonLock = new System.Windows.Forms.ToolStripButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
@@ -148,53 +150,60 @@
             this.contextResetAndClear,
             this.toolStripSeparator8});
             this.contextForDocPanel.Name = "contextForDocPanel";
-            this.contextForDocPanel.Size = new System.Drawing.Size(315, 394);
+            this.contextForDocPanel.Size = new System.Drawing.Size(261, 364);
             this.contextForDocPanel.Opening += new System.ComponentModel.CancelEventHandler(this.contextForDocPanel_Opening);
             // 
             // closeAllButThis
             // 
             this.closeAllButThis.Name = "closeAllButThis";
-            this.closeAllButThis.Size = new System.Drawing.Size(314, 24);
+            this.closeAllButThis.Size = new System.Drawing.Size(260, 22);
             this.closeAllButThis.Text = "Close All But This";
             this.closeAllButThis.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // contextCloseSession
+            // 
+            this.contextCloseSession.Name = "contextCloseSession";
+            this.contextCloseSession.Size = new System.Drawing.Size(260, 22);
+            this.contextCloseSession.Text = "&Close";
+            this.contextCloseSession.Click += new System.EventHandler(this.contextCloseSession_Click);
             // 
             // contextDuplicateSession
             // 
             this.contextDuplicateSession.Name = "contextDuplicateSession";
-            this.contextDuplicateSession.Size = new System.Drawing.Size(314, 24);
+            this.contextDuplicateSession.Size = new System.Drawing.Size(260, 22);
             this.contextDuplicateSession.Text = "Clone Session";
             this.contextDuplicateSession.Click += new System.EventHandler(this.contextDuplicateSession_Click);
             // 
             // contextRestartSession
             // 
             this.contextRestartSession.Name = "contextRestartSession";
-            this.contextRestartSession.Size = new System.Drawing.Size(314, 24);
+            this.contextRestartSession.Size = new System.Drawing.Size(260, 22);
             this.contextRestartSession.Text = "Restart Session";
             this.contextRestartSession.Click += new System.EventHandler(this.contextRestartSession_Click);
             // 
             // contextRenameForDocPanel
             // 
             this.contextRenameForDocPanel.Name = "contextRenameForDocPanel";
-            this.contextRenameForDocPanel.Size = new System.Drawing.Size(314, 24);
+            this.contextRenameForDocPanel.Size = new System.Drawing.Size(260, 22);
             this.contextRenameForDocPanel.Text = "Rename Tab";
             this.contextRenameForDocPanel.Click += new System.EventHandler(this.contextRenameForDocPanel_Click);
             // 
             // contextChangeSettings
             // 
             this.contextChangeSettings.Name = "contextChangeSettings";
-            this.contextChangeSettings.Size = new System.Drawing.Size(314, 24);
+            this.contextChangeSettings.Size = new System.Drawing.Size(260, 22);
             this.contextChangeSettings.Text = "Change Settings...";
             this.contextChangeSettings.Click += new System.EventHandler(this.contextChangeSettings_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(311, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(257, 6);
             // 
             // contextRunMultiCommands
             // 
             this.contextRunMultiCommands.Name = "contextRunMultiCommands";
-            this.contextRunMultiCommands.Size = new System.Drawing.Size(314, 24);
+            this.contextRunMultiCommands.Size = new System.Drawing.Size(260, 22);
             this.contextRunMultiCommands.Text = "Run Multi Commands";
             this.contextRunMultiCommands.Click += new System.EventHandler(this.contextRunMultiCommands_Click);
             // 
@@ -202,85 +211,78 @@
             // 
             this.contextAcceptGlobalCommand.CheckOnClick = true;
             this.contextAcceptGlobalCommand.Name = "contextAcceptGlobalCommand";
-            this.contextAcceptGlobalCommand.Size = new System.Drawing.Size(314, 24);
+            this.contextAcceptGlobalCommand.Size = new System.Drawing.Size(260, 22);
             this.contextAcceptGlobalCommand.Text = "Accept Multi Sessions Command";
             this.contextAcceptGlobalCommand.Click += new System.EventHandler(this.contextAcceptGlobalCommand_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(311, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(257, 6);
             // 
             // contextEventLog
             // 
             this.contextEventLog.Name = "contextEventLog";
-            this.contextEventLog.Size = new System.Drawing.Size(314, 24);
+            this.contextEventLog.Size = new System.Drawing.Size(260, 22);
             this.contextEventLog.Text = "PuTTY Event Log";
             this.contextEventLog.Click += new System.EventHandler(this.contextEventLog_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(311, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(257, 6);
             // 
             // contextFTPExternal
             // 
             this.contextFTPExternal.Name = "contextFTPExternal";
-            this.contextFTPExternal.Size = new System.Drawing.Size(314, 24);
+            this.contextFTPExternal.Size = new System.Drawing.Size(260, 22);
             this.contextFTPExternal.Text = "FTP Using WinSCP";
             this.contextFTPExternal.Click += new System.EventHandler(this.contextFTPExternal_Click);
             // 
             // contextSFTPExternal
             // 
             this.contextSFTPExternal.Name = "contextSFTPExternal";
-            this.contextSFTPExternal.Size = new System.Drawing.Size(314, 24);
+            this.contextSFTPExternal.Size = new System.Drawing.Size(260, 22);
             this.contextSFTPExternal.Text = "SFTP Using WinSCP";
             this.contextSFTPExternal.Click += new System.EventHandler(this.contextSFTPExternal_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(311, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(257, 6);
             // 
             // contextCopyClipboard
             // 
             this.contextCopyClipboard.Name = "contextCopyClipboard";
-            this.contextCopyClipboard.Size = new System.Drawing.Size(314, 24);
+            this.contextCopyClipboard.Size = new System.Drawing.Size(260, 22);
             this.contextCopyClipboard.Text = "Copy All to Clipboard";
             this.contextCopyClipboard.Click += new System.EventHandler(this.contextCopyClipboard_Click);
             // 
             // contextClearScollback
             // 
             this.contextClearScollback.Name = "contextClearScollback";
-            this.contextClearScollback.Size = new System.Drawing.Size(314, 24);
+            this.contextClearScollback.Size = new System.Drawing.Size(260, 22);
             this.contextClearScollback.Text = "Clear Scrollback";
             this.contextClearScollback.Click += new System.EventHandler(this.contextClearScollback_Click);
             // 
             // contextResetTerminal
             // 
             this.contextResetTerminal.Name = "contextResetTerminal";
-            this.contextResetTerminal.Size = new System.Drawing.Size(314, 24);
+            this.contextResetTerminal.Size = new System.Drawing.Size(260, 22);
             this.contextResetTerminal.Text = "Reset Terminal";
             this.contextResetTerminal.Click += new System.EventHandler(this.contextResetTerminal_Click);
             // 
             // contextResetAndClear
             // 
             this.contextResetAndClear.Name = "contextResetAndClear";
-            this.contextResetAndClear.Size = new System.Drawing.Size(314, 24);
+            this.contextResetAndClear.Size = new System.Drawing.Size(260, 22);
             this.contextResetAndClear.Text = "Reset Terminal and Clear Scrollback";
             this.contextResetAndClear.Click += new System.EventHandler(this.contextResetAndClear_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(311, 6);
-            // 
-            // contextCloseSession
-            // 
-            this.contextCloseSession.Name = "contextCloseSession";
-            this.contextCloseSession.Size = new System.Drawing.Size(314, 24);
-            this.contextCloseSession.Text = "&Close";
-            this.contextCloseSession.Click += new System.EventHandler(this.contextCloseSession_Click);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(257, 6);
             // 
             // mnuMain
             // 
@@ -295,7 +297,7 @@
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.mnuMain.Size = new System.Drawing.Size(1187, 30);
+            this.mnuMain.Size = new System.Drawing.Size(1187, 25);
             this.mnuMain.TabIndex = 7;
             // 
             // fileToolStripMenuItem
@@ -310,59 +312,59 @@
             this.toolStripSeparator10,
             this.mnuFileExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.MouseEnter += new System.EventHandler(this.fileToolStripMenuItem_MouseEnter);
             // 
             // mnuFileNewDatabase
             // 
             this.mnuFileNewDatabase.Name = "mnuFileNewDatabase";
-            this.mnuFileNewDatabase.Size = new System.Drawing.Size(296, 26);
+            this.mnuFileNewDatabase.Size = new System.Drawing.Size(235, 22);
             this.mnuFileNewDatabase.Text = "New database";
             this.mnuFileNewDatabase.Click += new System.EventHandler(this.mnuFileNewDatabase_Click);
             // 
             // mnuFileOpenDatabase
             // 
             this.mnuFileOpenDatabase.Name = "mnuFileOpenDatabase";
-            this.mnuFileOpenDatabase.Size = new System.Drawing.Size(296, 26);
+            this.mnuFileOpenDatabase.Size = new System.Drawing.Size(235, 22);
             this.mnuFileOpenDatabase.Text = "Open database";
             this.mnuFileOpenDatabase.Click += new System.EventHandler(this.mnuFileOpenDatabase_Click);
             // 
             // mnuSaveAllDatabases
             // 
             this.mnuSaveAllDatabases.Name = "mnuSaveAllDatabases";
-            this.mnuSaveAllDatabases.Size = new System.Drawing.Size(296, 26);
+            this.mnuSaveAllDatabases.Size = new System.Drawing.Size(235, 22);
             this.mnuSaveAllDatabases.Text = "Save all databases";
             this.mnuSaveAllDatabases.Click += new System.EventHandler(this.mnuSaveAllDatabases_Click);
             // 
             // mnufileImportDatabase
             // 
             this.mnufileImportDatabase.Name = "mnufileImportDatabase";
-            this.mnufileImportDatabase.Size = new System.Drawing.Size(296, 26);
+            this.mnufileImportDatabase.Size = new System.Drawing.Size(235, 22);
             this.mnufileImportDatabase.Text = "Import database from XML file";
             this.mnufileImportDatabase.Click += new System.EventHandler(this.mnufileImportDatabase_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(293, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(232, 6);
             // 
             // mnuFileCloseAllSessions
             // 
             this.mnuFileCloseAllSessions.Name = "mnuFileCloseAllSessions";
-            this.mnuFileCloseAllSessions.Size = new System.Drawing.Size(296, 26);
+            this.mnuFileCloseAllSessions.Size = new System.Drawing.Size(235, 22);
             this.mnuFileCloseAllSessions.Text = "Close all sessions";
             this.mnuFileCloseAllSessions.Click += new System.EventHandler(this.mnuFileCloseAllSessions_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(293, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(232, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(296, 26);
+            this.mnuFileExit.Size = new System.Drawing.Size(235, 22);
             this.mnuFileExit.Text = "Exit";
             this.mnuFileExit.Click += new System.EventHandler(this.mnuFileExit_Click);
             // 
@@ -373,7 +375,7 @@
             this.toolStripSeparator5,
             this.mnuViewSessionManager});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
             this.viewToolStripMenuItem.Text = "View";
             this.viewToolStripMenuItem.MouseEnter += new System.EventHandler(this.viewToolStripMenuItem_MouseEnter);
             // 
@@ -385,7 +387,7 @@
             this.mnuViewToolbarsMSC,
             this.mnuViewToolbarsStatus});
             this.mnuViewToolbars.Name = "mnuViewToolbars";
-            this.mnuViewToolbars.Size = new System.Drawing.Size(210, 26);
+            this.mnuViewToolbars.Size = new System.Drawing.Size(168, 22);
             this.mnuViewToolbars.Text = "Toolbars";
             // 
             // mnuViewToolbarsStandard
@@ -394,7 +396,7 @@
             this.mnuViewToolbarsStandard.CheckOnClick = true;
             this.mnuViewToolbarsStandard.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewToolbarsStandard.Name = "mnuViewToolbarsStandard";
-            this.mnuViewToolbarsStandard.Size = new System.Drawing.Size(258, 26);
+            this.mnuViewToolbarsStandard.Size = new System.Drawing.Size(209, 22);
             this.mnuViewToolbarsStandard.Text = "Standard";
             this.mnuViewToolbarsStandard.Click += new System.EventHandler(this.mnuViewToolbarsStandard_Click);
             // 
@@ -404,7 +406,7 @@
             this.mnuViewToolbarsQuickConnection.CheckOnClick = true;
             this.mnuViewToolbarsQuickConnection.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewToolbarsQuickConnection.Name = "mnuViewToolbarsQuickConnection";
-            this.mnuViewToolbarsQuickConnection.Size = new System.Drawing.Size(258, 26);
+            this.mnuViewToolbarsQuickConnection.Size = new System.Drawing.Size(209, 22);
             this.mnuViewToolbarsQuickConnection.Text = "Quick Session";
             this.mnuViewToolbarsQuickConnection.Click += new System.EventHandler(this.mnuViewToolbarsQuickConnection_Click);
             // 
@@ -414,7 +416,7 @@
             this.mnuViewToolbarsMSC.CheckOnClick = true;
             this.mnuViewToolbarsMSC.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewToolbarsMSC.Name = "mnuViewToolbarsMSC";
-            this.mnuViewToolbarsMSC.Size = new System.Drawing.Size(258, 26);
+            this.mnuViewToolbarsMSC.Size = new System.Drawing.Size(209, 22);
             this.mnuViewToolbarsMSC.Text = "Multi Sessions Command";
             this.mnuViewToolbarsMSC.Click += new System.EventHandler(this.mnuViewToolbarsMSC_Click);
             // 
@@ -424,7 +426,7 @@
             this.mnuViewToolbarsStatus.CheckOnClick = true;
             this.mnuViewToolbarsStatus.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewToolbarsStatus.Name = "mnuViewToolbarsStatus";
-            this.mnuViewToolbarsStatus.Size = new System.Drawing.Size(258, 26);
+            this.mnuViewToolbarsStatus.Size = new System.Drawing.Size(209, 22);
             this.mnuViewToolbarsStatus.Text = "Status";
             this.mnuViewToolbarsStatus.Visible = false;
             this.mnuViewToolbarsStatus.Click += new System.EventHandler(this.mnuViewToolbarsStatus_Click);
@@ -432,7 +434,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(165, 6);
             // 
             // mnuViewSessionManager
             // 
@@ -440,7 +442,7 @@
             this.mnuViewSessionManager.CheckOnClick = true;
             this.mnuViewSessionManager.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewSessionManager.Name = "mnuViewSessionManager";
-            this.mnuViewSessionManager.Size = new System.Drawing.Size(210, 26);
+            this.mnuViewSessionManager.Size = new System.Drawing.Size(168, 22);
             this.mnuViewSessionManager.Text = "Sessions Manager";
             this.mnuViewSessionManager.Click += new System.EventHandler(this.mnuViewSessionManager_Click);
             // 
@@ -452,33 +454,33 @@
             this.toolStripSeparator1,
             this.mnuToolsOption});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 19);
             this.toolsToolStripMenuItem.Text = "Tools";
             this.toolsToolStripMenuItem.MouseEnter += new System.EventHandler(this.toolsToolStripMenuItem_MouseEnter);
             // 
             // mnuToolsPuTTYSessions
             // 
             this.mnuToolsPuTTYSessions.Name = "mnuToolsPuTTYSessions";
-            this.mnuToolsPuTTYSessions.Size = new System.Drawing.Size(227, 26);
+            this.mnuToolsPuTTYSessions.Size = new System.Drawing.Size(184, 22);
             this.mnuToolsPuTTYSessions.Text = "PuTTY Sessions";
             this.mnuToolsPuTTYSessions.Click += new System.EventHandler(this.mnuToolsPuTTYSessions_Click);
             // 
             // mnuToolsPuttyConfiguration
             // 
             this.mnuToolsPuttyConfiguration.Name = "mnuToolsPuttyConfiguration";
-            this.mnuToolsPuttyConfiguration.Size = new System.Drawing.Size(227, 26);
+            this.mnuToolsPuttyConfiguration.Size = new System.Drawing.Size(184, 22);
             this.mnuToolsPuttyConfiguration.Text = "PuTTY Configuration";
             this.mnuToolsPuttyConfiguration.Click += new System.EventHandler(this.mnuToolPuttyConfiguration_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // mnuToolsOption
             // 
             this.mnuToolsOption.Name = "mnuToolsOption";
-            this.mnuToolsOption.Size = new System.Drawing.Size(227, 26);
+            this.mnuToolsOption.Size = new System.Drawing.Size(184, 22);
             this.mnuToolsOption.Text = "Options...";
             this.mnuToolsOption.Click += new System.EventHandler(this.mnuToolsOption_Click);
             // 
@@ -490,33 +492,33 @@
             this.toolStripSeparator4,
             this.mnuHelpAbout});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(55, 24);
+            this.mnuHelp.Size = new System.Drawing.Size(44, 19);
             this.mnuHelp.Text = "Help";
             this.mnuHelp.MouseEnter += new System.EventHandler(this.mnuHelp_MouseEnter);
             // 
             // mnuHelpHelp
             // 
             this.mnuHelpHelp.Name = "mnuHelpHelp";
-            this.mnuHelpHelp.Size = new System.Drawing.Size(167, 26);
+            this.mnuHelpHelp.Size = new System.Drawing.Size(133, 22);
             this.mnuHelpHelp.Text = "Help";
             this.mnuHelpHelp.Click += new System.EventHandler(this.mnuHelpHelp_Click);
             // 
             // mnuHelpHomepage
             // 
             this.mnuHelpHomepage.Name = "mnuHelpHomepage";
-            this.mnuHelpHomepage.Size = new System.Drawing.Size(167, 26);
+            this.mnuHelpHomepage.Size = new System.Drawing.Size(133, 22);
             this.mnuHelpHomepage.Text = "Homepage";
             this.mnuHelpHomepage.Click += new System.EventHandler(this.mnuHelpHomepage_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(164, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(130, 6);
             // 
             // mnuHelpAbout
             // 
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(167, 26);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(133, 22);
             this.mnuHelpAbout.Text = "About...";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
@@ -533,22 +535,22 @@
             this.toolStripSeparatorStatus,
             this.toolStripGlobalCommandStatus,
             this.toolStripGlobalCommandStopMultiCommands});
-            this.toolStripGlobalCommand.Location = new System.Drawing.Point(0, 85);
+            this.toolStripGlobalCommand.Location = new System.Drawing.Point(0, 77);
             this.toolStripGlobalCommand.Name = "toolStripGlobalCommand";
-            this.toolStripGlobalCommand.Size = new System.Drawing.Size(1187, 28);
+            this.toolStripGlobalCommand.Size = new System.Drawing.Size(1187, 25);
             this.toolStripGlobalCommand.TabIndex = 16;
             this.toolStripGlobalCommand.Text = "toolStrip1";
             // 
             // toolStripLabel7
             // 
             this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(175, 25);
+            this.toolStripLabel7.Size = new System.Drawing.Size(142, 22);
             this.toolStripLabel7.Text = "Multi Sessions Command";
             // 
             // toolStripGlobalCommandCommand
             // 
             this.toolStripGlobalCommandCommand.Name = "toolStripGlobalCommandCommand";
-            this.toolStripGlobalCommandCommand.Size = new System.Drawing.Size(400, 28);
+            this.toolStripGlobalCommandCommand.Size = new System.Drawing.Size(400, 25);
             this.toolStripGlobalCommandCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripGlobalCommandCommand_KeyPress);
             this.toolStripGlobalCommandCommand.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandCommand_MouseEnter);
             // 
@@ -561,7 +563,7 @@
             this.toolStripSeparator2});
             this.toolStripGlobalCommandSession.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandSession.Name = "toolStripGlobalCommandSession";
-            this.toolStripGlobalCommandSession.Size = new System.Drawing.Size(83, 25);
+            this.toolStripGlobalCommandSession.Size = new System.Drawing.Size(67, 22);
             this.toolStripGlobalCommandSession.Text = "Sessions";
             this.toolStripGlobalCommandSession.ButtonClick += new System.EventHandler(this.toolStripGlobalCommandSession_ButtonClick);
             this.toolStripGlobalCommandSession.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandSession_MouseEnter);
@@ -569,21 +571,21 @@
             // toolStripCheckAll
             // 
             this.toolStripCheckAll.Name = "toolStripCheckAll";
-            this.toolStripCheckAll.Size = new System.Drawing.Size(169, 26);
+            this.toolStripCheckAll.Size = new System.Drawing.Size(135, 22);
             this.toolStripCheckAll.Text = "All Sessions";
             this.toolStripCheckAll.Click += new System.EventHandler(this.toolStripCheckAll_Click);
             // 
             // toolStripUncheckAll
             // 
             this.toolStripUncheckAll.Name = "toolStripUncheckAll";
-            this.toolStripUncheckAll.Size = new System.Drawing.Size(169, 26);
+            this.toolStripUncheckAll.Size = new System.Drawing.Size(135, 22);
             this.toolStripUncheckAll.Text = "None";
             this.toolStripUncheckAll.Click += new System.EventHandler(this.toolStripUncheckAll_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(132, 6);
             // 
             // toolStripGlobalCommandRun
             // 
@@ -591,7 +593,7 @@
             this.toolStripGlobalCommandRun.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripGlobalCommandRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandRun.Name = "toolStripGlobalCommandRun";
-            this.toolStripGlobalCommandRun.Size = new System.Drawing.Size(29, 25);
+            this.toolStripGlobalCommandRun.Size = new System.Drawing.Size(23, 22);
             this.toolStripGlobalCommandRun.ToolTipText = "Run Command";
             this.toolStripGlobalCommandRun.Click += new System.EventHandler(this.toolStripGlobalCommandRun_Click);
             this.toolStripGlobalCommandRun.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandRun_MouseEnter);
@@ -599,20 +601,20 @@
             // toolStripSeparatorStatus
             // 
             this.toolStripSeparatorStatus.Name = "toolStripSeparatorStatus";
-            this.toolStripSeparatorStatus.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparatorStatus.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripGlobalCommandStatus
             // 
             this.toolStripGlobalCommandStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripGlobalCommandStatus.Name = "toolStripGlobalCommandStatus";
-            this.toolStripGlobalCommandStatus.Size = new System.Drawing.Size(49, 25);
+            this.toolStripGlobalCommandStatus.Size = new System.Drawing.Size(39, 22);
             this.toolStripGlobalCommandStatus.Text = "Status";
             // 
             // toolStripGlobalCommandStopMultiCommands
             // 
             this.toolStripGlobalCommandStopMultiCommands.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandStopMultiCommands.Name = "toolStripGlobalCommandStopMultiCommands";
-            this.toolStripGlobalCommandStopMultiCommands.Size = new System.Drawing.Size(161, 25);
+            this.toolStripGlobalCommandStopMultiCommands.Size = new System.Drawing.Size(131, 22);
             this.toolStripGlobalCommandStopMultiCommands.Text = "Stop Multi Commands";
             this.toolStripGlobalCommandStopMultiCommands.Click += new System.EventHandler(this.toolStripGlobalCommandStopMultiCommands_Click);
             this.toolStripGlobalCommandStopMultiCommands.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandStopMultiCommands_MouseEnter);
@@ -635,16 +637,16 @@
             this.toolStripQuickConnecSessionConfig,
             this.toolStripQuickConnectConnect});
             this.toolStripQuickConnect.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStripQuickConnect.Location = new System.Drawing.Point(0, 57);
+            this.toolStripQuickConnect.Location = new System.Drawing.Point(0, 52);
             this.toolStripQuickConnect.Name = "toolStripQuickConnect";
-            this.toolStripQuickConnect.Size = new System.Drawing.Size(1187, 28);
+            this.toolStripQuickConnect.Size = new System.Drawing.Size(1187, 25);
             this.toolStripQuickConnect.TabIndex = 15;
             this.toolStripQuickConnect.Text = "toolStrip1";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(65, 25);
+            this.toolStripLabel2.Size = new System.Drawing.Size(52, 22);
             this.toolStripLabel2.Text = "Protocol";
             // 
             // toolStripQuickConnectProtocol
@@ -658,25 +660,25 @@
             "Raw",
             "RLogin"});
             this.toolStripQuickConnectProtocol.Name = "toolStripQuickConnectProtocol";
-            this.toolStripQuickConnectProtocol.Size = new System.Drawing.Size(80, 28);
+            this.toolStripQuickConnectProtocol.Size = new System.Drawing.Size(80, 25);
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(40, 25);
+            this.toolStripLabel3.Size = new System.Drawing.Size(32, 22);
             this.toolStripLabel3.Text = "Host";
             // 
             // toolStripQuickConnectHost
             // 
             this.toolStripQuickConnectHost.Name = "toolStripQuickConnectHost";
-            this.toolStripQuickConnectHost.Size = new System.Drawing.Size(140, 28);
+            this.toolStripQuickConnectHost.Size = new System.Drawing.Size(140, 25);
             this.toolStripQuickConnectHost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripQuickConnectHost_KeyPress);
             this.toolStripQuickConnectHost.MouseEnter += new System.EventHandler(this.toolStripQuickConnectHost_MouseEnter);
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(64, 25);
+            this.toolStripLabel4.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel4.Text = "Login as";
             // 
             // toolStripQuickConnetUserName
@@ -684,13 +686,13 @@
             this.toolStripQuickConnetUserName.BackColor = System.Drawing.SystemColors.Window;
             this.toolStripQuickConnetUserName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripQuickConnetUserName.Name = "toolStripQuickConnetUserName";
-            this.toolStripQuickConnetUserName.Size = new System.Drawing.Size(100, 28);
+            this.toolStripQuickConnetUserName.Size = new System.Drawing.Size(100, 25);
             this.toolStripQuickConnetUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripQuickConnetUserName_KeyPress);
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(70, 25);
+            this.toolStripLabel5.Size = new System.Drawing.Size(57, 22);
             this.toolStripLabel5.Text = "Password";
             // 
             // toolStripQuickConnectPassword
@@ -698,13 +700,13 @@
             this.toolStripQuickConnectPassword.BackColor = System.Drawing.SystemColors.Window;
             this.toolStripQuickConnectPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripQuickConnectPassword.Name = "toolStripQuickConnectPassword";
-            this.toolStripQuickConnectPassword.Size = new System.Drawing.Size(100, 28);
+            this.toolStripQuickConnectPassword.Size = new System.Drawing.Size(100, 25);
             this.toolStripQuickConnectPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripQuickConnectPassword_KeyPress);
             // 
             // toolStripLabel6
             // 
             this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(100, 25);
+            this.toolStripLabel6.Size = new System.Drawing.Size(80, 22);
             this.toolStripLabel6.Text = "PuTTY Setting";
             // 
             // toolStripQuickConnecSessionConfig
@@ -716,7 +718,7 @@
             "Default Settings"});
             this.toolStripQuickConnecSessionConfig.MaxDropDownItems = 100;
             this.toolStripQuickConnecSessionConfig.Name = "toolStripQuickConnecSessionConfig";
-            this.toolStripQuickConnecSessionConfig.Size = new System.Drawing.Size(121, 28);
+            this.toolStripQuickConnecSessionConfig.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripQuickConnectConnect
             // 
@@ -724,7 +726,7 @@
             this.toolStripQuickConnectConnect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripQuickConnectConnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripQuickConnectConnect.Name = "toolStripQuickConnectConnect";
-            this.toolStripQuickConnectConnect.Size = new System.Drawing.Size(29, 25);
+            this.toolStripQuickConnectConnect.Size = new System.Drawing.Size(23, 22);
             this.toolStripQuickConnectConnect.ToolTipText = "Open Session";
             this.toolStripQuickConnectConnect.Click += new System.EventHandler(this.toolStripQuickConnectConnect_Click);
             this.toolStripQuickConnectConnect.MouseEnter += new System.EventHandler(this.toolStripQuickConnectConnect_MouseEnter);
@@ -740,8 +742,10 @@
             this.toolStripMenuSaveDatabase,
             this.toolStripSeparator,
             this.toolStripMenuImportDatabase,
-            this.toolStripMenuDisconnect});
-            this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
+            this.toolStripMenuDisconnect,
+            this.toolStripSeparator12,
+            this.toolStripButtonLock});
+            this.toolStripMenu.Location = new System.Drawing.Point(0, 25);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(1187, 27);
             this.toolStripMenu.TabIndex = 14;
@@ -750,10 +754,10 @@
             // 
             // toolStripMenuNewDatabase
             // 
-            this.toolStripMenuNewDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripMenuNewDatabase.Image = global::SessionManagement.Properties.Resources.Database;
             this.toolStripMenuNewDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuNewDatabase.Name = "toolStripMenuNewDatabase";
-            this.toolStripMenuNewDatabase.Size = new System.Drawing.Size(29, 24);
+            this.toolStripMenuNewDatabase.Size = new System.Drawing.Size(55, 24);
             this.toolStripMenuNewDatabase.Text = "&New";
             this.toolStripMenuNewDatabase.ToolTipText = "Create new database";
             this.toolStripMenuNewDatabase.Click += new System.EventHandler(this.toolStripMenuNewDatabase_Click);
@@ -761,10 +765,10 @@
             // 
             // toolStripMenuOpenDatabase
             // 
-            this.toolStripMenuOpenDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripMenuOpenDatabase.Image = global::SessionManagement.Properties.Resources.OpenFile;
             this.toolStripMenuOpenDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuOpenDatabase.Name = "toolStripMenuOpenDatabase";
-            this.toolStripMenuOpenDatabase.Size = new System.Drawing.Size(29, 24);
+            this.toolStripMenuOpenDatabase.Size = new System.Drawing.Size(60, 24);
             this.toolStripMenuOpenDatabase.Text = "&Open";
             this.toolStripMenuOpenDatabase.ToolTipText = "Open database";
             this.toolStripMenuOpenDatabase.Click += new System.EventHandler(this.toolStripMenuOpenDatabase_Click);
@@ -772,10 +776,10 @@
             // 
             // toolStripMenuSaveDatabase
             // 
-            this.toolStripMenuSaveDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripMenuSaveDatabase.Image = global::SessionManagement.Properties.Resources.Save;
             this.toolStripMenuSaveDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuSaveDatabase.Name = "toolStripMenuSaveDatabase";
-            this.toolStripMenuSaveDatabase.Size = new System.Drawing.Size(29, 24);
+            this.toolStripMenuSaveDatabase.Size = new System.Drawing.Size(55, 24);
             this.toolStripMenuSaveDatabase.Text = "&Save";
             this.toolStripMenuSaveDatabase.ToolTipText = "Save all databases";
             this.toolStripMenuSaveDatabase.Click += new System.EventHandler(this.toolStripMenuSaveDatabase_Click);
@@ -789,9 +793,10 @@
             // toolStripMenuImportDatabase
             // 
             this.toolStripMenuImportDatabase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toolStripMenuImportDatabase.Image = global::SessionManagement.Properties.Resources.Import;
             this.toolStripMenuImportDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuImportDatabase.Name = "toolStripMenuImportDatabase";
-            this.toolStripMenuImportDatabase.Size = new System.Drawing.Size(125, 24);
+            this.toolStripMenuImportDatabase.Size = new System.Drawing.Size(118, 24);
             this.toolStripMenuImportDatabase.Text = "Import Database";
             this.toolStripMenuImportDatabase.ToolTipText = "Import database from XML file";
             this.toolStripMenuImportDatabase.Click += new System.EventHandler(this.toolStripMenuImportDatabase_Click);
@@ -799,30 +804,46 @@
             // 
             // toolStripMenuDisconnect
             // 
+            this.toolStripMenuDisconnect.Image = global::SessionManagement.Properties.Resources.CloseAll;
             this.toolStripMenuDisconnect.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuDisconnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuDisconnect.Name = "toolStripMenuDisconnect";
-            this.toolStripMenuDisconnect.Size = new System.Drawing.Size(130, 24);
+            this.toolStripMenuDisconnect.Size = new System.Drawing.Size(124, 24);
             this.toolStripMenuDisconnect.Text = "Close All Sessions";
             this.toolStripMenuDisconnect.ToolTipText = "Close all sessions";
             this.toolStripMenuDisconnect.Click += new System.EventHandler(this.toolStripMenuDisconnect_Click);
             this.toolStripMenuDisconnect.MouseEnter += new System.EventHandler(this.toolStripMenuDisconnect_MouseEnter);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButtonLock
+            // 
+            this.toolStripButtonLock.Image = global::SessionManagement.Properties.Resources.Lock;
+            this.toolStripButtonLock.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLock.Name = "toolStripButtonLock";
+            this.toolStripButtonLock.Size = new System.Drawing.Size(120, 24);
+            this.toolStripButtonLock.Text = "Lock Application";
+            this.toolStripButtonLock.ToolTipText = "Lock";
+            this.toolStripButtonLock.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // statusBar
             // 
             this.statusBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarStatus});
-            this.statusBar.Location = new System.Drawing.Point(0, 525);
+            this.statusBar.Location = new System.Drawing.Point(0, 529);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1187, 26);
+            this.statusBar.Size = new System.Drawing.Size(1187, 22);
             this.statusBar.TabIndex = 20;
             this.statusBar.Text = "statusStrip1";
             // 
             // statusBarStatus
             // 
             this.statusBarStatus.Name = "statusBarStatus";
-            this.statusBarStatus.Size = new System.Drawing.Size(49, 20);
+            this.statusBarStatus.Size = new System.Drawing.Size(39, 17);
             this.statusBarStatus.Text = "Status";
             // 
             // dockPanelMain
@@ -833,10 +854,10 @@
             this.dockPanelMain.DockLeftPortion = 0.22D;
             this.dockPanelMain.DockRightPortion = 0.22D;
             this.dockPanelMain.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
-            this.dockPanelMain.Location = new System.Drawing.Point(0, 113);
+            this.dockPanelMain.Location = new System.Drawing.Point(0, 102);
             this.dockPanelMain.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanelMain.Name = "dockPanelMain";
-            this.dockPanelMain.Size = new System.Drawing.Size(1187, 412);
+            this.dockPanelMain.Size = new System.Drawing.Size(1187, 427);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -888,7 +909,7 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1187, 551);
@@ -903,7 +924,7 @@
             this.MainMenuStrip = this.mnuMain;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
-            this.Text = "Multi PuTTY Manager";
+            this.Text = "Multi PuTTY Manager Secure";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmMain_Activated);
             this.Deactivate += new System.EventHandler(this.frmMain_Deactivate);
@@ -1171,5 +1192,7 @@
 		// Token: 0x04000061 RID: 97
 		private global::System.Windows.Forms.ToolStripMenuItem contextRestartSession;
         private System.Windows.Forms.ToolStripMenuItem closeAllButThis;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripButton toolStripButtonLock;
     }
 }

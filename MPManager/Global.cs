@@ -382,5 +382,11 @@ namespace SessionManagement
 
 		// Token: 0x04000136 RID: 310
 		private static uint WM_CHAR = 258u;
-	}
+
+		////////////////////// Vytas Gadliauskas added global variables
+		public static string strDatabasePassword;
+        public static string strEnscriptedDatabasePassword;
+		public static frmMain frmThis;
+
+    }
 }

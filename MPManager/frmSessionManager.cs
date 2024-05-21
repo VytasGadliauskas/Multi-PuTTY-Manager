@@ -408,7 +408,25 @@ namespace SessionManagement
 						treeNode.Tag = "True";
 					}
 				}
-			}
+                /////  Vytas Gadliauskas geting password from XML/DAT
+                else if (attributeName == "password")  
+                {
+					Global.strEnscriptedDatabasePassword = value;
+
+                    ///// Vytas Gadliauskas show password dialog, cheking if provided password correct
+                    if (Global.strDatabasePassword != null || Global.strEnscriptedDatabasePassword != null)
+                    {
+                        using (frmPasswordForm passwordForm = new frmPasswordForm())
+                        {
+                            if (passwordForm.ShowDialog() == DialogResult.Abort)
+                            {
+								Global.frmThis.Close();
+                            }
+                        }
+                    }
+
+                }
+            }
 		}
 
 		// Token: 0x06000100 RID: 256 RVA: 0x0000ED98 File Offset: 0x0000CF98
@@ -462,6 +480,10 @@ namespace SessionManagement
 				xmlTextWriter.WriteRaw("\r\n");
 				xmlTextWriter.WriteStartElement("root");
 				xmlTextWriter.WriteAttributeString("type", "database");
+			
+				///  Vytas Gadliauskas write to database password
+                xmlTextWriter.WriteAttributeString("password", AESoperations.Encrypt(Global.strDatabasePassword, Global.strDatabasePassword));
+           
 				xmlTextWriter.WriteAttributeString("name", treeNode.Text);
 				string value = "False";
 				if (treeNode.IsExpanded)
@@ -568,7 +590,17 @@ namespace SessionManagement
 				writer.WriteRaw("\r\n");
 				writer.WriteRaw("\t\t\t");
 				writer.WriteStartElement("password");
-				writer.WriteValue(sess.sessionPassword);
+
+				//// Vytas Gadliauskas  enscripting session password to XML
+				if (!sess.sessionPassword.Equals(""))
+				{
+					writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sessionPassword));
+				}
+				else
+				{
+                    writer.WriteValue(sess.sessionPassword);
+                }
+
 				writer.WriteEndElement();
 				writer.WriteRaw("\r\n");
 				writer.WriteRaw("\t\t\t");
@@ -663,7 +695,15 @@ namespace SessionManagement
 				writer.WriteRaw("\r\n");
 				writer.WriteRaw("\t\t\t");
 				writer.WriteStartElement("ftppassword");
-				writer.WriteValue(sess.ftpPassword);
+                //// Vytas Gadliauskas  enscripting session password to XML
+                if (!sess.ftpPassword.Equals(""))
+                {
+                    writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.ftpPassword));
+                }
+                else
+                {
+                    writer.WriteValue(sess.ftpPassword);
+                }
 				writer.WriteEndElement();
 				writer.WriteRaw("\r\n");
 				writer.WriteRaw("\t\t\t");
@@ -673,7 +713,15 @@ namespace SessionManagement
 				writer.WriteRaw("\r\n");
 				writer.WriteRaw("\t\t\t");
 				writer.WriteStartElement("sftppassword");
-				writer.WriteValue(sess.sftpPassword);
+                //// Vytas Gadliauskas  enscripting session password to XML
+                if (!sess.ftpPassword.Equals(""))
+                {
+                    writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sftpPassword));
+                }
+                else
+                {
+                    writer.WriteValue(sess.sftpPassword);
+                }
 				writer.WriteEndElement();
 			}
 			catch (Exception ex)
@@ -759,13 +807,18 @@ namespace SessionManagement
 									sess.sessionUserName = "";
 								}
 								break;
-							case "password":
+							case "password":     
 								reader.Read();
-								sess.sessionPassword = reader.Value;
-								if (sess.sessionPassword.Contains("\r\n"))
-								{
-									sess.sessionPassword = "";
-								}
+                                //// Vytas Gadliauskas descypting session password from XML
+                                string tempSessionPassword = reader.Value;
+									if (tempSessionPassword.Contains("\r\n"))
+									{
+										sess.sessionPassword = "";
+									}
+									else 
+									{
+										sess.sessionPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSessionPassword);
+                                    }
 								break;
 							case "connectiontimeout":
 								reader.Read();
@@ -808,11 +861,16 @@ namespace SessionManagement
 								break;
 							case "ftppassword":
 								reader.Read();
-								sess.ftpPassword = reader.Value;
-								if (sess.ftpPassword.Contains("\r\n"))
-								{
-									sess.ftpPassword = "";
-								}
+                                //// Vytas Gadliauskas descypting session password from XML
+                                string tempFtpPassword = reader.Value;
+                                if (tempFtpPassword.Contains("\r\n"))
+                                {
+                                    sess.ftpPassword = "";
+                                }
+                                else
+                                {
+                                    sess.ftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempFtpPassword);
+                                }
 								break;
 							case "sftpusername":
 								reader.Read();
@@ -824,11 +882,16 @@ namespace SessionManagement
 								break;
 							case "sftppassword":
 								reader.Read();
-								sess.sftpPassword = reader.Value;
-								if (sess.sftpPassword.Contains("\r\n"))
-								{
-									sess.sftpPassword = "";
-								}
+                                //// Vytas Gadliauskas descypting session password from XML
+                                string tempSftpPassword = reader.Value;
+                                if (tempSftpPassword.Contains("\r\n"))
+                                {
+                                    sess.sftpPassword = "";
+                                }
+                                else
+                                {
+                                    sess.sftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSftpPassword);
+                                }
 								break;
 							}
 						}
@@ -1057,7 +1120,13 @@ namespace SessionManagement
 		// Token: 0x06000112 RID: 274 RVA: 0x0001039C File Offset: 0x0000E59C
 		public void createNewDatabase()
 		{
-			try
+            ////  Vytas Gadliauskas  added form to ask Database password
+            using (frmNewPasswordForm newPasswordForm = new frmNewPasswordForm())
+            {
+                newPasswordForm.ShowDialog();
+            }
+
+            try
 			{
 				TreeNode treeNode = new TreeNode();
 				this.createDatabaseIDAndLocation(treeNode, "");

@@ -26,8 +26,22 @@ namespace SessionManagement
 			this.lbLocation.Text = location;
 		}
 
-		// Token: 0x06000075 RID: 117 RVA: 0x00006F84 File Offset: 0x00005184
-		private void btCancel_Click(object sender, EventArgs e)
+        ////////  MANO PRIDETA
+        public frmDatabaseProperties(string databaseID, string databaseName, string location, string password)
+        {
+            this.InitializeComponent();
+            this.txtDatabaseName.Enabled = false;
+            this.btOK.Enabled = false;
+            this.databaseID = databaseID;
+            this.orginalDatabaseName = databaseName;
+            this.txtDatabaseName.Text = databaseName;
+            this.lbLocation.Text = location;
+			this.textBoxDBPassword.Text = password;
+        }
+
+
+        // Token: 0x06000075 RID: 117 RVA: 0x00006F84 File Offset: 0x00005184
+        private void btCancel_Click(object sender, EventArgs e)
 		{
 			base.Close();
 		}
@@ -55,6 +69,11 @@ namespace SessionManagement
 		// Token: 0x06000078 RID: 120 RVA: 0x00007013 File Offset: 0x00005213
 		private void btOK_Click(object sender, EventArgs e)
 		{
+			if (this.txtDatabaseName.Text.Trim() != "")
+			{ 
+			    Global.strDatabasePassword = textBoxDBPassword.Text;
+				Global.strEnscriptedDatabasePassword = AESoperations.Encrypt(Global.strDatabasePassword, Global.strDatabasePassword);
+            }
 			this.renameDatabase(this.databaseID, this.txtDatabaseName.Text);
 			base.Close();
 		}
@@ -84,5 +103,18 @@ namespace SessionManagement
 		// Token: 0x02000004 RID: 4
 		// (Invoke) Token: 0x0600007D RID: 125
 		public delegate void RenameDatabase(string databaseID, string databaseName);
-	}
+
+		//////     Vytas Gadliauskas
+        private void textBoxDBPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBoxDBPassword.Text != Global.strDatabasePassword && this.textBoxDBPassword.Text.Trim() != "")
+            {
+                this.btOK.Enabled = true;
+            }
+            else
+            {
+                this.btOK.Enabled = false;
+            }
+        }
+    }
 }

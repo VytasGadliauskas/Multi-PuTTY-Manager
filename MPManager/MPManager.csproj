@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -7,12 +7,27 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SessionManagement</RootNamespace>
-    <AssemblyName>MPManager</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AssemblyName>MPManager Secure</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>MPManager.ico</ApplicationIcon>
     <StartupObject>SessionManagement.Program</StartupObject>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +48,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -48,6 +67,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AESoperations.cs" />
     <Compile Include="frmDatabaseProperties.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +91,12 @@
     </Compile>
     <Compile Include="frmMultiCommands.Designer.cs">
       <DependentUpon>frmMultiCommands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewPasswordForm.Designer.cs">
+      <DependentUpon>frmNewPasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOptions.cs">
       <SubType>Form</SubType>
@@ -106,9 +132,19 @@
     <Compile Include="KeyboardHook.cs" />
     <Compile Include="KeyPressedEventArgs.cs" />
     <Compile Include="ModifierKeys.cs" />
+    <Compile Include="frmPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPasswordForm.Designer.cs">
+      <DependentUpon>frmPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -118,19 +154,37 @@
     <Compile Include="Session.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmDatabaseProperties.resources" />
-    <EmbeddedResource Include="frmHelpAbout.resources" />
+    <EmbeddedResource Include="frmDatabaseProperties.resx">
+      <DependentUpon>frmDatabaseProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelpAbout.resx">
+      <DependentUpon>frmHelpAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewPasswordForm.resx">
+      <DependentUpon>frmNewPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSession.resx">
+      <DependentUpon>frmSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </None>
     <EmbeddedResource Include="frmMain.resources" />
     <EmbeddedResource Include="frmMultiCommands.resources" />
-    <EmbeddedResource Include="frmOptions.resources" />
-    <EmbeddedResource Include="frmPutty.resources" />
-    <EmbeddedResource Include="frmPuttySessions.resources" />
-    <EmbeddedResource Include="frmSession.resources" />
-    <EmbeddedResource Include="frmSessionManager.resources" />
-    <EmbeddedResource Include="Properties\Resources.resources" />
+    <EmbeddedResource Include="frmPasswordForm.resx">
+      <DependentUpon>frmPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSessionManager.resx">
+      <DependentUpon>frmSessionManager.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
@@ -138,6 +192,39 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseAll1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MPManager.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

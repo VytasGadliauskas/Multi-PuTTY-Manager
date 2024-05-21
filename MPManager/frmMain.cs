@@ -8,6 +8,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using SessionManagement.Properties;
@@ -60,8 +61,11 @@ namespace SessionManagement
 		// Token: 0x0600000A RID: 10 RVA: 0x0000207C File Offset: 0x0000027C
 		private void frmMain_Load(object sender, EventArgs e)
 		{
+
+			Global.frmThis = this;
 			Global.arrPuttySessionsList = new ArrayList();
 			Global.arrAvailableSessions = new ArrayList();
+
 			try
 			{
 				Global.createNewParametersInRegistry();
@@ -103,7 +107,8 @@ namespace SessionManagement
 				this.hook.KeyPressed += this.hook_KeyPressed;
 				this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control, Keys.Tab);
 				this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control | SessionManagement.ModifierKeys.Shift, Keys.Tab);
-			}
+
+            }
 			catch (Exception ex)
 			{
 			}
@@ -413,7 +418,7 @@ namespace SessionManagement
 		{
 			try
 			{
-				Process.Start("http://sourceforge.net/projects/multiputtymanager/");
+				Process.Start("https://github.com/VytasGadliauskas/Multi-PuTTY-Manager");
 			}
 			catch (Exception ex)
 			{
@@ -1397,7 +1402,7 @@ namespace SessionManagement
 		// Token: 0x06000060 RID: 96 RVA: 0x000040BA File Offset: 0x000022BA
 		private void toolStripMenuNewDatabase_Click(object sender, EventArgs e)
 		{
-			this.fmSessionManager.createNewDatabase();
+     		this.fmSessionManager.createNewDatabase();
 		}
 
 		// Token: 0x06000061 RID: 97 RVA: 0x000040C9 File Offset: 0x000022C9
@@ -1631,5 +1636,20 @@ namespace SessionManagement
 		{
 			this.closeAllButActiveSession();
 		}
-	}
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+			///////////////////////// Vytas Gadliauskas Added password form
+			if (Global.strDatabasePassword != null || Global.strEnscriptedDatabasePassword != null)
+			{
+				using (frmPasswordForm passwordForm = new frmPasswordForm())
+				{
+					if (passwordForm.ShowDialog() == DialogResult.Abort)
+					{
+						this.Close();
+					}
+				}
+			}
+        }
+    }
 }
