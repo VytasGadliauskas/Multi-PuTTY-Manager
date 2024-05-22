@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+////   2024.05.20 Added by Vytas Gadliauskas   https://github.com/VytasGadliauskas/Multi-PuTTY-Manager
+////   Password form called on database open if password set in database, password will be used to descript 
+////   session passwords
+
 namespace SessionManagement
 {
     public partial class frmPasswordForm : Form

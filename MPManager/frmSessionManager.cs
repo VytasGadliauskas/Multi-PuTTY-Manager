@@ -10,6 +10,11 @@ using System.Xml;
 using SessionManagement.Properties;
 using WeifenLuo.WinFormsUI.Docking;
 
+////   Original MPManager author:  Angelo Simone Scotto KidFashion https://github.com/KidFashion/Multi-PuTTY-Manager
+////    
+////   2024.05.20 Modified by Vytas Gadliauskas   https://github.com/VytasGadliauskas/Multi-PuTTY-Manager
+////   Added same security features password dialgos XML/Database enscription 
+
 namespace SessionManagement
 {
 	// Token: 0x02000010 RID: 16
@@ -408,23 +413,26 @@ namespace SessionManagement
 						treeNode.Tag = "True";
 					}
 				}
-                /////  Vytas Gadliauskas geting password from XML/DAT
-                else if (attributeName == "password")  
-                {
+				/////  Vytas Gadliauskas geting password from XML/DAT
+				else if (attributeName == "password")
+				{
 					Global.strEnscriptedDatabasePassword = value;
-
-                    ///// Vytas Gadliauskas show password dialog, cheking if provided password correct
-                    if (Global.strDatabasePassword != null || Global.strEnscriptedDatabasePassword != null)
-                    {
-                        using (frmPasswordForm passwordForm = new frmPasswordForm())
-                        {
-                            if (passwordForm.ShowDialog() == DialogResult.Abort)
-                            {
+					///// Vytas Gadliauskas show password dialog, cheking if provided password correct
+					if (Global.strDatabasePassword != null || Global.strEnscriptedDatabasePassword != null)
+					{
+						using (frmPasswordForm passwordForm = new frmPasswordForm())
+						{
+							if (passwordForm.ShowDialog() == DialogResult.Abort)
+							{
 								Global.frmThis.Close();
-                            }
-                        }
-                    }
+							}
+						}
+					}
 
+				}
+				else if (attributeName == "dbversion")
+				{
+                       Global.strMPManagerDBVersion = value;
                 }
             }
 		}
@@ -480,10 +488,18 @@ namespace SessionManagement
 				xmlTextWriter.WriteRaw("\r\n");
 				xmlTextWriter.WriteStartElement("root");
 				xmlTextWriter.WriteAttributeString("type", "database");
-			
-				///  Vytas Gadliauskas write to database password
-                xmlTextWriter.WriteAttributeString("password", AESoperations.Encrypt(Global.strDatabasePassword, Global.strDatabasePassword));
-           
+
+                ///  Vytas Gadliauskas write to database version
+                ///  to recognze if session password are enscripted and future usage
+                xmlTextWriter.WriteAttributeString("dbversion", Global.strMPManagerDBVersion);
+
+                ///  Vytas Gadliauskas write to database password
+                ///  if database pasword not set then do not write 
+                if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+				{
+					xmlTextWriter.WriteAttributeString("password", AESoperations.Encrypt(Global.strDatabasePassword, Global.strDatabasePassword));
+				}
+
 				xmlTextWriter.WriteAttributeString("name", treeNode.Text);
 				string value = "False";
 				if (treeNode.IsExpanded)
@@ -498,7 +514,8 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+               // MessageBox.Show(ex.Message, "saveDatabaseToXMLFile");
+            }
 		}
 
 		// Token: 0x06000102 RID: 258 RVA: 0x0000EFFC File Offset: 0x0000D1FC
@@ -592,9 +609,17 @@ namespace SessionManagement
 				writer.WriteStartElement("password");
 
 				//// Vytas Gadliauskas  enscripting session password to XML
+				///  if database password is not set enscripting with defaul password 
 				if (!sess.sessionPassword.Equals(""))
 				{
-					writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sessionPassword));
+					if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+					{
+						writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sessionPassword));
+					}
+					else
+					{
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDefaultEnscriptionPassword, sess.sessionPassword));
+                    }
 				}
 				else
 				{
@@ -698,7 +723,14 @@ namespace SessionManagement
                 //// Vytas Gadliauskas  enscripting session password to XML
                 if (!sess.ftpPassword.Equals(""))
                 {
-                    writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.ftpPassword));
+                    if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.ftpPassword));
+                    }
+                    else
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDefaultEnscriptionPassword, sess.ftpPassword));
+                    }
                 }
                 else
                 {
@@ -716,7 +748,14 @@ namespace SessionManagement
                 //// Vytas Gadliauskas  enscripting session password to XML
                 if (!sess.ftpPassword.Equals(""))
                 {
-                    writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sftpPassword));
+                    if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sftpPassword));
+                    }
+                    else
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDefaultEnscriptionPassword, sess.sftpPassword));
+                    }
                 }
                 else
                 {
@@ -810,14 +849,29 @@ namespace SessionManagement
 							case "password":     
 								reader.Read();
                                 //// Vytas Gadliauskas descypting session password from XML
+								///  if database password not set using default enscription password
                                 string tempSessionPassword = reader.Value;
 									if (tempSessionPassword.Contains("\r\n"))
 									{
 										sess.sessionPassword = "";
 									}
 									else 
-									{
-										sess.sessionPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSessionPassword);
+									{ 
+										if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
+										{
+											if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+											{
+												sess.sessionPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSessionPassword);
+											}
+											else
+											{
+												sess.sessionPassword = AESoperations.Decrypt(Global.strDefaultEnscriptionPassword, tempSessionPassword);
+											}
+										}
+										else 
+										{
+											sess.sessionPassword = tempSessionPassword;
+                                        }
                                     }
 								break;
 							case "connectiontimeout":
@@ -869,7 +923,22 @@ namespace SessionManagement
                                 }
                                 else
                                 {
-                                    sess.ftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempFtpPassword);
+										if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
+										{
+											if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+											{
+												sess.ftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempFtpPassword);
+											}
+											else
+											{
+												sess.ftpPassword = AESoperations.Decrypt(Global.strDefaultEnscriptionPassword, tempFtpPassword);
+											}
+										}
+										else
+										{
+											sess.ftpPassword = tempFtpPassword;
+
+                                        }
                                 }
 								break;
 							case "sftpusername":
@@ -890,7 +959,21 @@ namespace SessionManagement
                                 }
                                 else
                                 {
-                                    sess.sftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSftpPassword);
+										if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
+										{
+											if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+											{
+												sess.sftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSftpPassword);
+											}
+											else
+											{
+												sess.sftpPassword = AESoperations.Decrypt(Global.strDefaultEnscriptionPassword, tempSftpPassword);
+											}
+										}
+										else 
+										{
+											sess.sftpPassword = tempSftpPassword;
+                                        }
                                 }
 								break;
 							}
@@ -1121,7 +1204,7 @@ namespace SessionManagement
 		public void createNewDatabase()
 		{
             ////  Vytas Gadliauskas  added form to ask Database password
-            using (frmNewPasswordForm newPasswordForm = new frmNewPasswordForm())
+            using (frmUnLockPasswordForm newPasswordForm = new frmUnLockPasswordForm())
             {
                 newPasswordForm.ShowDialog();
             }
@@ -1405,6 +1488,9 @@ namespace SessionManagement
 		// Token: 0x0600011D RID: 285 RVA: 0x00010AB8 File Offset: 0x0000ECB8
 		public void saveDatabase(TreeNode treeNode)
 		{
+			////   Vytas Gadliauskas
+			////   Added MPManager version to recognize database version
+			Global.strMPManagerDBVersion = "1";
 			if (treeNode != null)
 			{
 				try

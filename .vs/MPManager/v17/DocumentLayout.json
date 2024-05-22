@@ -3,14 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|MPManager||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|f8d6553f-f752-4dbf-acb6-f291b744a792"
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,32 +26,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Global.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Global.cs",
-              "RelativeDocumentMoniker": "MPManager\\Global.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Global.cs",
-              "RelativeToolTip": "MPManager\\Global.cs",
-              "ViewState": "AQIAAHoBAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "frmSessionManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs",
+              "RelativeDocumentMoniker": "MPManager\\frmSessionManager.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs",
+              "RelativeToolTip": "MPManager\\frmSessionManager.cs",
+              "ViewState": "AQIAAPsFAAAAAAAAAAAlwAwGAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T16:53:04.058Z",
+              "WhenOpened": "2024-05-22T14:59:53.091Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmSessionManager.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs",
+              "RelativeDocumentMoniker": "MPManager\\frmSessionManager.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs [Design]",
+              "RelativeToolTip": "MPManager\\frmSessionManager.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T14:59:35.158Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MPManager",
-              "DocumentMoniker": "C:\\Users\\User\\Source\\Repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\MPManager.csproj",
-              "RelativeDocumentMoniker": "MPManager\\MPManager.csproj",
-              "ToolTip": "C:\\Users\\User\\Source\\Repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\MPManager.csproj",
-              "RelativeToolTip": "MPManager\\MPManager.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-21T16:34:55.308Z",
+              "Title": "frmDatabaseProperties.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs",
+              "RelativeDocumentMoniker": "MPManager\\frmDatabaseProperties.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs",
+              "RelativeToolTip": "MPManager\\frmDatabaseProperties.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBwAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T14:51:34.812Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDatabaseProperties.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs",
+              "RelativeDocumentMoniker": "MPManager\\frmDatabaseProperties.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs [Design]",
+              "RelativeToolTip": "MPManager\\frmDatabaseProperties.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T14:49:38.146Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

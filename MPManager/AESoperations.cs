@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
+////   2024.05.20 Added by Vytas Gadliauskas   https://github.com/VytasGadliauskas/Multi-PuTTY-Manager
+////   AES enscription passwords tags in XML/Database 
 
 namespace SessionManagement
 {

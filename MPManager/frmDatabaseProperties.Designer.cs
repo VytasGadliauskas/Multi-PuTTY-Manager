@@ -16,6 +16,7 @@
 		// Token: 0x0600007B RID: 123 RVA: 0x000070F8 File Offset: 0x000052F8
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatabaseProperties));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -26,6 +27,7 @@
             this.txtDatabaseName = new System.Windows.Forms.TextBox();
             this.btCancel = new System.Windows.Forms.Button();
             this.btOK = new System.Windows.Forms.Button();
+            this.btShowDBPassword = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +51,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btShowDBPassword);
             this.groupBox1.Controls.Add(this.textBoxDBPassword);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbLocation);
@@ -129,6 +132,16 @@
             this.btOK.UseVisualStyleBackColor = true;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
+            // btShowDBPassword
+            // 
+            this.btShowDBPassword.Image = ((System.Drawing.Image)(resources.GetObject("btShowDBPassword.Image")));
+            this.btShowDBPassword.Location = new System.Drawing.Point(386, 101);
+            this.btShowDBPassword.Name = "btShowDBPassword";
+            this.btShowDBPassword.Size = new System.Drawing.Size(26, 26);
+            this.btShowDBPassword.TabIndex = 17;
+            this.btShowDBPassword.UseVisualStyleBackColor = true;
+            this.btShowDBPassword.Click += new System.EventHandler(this.btShowDBPassword_Click);
+            // 
             // frmDatabaseProperties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -178,5 +191,6 @@
 		private global::System.Windows.Forms.Label lbLocation;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDBPassword;
+        private System.Windows.Forms.Button btShowDBPassword;
     }
 }

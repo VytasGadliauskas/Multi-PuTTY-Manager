@@ -418,7 +418,7 @@ namespace SessionManagement
 		{
 			try
 			{
-				Process.Start("https://github.com/VytasGadliauskas/Multi-PuTTY-Manager");
+				Process.Start("https://github.com/Gadliauskas/Multi-PuTTY-Manager");
 			}
 			catch (Exception ex)
 			{

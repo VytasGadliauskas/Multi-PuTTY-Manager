@@ -1,6 +1,6 @@
 ﻿namespace SessionManagement
 {
-    partial class frmNewPasswordForm
+    partial class frmUnLockPasswordForm
     {
         /// <summary>
         /// Required designer variable.

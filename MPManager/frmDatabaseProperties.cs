@@ -24,9 +24,15 @@ namespace SessionManagement
 			this.orginalDatabaseName = databaseName;
 			this.txtDatabaseName.Text = databaseName;
 			this.lbLocation.Text = location;
+
+			////  Vytas Gadliauskas filling Database Password txtBox text
+			if (!String.IsNullOrEmpty(Global.strDatabasePassword)) 
+			{
+				textBoxDBPassword.Text = Global.strDatabasePassword;
+			}
 		}
 
-        ////////  MANO PRIDETA
+        /////  Vytas Gadliauskas  to send more arguments to class (Not used for now !!!)
         public frmDatabaseProperties(string databaseID, string databaseName, string location, string password)
         {
             this.InitializeComponent();
@@ -114,6 +120,18 @@ namespace SessionManagement
             else
             {
                 this.btOK.Enabled = false;
+            }
+        }
+
+        private void btShowDBPassword_Click(object sender, EventArgs e)
+        {
+            if (this.textBoxDBPassword.PasswordChar == '*')
+            {
+                this.textBoxDBPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                this.textBoxDBPassword.PasswordChar = '*';
             }
         }
     }

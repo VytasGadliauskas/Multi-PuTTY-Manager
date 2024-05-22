@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+////   2024.05.20 Added by Vytas Gadliauskas   https://github.com/VytasGadliauskas/Multi-PuTTY-Manager
+////   Dialog called then unlocking aplication with "Lock Application" button 
+
 namespace SessionManagement
 {
-    public partial class frmNewPasswordForm : Form
+    public partial class frmUnLockPasswordForm : Form
     {
-        public frmNewPasswordForm()
+        public frmUnLockPasswordForm()
         {
             InitializeComponent();
             label1.ForeColor = Color.Black;

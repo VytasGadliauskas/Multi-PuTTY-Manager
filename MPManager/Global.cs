@@ -6,6 +6,11 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
+////   Original MPManager author:  Angelo Simone Scotto KidFashion https://github.com/KidFashion/Multi-PuTTY-Manager
+////    
+////   2024.05.20 Modified by Vytas Gadliauskas   https://github.com/VytasGadliauskas/Multi-PuTTY-Manager
+////   Added global variables 
+
 namespace SessionManagement
 {
 	// Token: 0x02000016 RID: 22
@@ -387,6 +392,11 @@ namespace SessionManagement
 		public static string strDatabasePassword;
         public static string strEnscriptedDatabasePassword;
 		public static frmMain frmThis;
+		public static string strDefaultEnscriptionPassword = "@Copyright20240522";
+
+		//  none/0       = original  MPManager
+		//  1 and more   = MPManager secure   
+		public static string strMPManagerDBVersion;
 
     }
 }

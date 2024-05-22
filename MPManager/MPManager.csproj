@@ -92,11 +92,11 @@
     <Compile Include="frmMultiCommands.Designer.cs">
       <DependentUpon>frmMultiCommands.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNewPasswordForm.cs">
+    <Compile Include="frmUnLockPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNewPasswordForm.Designer.cs">
-      <DependentUpon>frmNewPasswordForm.cs</DependentUpon>
+    <Compile Include="frmUnLockPasswordForm.Designer.cs">
+      <DependentUpon>frmUnLockPasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOptions.cs">
       <SubType>Form</SubType>
@@ -160,8 +160,8 @@
     <EmbeddedResource Include="frmHelpAbout.resx">
       <DependentUpon>frmHelpAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewPasswordForm.resx">
-      <DependentUpon>frmNewPasswordForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmUnLockPasswordForm.resx">
+      <DependentUpon>frmUnLockPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>

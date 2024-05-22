@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btShowDBPassword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7AAAAOwAFq1okJAAAA5ElE
+        QVQ4T52SzQnCQBSE04YQ8+vBFjyIIXoTQUUvNuEpheVkBWnEa+xBZ5a38jZZSeLC8H52vskiBv+eOI6L
+        JEkqM0RRNEvTtBlTKcBHwG2WZaUJ0JdDsjCYq4F5fEafNJzn+VzwcS/QMGfUWnD3BTBtwjBc6F0XptC/
+        BXdesIPxwRBr1DDqHfOpFyDGFWGG+GCBGNKi3zoBGJpuQBcWXbB70eMEKEMJ8OaD0R+4w91ZZu9v8OvL
+        3C9R93Z2ApTJC/vUC5gCU07AVJj6BqBZW5h/T9Sal0MC8zQBaCq8oDDD5BMEHysGkMJfuB9vAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
 </root>
