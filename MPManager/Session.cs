@@ -19,6 +19,7 @@ namespace SessionManagement
 			this.ID = -1;
 			this.username = "";
 			this.pass = "";
+			this.publickey = "";
 			this.description = "";
 			this.config = Global.strCreatePuttySetting;
 			this.sftpusername = "";
@@ -312,8 +313,23 @@ namespace SessionManagement
 			}
 		}
 
-		// Token: 0x060001AC RID: 428 RVA: 0x00013C6C File Offset: 0x00011E6C
-		public void copySession(Session fromSession)
+        /// Vytas Gadliauskas <summary>
+        /// public Key
+        public string publicKey
+        {
+            get
+            {
+                return this.publickey;
+            }
+            set
+            {
+                this.publickey = value;
+            }
+        }
+
+
+        // Token: 0x060001AC RID: 428 RVA: 0x00013C6C File Offset: 0x00011E6C
+        public void copySession(Session fromSession)
 		{
 			this.name = fromSession.name;
 			this.host = fromSession.host;
@@ -334,6 +350,7 @@ namespace SessionManagement
 			this.ftpusername = fromSession.ftpusername;
 			this.ftppass = fromSession.ftppass;
 			this.sessionID = fromSession.sessionID;
+			this.publickey = fromSession.publickey;
 		}
 
 		// Token: 0x0400014A RID: 330
@@ -392,5 +409,8 @@ namespace SessionManagement
 
 		// Token: 0x0400015C RID: 348
 		private int ID;
+
+		//// Vytas Gadliauskas  added public key
+		private string publickey;
 	}
 }

@@ -22,6 +22,8 @@
             this.tabpageSession = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textSessionPublicKey = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.btShowSessionPassword = new System.Windows.Forms.Button();
             this.txtSessionPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,8 +72,6 @@
             this.txtFTPUserName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textSessionPublicKey = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.tabpageSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -163,6 +163,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto-login credentials";
             // 
+            // textSessionPublicKey
+            // 
+            this.textSessionPublicKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSessionPublicKey.Location = new System.Drawing.Point(103, 93);
+            this.textSessionPublicKey.Name = "textSessionPublicKey";
+            this.textSessionPublicKey.PasswordChar = '*';
+            this.textSessionPublicKey.Size = new System.Drawing.Size(194, 24);
+            this.textSessionPublicKey.TabIndex = 18;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(21, 99);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(62, 15);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Public Key";
+            // 
             // btShowSessionPassword
             // 
             this.btShowSessionPassword.Image = ((System.Drawing.Image)(resources.GetObject("btShowSessionPassword.Image")));
@@ -227,6 +245,11 @@
             // numPort
             // 
             this.numPort.Location = new System.Drawing.Point(138, 113);
+            this.numPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.numPort.Name = "numPort";
             this.numPort.Size = new System.Drawing.Size(83, 23);
             this.numPort.TabIndex = 3;
@@ -626,24 +649,6 @@
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(21, 99);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(62, 15);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "Public Key";
-            // 
-            // textSessionPublicKey
-            // 
-            this.textSessionPublicKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSessionPublicKey.Location = new System.Drawing.Point(103, 93);
-            this.textSessionPublicKey.Name = "textSessionPublicKey";
-            this.textSessionPublicKey.PasswordChar = '*';
-            this.textSessionPublicKey.Size = new System.Drawing.Size(194, 24);
-            this.textSessionPublicKey.TabIndex = 18;
             // 
             // frmSession
             // 

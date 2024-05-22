@@ -514,7 +514,8 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-               // MessageBox.Show(ex.Message, "saveDatabaseToXMLFile");
+				// Vytas Gadliauskas to debug
+                // MessageBox.Show(ex.Message, "saveDatabaseToXMLFile");
             }
 		}
 
@@ -625,9 +626,26 @@ namespace SessionManagement
 				{
                     writer.WriteValue(sess.sessionPassword);
                 }
-
 				writer.WriteEndElement();
-				writer.WriteRaw("\r\n");
+
+                //// Vytas Gadliauskas  public key 
+                writer.WriteRaw("\r\n");
+                writer.WriteRaw("\t\t\t");
+                writer.WriteStartElement("publickey");
+                if (!sess.sessionPassword.Equals(""))
+                {
+                    if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.publicKey));
+                    }
+                    else
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDefaultEnscriptionPassword, sess.publicKey));
+                    }
+                }
+                writer.WriteEndElement();
+
+                writer.WriteRaw("\r\n");
 				writer.WriteRaw("\t\t\t");
 				writer.WriteStartElement("connectiontimeout");
 				writer.WriteValue(sess.connectionTimeout.ToString());
@@ -873,8 +891,29 @@ namespace SessionManagement
 											sess.sessionPassword = tempSessionPassword;
                                         }
                                     }
-								break;
-							case "connectiontimeout":
+							    	break;
+                                //// Vytas Gadliauskas public key from XML database
+                                case "publickey":
+                                    reader.Read();
+                                    string tempSessionPublicKey = reader.Value;
+                                    if (tempSessionPublicKey.Contains("\r\n"))
+                                    {
+                                        sess.publicKey = "";
+                                    }
+                                    else
+                                    {
+                                            if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                                            {
+                                                sess.publicKey = AESoperations.Decrypt(Global.strDatabasePassword, tempSessionPublicKey);
+                                            }
+                                            else
+                                            {
+                                                sess.publicKey = AESoperations.Decrypt(Global.strDefaultEnscriptionPassword, tempSessionPublicKey);
+                                            }
+                                    }
+                                    break;
+
+                            case "connectiontimeout":
 								reader.Read();
 								sess.connectionTimeout = int.Parse(reader.Value);
 								break;

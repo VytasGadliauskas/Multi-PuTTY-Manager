@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmdatabaseproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmsessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\frmsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\frmsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +22,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmSessionManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs",
-              "RelativeDocumentMoniker": "MPManager\\frmSessionManager.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs",
-              "RelativeToolTip": "MPManager\\frmSessionManager.cs",
-              "ViewState": "AQIAAPsFAAAAAAAAAAAlwAwGAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:59:53.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmSessionManager.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs",
-              "RelativeDocumentMoniker": "MPManager\\frmSessionManager.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSessionManager.cs [Design]",
-              "RelativeToolTip": "MPManager\\frmSessionManager.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:59:35.158Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmDatabaseProperties.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs",
-              "RelativeDocumentMoniker": "MPManager\\frmDatabaseProperties.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs",
-              "RelativeToolTip": "MPManager\\frmDatabaseProperties.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBwAAAA6AAAA",
+              "Title": "frmSession.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSession.cs",
+              "RelativeDocumentMoniker": "MPManager\\frmSession.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmSession.cs [Design]",
+              "RelativeToolTip": "MPManager\\frmSession.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:51:34.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmDatabaseProperties.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs",
-              "RelativeDocumentMoniker": "MPManager\\frmDatabaseProperties.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\frmDatabaseProperties.cs [Design]",
-              "RelativeToolTip": "MPManager\\frmDatabaseProperties.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:49:38.146Z",
+              "WhenOpened": "2024-05-22T18:11:05.059Z",
               "EditorCaption": " [Design]"
             }
           ]

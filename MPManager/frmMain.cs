@@ -1388,7 +1388,15 @@ namespace SessionManagement
 			{
 				Global.strQuickPuttySetting = this.toolStripQuickConnecSessionConfig.Text;
 			}
-			Global.saveLatestQuickPuttySettingsToRegistry();
+
+            ////   Vytas Gadliauskas added Save on close dialogBox
+            // DialogResult result = MessageBox.Show("Save databases ?", "Save databases", MessageBoxButtons.YesNo);
+            // if (result == DialogResult.Yes)
+            // {
+            //    this.fmSessionManager.saveAllDatabases();
+            // }
+
+            Global.saveLatestQuickPuttySettingsToRegistry();
 			this.getAndSaveDisplayedItems();
 			this.fmSessionManager.Close();
 		}
