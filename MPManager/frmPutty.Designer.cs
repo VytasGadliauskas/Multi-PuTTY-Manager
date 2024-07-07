@@ -33,7 +33,7 @@
 			base.Controls.Add(this.pnMain);
 			base.DockAreas = global::WeifenLuo.WinFormsUI.Docking.DockAreas.Document;
 			this.Font = new global::System.Drawing.Font("Microsoft Sans Serif", 8.25f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
-			base.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
+//			base.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
 			base.Name = "frmPutty";
 			this.Text = "frmPutty";
 			base.WindowState = global::System.Windows.Forms.FormWindowState.Maximized;

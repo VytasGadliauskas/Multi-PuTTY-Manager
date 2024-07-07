@@ -127,6 +127,7 @@ namespace SessionManagement
 						}
 					}
 				}
+				/////  Vytas Gadliauskas added login with public key
 				this.autoThread.Abort();
 			}
 			catch (Exception ex)

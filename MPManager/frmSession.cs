@@ -61,6 +61,8 @@ namespace SessionManagement
 				this.sess.sessionDescription = this.richDescription.Text;
 				this.sess.sessionUserName = this.txtSessionUserName.Text;
 				this.sess.sessionPassword = this.txtSessionPassword.Text;
+				//// Vytas Gadliauskas public key
+                this.sess.publicKey = this.textSessionPublicKey.Text;
 				this.sess.ftpUserName = this.txtFTPUserName.Text;
 				this.sess.ftpPassword = this.txtFTPPassword.Text;
 				this.sess.sftpUserName = this.txtSFTPUserName.Text;
@@ -108,6 +110,8 @@ namespace SessionManagement
 			this.txtFTPPassword.Text = this.sess.ftpPassword;
 			this.txtSFTPUserName.Text = this.sess.sftpUserName;
 			this.txtSFTPPassword.Text = this.sess.sftpPassword;
+			//// Vytas Gadliauskas public key
+			this.textSessionPublicKey.Text = this.sess.publicKey;
 			this.numConnectionTimeout.Value = this.sess.connectionTimeout;
 			this.numUsernameTimeout.Value = this.sess.usernameTimeout;
 			this.numPasswordTimeout.Value = this.sess.passwordTimeout;
