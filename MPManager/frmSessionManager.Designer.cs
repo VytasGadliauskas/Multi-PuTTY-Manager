@@ -29,7 +29,6 @@
             this.contextPropertiesForDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.contextCloseDatabaseForDatabase = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeSessions = new System.Windows.Forms.TreeView();
             this.contextForTreeSession = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextCreateDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.contextOpenDatabase = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +50,7 @@
             this.contextConnectExternal = new System.Windows.Forms.ToolStripMenuItem();
             this.contextFTPExternal = new System.Windows.Forms.ToolStripMenuItem();
             this.contextSFTPExternal = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemXwindowsStart = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextCutForSession = new System.Windows.Forms.ToolStripMenuItem();
             this.contextCopyForSession = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +58,19 @@
             this.contextRenameForSession = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextConfigForSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxSessionSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonSessionSearch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSearchReset = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.treeSessions = new System.Windows.Forms.TreeView();
             this.contextForDatabase.SuspendLayout();
             this.contextForTreeSession.SuspendLayout();
             this.contextForFolder.SuspendLayout();
             this.contextForSession.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextForDatabase
@@ -148,28 +157,6 @@
             this.contextCloseDatabaseForDatabase.Text = "Close database";
             this.contextCloseDatabaseForDatabase.Click += new System.EventHandler(this.contextCloseDatabaseForDatabase_Click);
             // 
-            // treeSessions
-            // 
-            this.treeSessions.BackColor = System.Drawing.SystemColors.Window;
-            this.treeSessions.ContextMenuStrip = this.contextForTreeSession;
-            this.treeSessions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeSessions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeSessions.ImageIndex = 0;
-            this.treeSessions.ImageList = this.imageListSessionManager;
-            this.treeSessions.LabelEdit = true;
-            this.treeSessions.Location = new System.Drawing.Point(0, 0);
-            this.treeSessions.Name = "treeSessions";
-            this.treeSessions.SelectedImageIndex = 0;
-            this.treeSessions.ShowNodeToolTips = true;
-            this.treeSessions.Size = new System.Drawing.Size(255, 398);
-            this.treeSessions.TabIndex = 0;
-            this.treeSessions.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeSessions_AfterLabelEdit);
-            this.treeSessions.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeSessions_AfterSelect);
-            this.treeSessions.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeSessions_NodeMouseClick);
-            this.treeSessions.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeSessions_NodeMouseDoubleClick);
-            this.treeSessions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treeSessions_KeyDown);
-            this.treeSessions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeSessions_KeyPress);
-            // 
             // contextForTreeSession
             // 
             this.contextForTreeSession.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,7 +186,7 @@
             this.imageListSessionManager.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListSessionManager.Images.SetKeyName(0, "Database.png");
             this.imageListSessionManager.Images.SetKeyName(1, "FolderOpened.png");
-            this.imageListSessionManager.Images.SetKeyName(2, "Server.png");
+            this.imageListSessionManager.Images.SetKeyName(2, "Monitor.png");
             this.imageListSessionManager.Images.SetKeyName(3, "Cut.png");
             this.imageListSessionManager.Images.SetKeyName(4, "Cut.png");
             // 
@@ -304,6 +291,7 @@
             this.contextConnectExternal,
             this.contextFTPExternal,
             this.contextSFTPExternal,
+            this.toolStripMenuItemXwindowsStart,
             this.toolStripSeparator1,
             this.contextCutForSession,
             this.contextCopyForSession,
@@ -312,88 +300,176 @@
             this.toolStripSeparator2,
             this.contextConfigForSession});
             this.contextForSession.Name = "contextForSession";
-            this.contextForSession.Size = new System.Drawing.Size(191, 214);
+            this.contextForSession.Size = new System.Drawing.Size(201, 236);
             // 
             // contextConnect
             // 
             this.contextConnect.Name = "contextConnect";
-            this.contextConnect.Size = new System.Drawing.Size(190, 22);
+            this.contextConnect.Size = new System.Drawing.Size(200, 22);
             this.contextConnect.Text = "Open Session";
             this.contextConnect.Click += new System.EventHandler(this.contextConnect_Click);
             // 
             // contextConnectExternal
             // 
             this.contextConnectExternal.Name = "contextConnectExternal";
-            this.contextConnectExternal.Size = new System.Drawing.Size(190, 22);
+            this.contextConnectExternal.Size = new System.Drawing.Size(200, 22);
             this.contextConnectExternal.Text = "Open Session External";
             this.contextConnectExternal.Click += new System.EventHandler(this.contextConnectExternal_Click);
             // 
             // contextFTPExternal
             // 
             this.contextFTPExternal.Name = "contextFTPExternal";
-            this.contextFTPExternal.Size = new System.Drawing.Size(190, 22);
+            this.contextFTPExternal.Size = new System.Drawing.Size(200, 22);
             this.contextFTPExternal.Text = "FTP Using WinSCP";
             this.contextFTPExternal.Click += new System.EventHandler(this.contextFTPExternal_Click);
             // 
             // contextSFTPExternal
             // 
             this.contextSFTPExternal.Name = "contextSFTPExternal";
-            this.contextSFTPExternal.Size = new System.Drawing.Size(190, 22);
+            this.contextSFTPExternal.Size = new System.Drawing.Size(200, 22);
             this.contextSFTPExternal.Text = "SFTP Using WinSCP";
             this.contextSFTPExternal.Click += new System.EventHandler(this.contextSFTPExternal_Click);
+            // 
+            // toolStripMenuItemXwindowsStart
+            // 
+            this.toolStripMenuItemXwindowsStart.Name = "toolStripMenuItemXwindowsStart";
+            this.toolStripMenuItemXwindowsStart.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItemXwindowsStart.Text = "XWindows Using VcXsrv";
+            this.toolStripMenuItemXwindowsStart.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripMenuItemXwindowsStart.Click += new System.EventHandler(this.toolStripMenuItemXwindowsStart_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(187, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
             // 
             // contextCutForSession
             // 
             this.contextCutForSession.Name = "contextCutForSession";
-            this.contextCutForSession.Size = new System.Drawing.Size(190, 22);
+            this.contextCutForSession.Size = new System.Drawing.Size(200, 22);
             this.contextCutForSession.Text = "Cut";
             this.contextCutForSession.Click += new System.EventHandler(this.contextCutForSession_Click);
             // 
             // contextCopyForSession
             // 
             this.contextCopyForSession.Name = "contextCopyForSession";
-            this.contextCopyForSession.Size = new System.Drawing.Size(190, 22);
+            this.contextCopyForSession.Size = new System.Drawing.Size(200, 22);
             this.contextCopyForSession.Text = "Copy";
             this.contextCopyForSession.Click += new System.EventHandler(this.contextCopyForSession_Click);
             // 
             // contextDeleteForSession
             // 
             this.contextDeleteForSession.Name = "contextDeleteForSession";
-            this.contextDeleteForSession.Size = new System.Drawing.Size(190, 22);
+            this.contextDeleteForSession.Size = new System.Drawing.Size(200, 22);
             this.contextDeleteForSession.Text = "Delete";
             this.contextDeleteForSession.Click += new System.EventHandler(this.contextDeleteForSession_Click);
             // 
             // contextRenameForSession
             // 
             this.contextRenameForSession.Name = "contextRenameForSession";
-            this.contextRenameForSession.Size = new System.Drawing.Size(190, 22);
+            this.contextRenameForSession.Size = new System.Drawing.Size(200, 22);
             this.contextRenameForSession.Text = "Rename";
             this.contextRenameForSession.Click += new System.EventHandler(this.contextRenameForSession_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
             // 
             // contextConfigForSession
             // 
             this.contextConfigForSession.Name = "contextConfigForSession";
-            this.contextConfigForSession.Size = new System.Drawing.Size(190, 22);
+            this.contextConfigForSession.Size = new System.Drawing.Size(200, 22);
             this.contextConfigForSession.Text = "Configuration";
             this.contextConfigForSession.Click += new System.EventHandler(this.contextConfigForSession_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripTextBoxSessionSearch,
+            this.toolStripButtonSessionSearch,
+            this.toolStripButtonSearchReset});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(238, 25);
+            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(45, 22);
+            this.toolStripLabel1.Text = "Search:";
+            // 
+            // toolStripTextBoxSessionSearch
+            // 
+            this.toolStripTextBoxSessionSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxSessionSearch.Name = "toolStripTextBoxSessionSearch";
+            this.toolStripTextBoxSessionSearch.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxSessionSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxSessionSearch_KeyPress);
+            // 
+            // toolStripButtonSessionSearch
+            // 
+            this.toolStripButtonSessionSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSessionSearch.DoubleClickEnabled = true;
+            this.toolStripButtonSessionSearch.Image = global::SessionManagement.Properties.Resources.Search;
+            this.toolStripButtonSessionSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSessionSearch.Name = "toolStripButtonSessionSearch";
+            this.toolStripButtonSessionSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSessionSearch.Text = "Session Search";
+            this.toolStripButtonSessionSearch.Click += new System.EventHandler(this.toolStripButtonSessionSearch_Click);
+            // 
+            // toolStripButtonSearchReset
+            // 
+            this.toolStripButtonSearchReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSearchReset.Image = global::SessionManagement.Properties.Resources.ResetView;
+            this.toolStripButtonSearchReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSearchReset.Name = "toolStripButtonSearchReset";
+            this.toolStripButtonSearchReset.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSearchReset.Text = "Search Reset";
+            this.toolStripButtonSearchReset.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            this.toolStripButtonSearchReset.Click += new System.EventHandler(this.toolStripButtonSearchReset_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.treeSessions);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(238, 435);
+            this.panel1.TabIndex = 5;
+            // 
+            // treeSessions
+            // 
+            this.treeSessions.BackColor = System.Drawing.SystemColors.Window;
+            this.treeSessions.ContextMenuStrip = this.contextForTreeSession;
+            this.treeSessions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeSessions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeSessions.ImageIndex = 0;
+            this.treeSessions.ImageList = this.imageListSessionManager;
+            this.treeSessions.LabelEdit = true;
+            this.treeSessions.Location = new System.Drawing.Point(0, 0);
+            this.treeSessions.Name = "treeSessions";
+            this.treeSessions.SelectedImageIndex = 0;
+            this.treeSessions.ShowNodeToolTips = true;
+            this.treeSessions.Size = new System.Drawing.Size(238, 435);
+            this.treeSessions.TabIndex = 1;
+            this.treeSessions.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeSessions_AfterLabelEdit);
+            this.treeSessions.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeSessions_AfterSelect);
+            this.treeSessions.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeSessions_NodeMouseClick);
+            this.treeSessions.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeSessions_NodeMouseDoubleClick);
+            this.treeSessions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treeSessions_KeyDown);
+            this.treeSessions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeSessions_KeyPress);
             // 
             // frmSessionManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(255, 398);
-            this.Controls.Add(this.treeSessions);
+            this.ClientSize = new System.Drawing.Size(238, 460);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.toolStrip1);
             this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmSessionManager";
@@ -405,15 +481,16 @@
             this.contextForTreeSession.ResumeLayout(false);
             this.contextForFolder.ResumeLayout(false);
             this.contextForSession.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
 		// Token: 0x040000FC RID: 252
 		private global::System.ComponentModel.IContainer components = null;
-
-		// Token: 0x040000FD RID: 253
-		private global::System.Windows.Forms.TreeView treeSessions;
 
 		// Token: 0x040000FE RID: 254
 		private global::System.Windows.Forms.ContextMenuStrip contextForDatabase;
@@ -531,5 +608,13 @@
 
 		// Token: 0x04000124 RID: 292
 		private global::System.Windows.Forms.ToolStripMenuItem contextConnectAllForFolder;
-	}
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSessionSearch;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSessionSearch;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TreeView treeSessions;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSearchReset;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemXwindowsStart;
+    }
 }

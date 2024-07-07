@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.InteropServices;
+using System.Security;
 
 namespace SessionManagement
 {
@@ -18,15 +20,17 @@ namespace SessionManagement
 			this.arrCommands = new ArrayList();
 			this.ID = -1;
 			this.username = "";
-			this.pass = "";
-			this.publickey = "";
+			this.pass = new SecureString();
+			this.publickey = false;
 			this.description = "";
 			this.config = Global.strCreatePuttySetting;
 			this.sftpusername = "";
-			this.sftppass = "";
+			this.sftppass = new SecureString();
 			this.ftpusername = "";
-			this.ftppass = "";
-		}
+			this.ftppass = new SecureString();
+			this.vcxsrvusername = "";
+            this.vcxsrvpass = new SecureString();
+        }
 
 		// Token: 0x17000018 RID: 24
 		// (get) Token: 0x06000186 RID: 390 RVA: 0x000139C0 File Offset: 0x00011BC0
@@ -155,11 +159,11 @@ namespace SessionManagement
 		{
 			get
 			{
-				return this.pass;
+				return Global.ConvertToUnsecureString(this.pass);
 			}
 			set
 			{
-				this.pass = value;
+				this.pass = Global.ConvertToSecureString(value);
 			}
 		}
 
@@ -275,11 +279,11 @@ namespace SessionManagement
 		{
 			get
 			{
-				return this.sftppass;
+				return Global.ConvertToUnsecureString(this.sftppass);
 			}
 			set
 			{
-				this.sftppass = value;
+				this.sftppass = Global.ConvertToSecureString(value);
 			}
 		}
 
@@ -305,17 +309,17 @@ namespace SessionManagement
 		{
 			get
 			{
-				return this.ftppass;
+				return Global.ConvertToUnsecureString(this.ftppass);
 			}
 			set
 			{
-				this.ftppass = value;
+				this.ftppass = Global.ConvertToSecureString(value);
 			}
 		}
 
         /// Vytas Gadliauskas <summary>
         /// public Key
-        public string publicKey
+        public bool publicKey
         {
             get
             {
@@ -326,6 +330,35 @@ namespace SessionManagement
                 this.publickey = value;
             }
         }
+
+        /// Vytas Gadliauskas <summary>
+        /// VcXsrv username
+        public string vcXsrvUserName
+        {
+            get
+            {
+                return this.vcxsrvusername;
+            }
+            set
+            {
+                this.vcxsrvusername = value;
+            }
+        }
+
+        /// Vytas Gadliauskas <summary>
+        /// VcXsrv password
+        public string vcXsrvPassword
+        {
+            get
+            {
+                return Global.ConvertToUnsecureString(this.vcxsrvpass);
+            }
+            set
+            {
+                this.vcxsrvpass = Global.ConvertToSecureString(value);
+            }
+        }
+
 
 
         // Token: 0x060001AC RID: 428 RVA: 0x00013C6C File Offset: 0x00011E6C
@@ -351,6 +384,8 @@ namespace SessionManagement
 			this.ftppass = fromSession.ftppass;
 			this.sessionID = fromSession.sessionID;
 			this.publickey = fromSession.publickey;
+			this.vcxsrvusername = fromSession.vcxsrvusername;
+			this.vcxsrvpass = fromSession.vcxsrvpass;
 		}
 
 		// Token: 0x0400014A RID: 330
@@ -371,8 +406,9 @@ namespace SessionManagement
 		// Token: 0x0400014F RID: 335
 		private string username;
 
+		// Vytas Gadliauskas - changed type from string to SecureString
 		// Token: 0x04000150 RID: 336
-		private string pass;
+		private SecureString pass;
 
 		// Token: 0x04000151 RID: 337
 		private int connectiontimeout;
@@ -399,18 +435,22 @@ namespace SessionManagement
 		private string sftpusername;
 
 		// Token: 0x04000159 RID: 345
-		private string sftppass;
+		private SecureString sftppass;
 
 		// Token: 0x0400015A RID: 346
 		private string ftpusername;
 
 		// Token: 0x0400015B RID: 347
-		private string ftppass;
+		private SecureString ftppass;
 
 		// Token: 0x0400015C RID: 348
 		private int ID;
 
 		//// Vytas Gadliauskas  added public key
-		private string publickey;
-	}
+		private bool publickey;
+
+		//// Vytas Gadliauskas  added public key
+		private string vcxsrvusername;
+		private SecureString vcxsrvpass;
+    }
 }

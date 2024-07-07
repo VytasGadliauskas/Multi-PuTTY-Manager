@@ -22,8 +22,7 @@
             this.tabpageSession = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textSessionPublicKey = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.checkBoxUsePublicKey = new System.Windows.Forms.CheckBox();
             this.btShowSessionPassword = new System.Windows.Forms.Button();
             this.txtSessionPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,6 +58,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.checkPostLogin = new System.Windows.Forms.CheckBox();
             this.tabpageExtraConnect = new System.Windows.Forms.TabPage();
+            this.groupBoxVcXsrv = new System.Windows.Forms.GroupBox();
+            this.buttonShowVcXsrvPassword = new System.Windows.Forms.Button();
+            this.textBoxVcXsrvPassword = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBoxVcXsrvUserName = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btShowSFTPPassword = new System.Windows.Forms.Button();
             this.txtSFTPPassword = new System.Windows.Forms.TextBox();
@@ -85,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCommandTimeout)).BeginInit();
             this.groupPostLoginCommand.SuspendLayout();
             this.tabpageExtraConnect.SuspendLayout();
+            this.groupBoxVcXsrv.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -149,8 +155,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textSessionPublicKey);
-            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.checkBoxUsePublicKey);
             this.groupBox2.Controls.Add(this.btShowSessionPassword);
             this.groupBox2.Controls.Add(this.txtSessionPassword);
             this.groupBox2.Controls.Add(this.label6);
@@ -163,23 +168,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto-login credentials";
             // 
-            // textSessionPublicKey
+            // checkBoxUsePublicKey
             // 
-            this.textSessionPublicKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSessionPublicKey.Location = new System.Drawing.Point(103, 93);
-            this.textSessionPublicKey.Name = "textSessionPublicKey";
-            this.textSessionPublicKey.PasswordChar = '*';
-            this.textSessionPublicKey.Size = new System.Drawing.Size(194, 24);
-            this.textSessionPublicKey.TabIndex = 18;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(21, 99);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(62, 15);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "Public Key";
+            this.checkBoxUsePublicKey.AutoSize = true;
+            this.checkBoxUsePublicKey.Location = new System.Drawing.Point(22, 100);
+            this.checkBoxUsePublicKey.Name = "checkBoxUsePublicKey";
+            this.checkBoxUsePublicKey.Size = new System.Drawing.Size(289, 19);
+            this.checkBoxUsePublicKey.TabIndex = 18;
+            this.checkBoxUsePublicKey.Text = "Use Public Key (use Pageant.exe, set \"User name\")";
+            this.checkBoxUsePublicKey.UseVisualStyleBackColor = true;
             // 
             // btShowSessionPassword
             // 
@@ -512,6 +509,7 @@
             // 
             // tabpageExtraConnect
             // 
+            this.tabpageExtraConnect.Controls.Add(this.groupBoxVcXsrv);
             this.tabpageExtraConnect.Controls.Add(this.groupBox5);
             this.tabpageExtraConnect.Controls.Add(this.groupBox4);
             this.tabpageExtraConnect.Location = new System.Drawing.Point(4, 24);
@@ -523,6 +521,64 @@
             this.tabpageExtraConnect.UseVisualStyleBackColor = true;
             this.tabpageExtraConnect.Enter += new System.EventHandler(this.tabpageExtraConnect_Enter);
             // 
+            // groupBoxVcXsrv
+            // 
+            this.groupBoxVcXsrv.Controls.Add(this.buttonShowVcXsrvPassword);
+            this.groupBoxVcXsrv.Controls.Add(this.textBoxVcXsrvPassword);
+            this.groupBoxVcXsrv.Controls.Add(this.label23);
+            this.groupBoxVcXsrv.Controls.Add(this.textBoxVcXsrvUserName);
+            this.groupBoxVcXsrv.Controls.Add(this.label24);
+            this.groupBoxVcXsrv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxVcXsrv.Location = new System.Drawing.Point(58, 284);
+            this.groupBoxVcXsrv.Name = "groupBoxVcXsrv";
+            this.groupBoxVcXsrv.Size = new System.Drawing.Size(370, 109);
+            this.groupBoxVcXsrv.TabIndex = 23;
+            this.groupBoxVcXsrv.TabStop = false;
+            this.groupBoxVcXsrv.Text = "XWindows";
+            // 
+            // buttonShowVcXsrvPassword
+            // 
+            this.buttonShowVcXsrvPassword.Image = ((System.Drawing.Image)(resources.GetObject("buttonShowVcXsrvPassword.Image")));
+            this.buttonShowVcXsrvPassword.Location = new System.Drawing.Point(308, 61);
+            this.buttonShowVcXsrvPassword.Name = "buttonShowVcXsrvPassword";
+            this.buttonShowVcXsrvPassword.Size = new System.Drawing.Size(26, 26);
+            this.buttonShowVcXsrvPassword.TabIndex = 22;
+            this.buttonShowVcXsrvPassword.UseVisualStyleBackColor = true;
+            this.buttonShowVcXsrvPassword.Click += new System.EventHandler(this.buttonShowVcXsrvPassword_Click);
+            // 
+            // textBoxVcXsrvPassword
+            // 
+            this.textBoxVcXsrvPassword.Location = new System.Drawing.Point(110, 61);
+            this.textBoxVcXsrvPassword.Name = "textBoxVcXsrvPassword";
+            this.textBoxVcXsrvPassword.PasswordChar = '*';
+            this.textBoxVcXsrvPassword.Size = new System.Drawing.Size(192, 23);
+            this.textBoxVcXsrvPassword.TabIndex = 19;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(22, 64);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 15);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Password";
+            // 
+            // textBoxVcXsrvUserName
+            // 
+            this.textBoxVcXsrvUserName.Location = new System.Drawing.Point(110, 29);
+            this.textBoxVcXsrvUserName.Name = "textBoxVcXsrvUserName";
+            this.textBoxVcXsrvUserName.Size = new System.Drawing.Size(192, 23);
+            this.textBoxVcXsrvUserName.TabIndex = 17;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(22, 33);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(63, 15);
+            this.label24.TabIndex = 16;
+            this.label24.Text = "User name";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btShowSFTPPassword);
@@ -531,7 +587,7 @@
             this.groupBox5.Controls.Add(this.txtSFTPUserName);
             this.groupBox5.Controls.Add(this.label16);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(58, 202);
+            this.groupBox5.Location = new System.Drawing.Point(58, 152);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(370, 109);
             this.groupBox5.TabIndex = 1;
@@ -589,7 +645,7 @@
             this.groupBox4.Controls.Add(this.txtFTPUserName);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(58, 42);
+            this.groupBox4.Location = new System.Drawing.Point(58, 23);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(370, 109);
             this.groupBox4.TabIndex = 0;
@@ -684,6 +740,8 @@
             this.groupPostLoginCommand.ResumeLayout(false);
             this.groupPostLoginCommand.PerformLayout();
             this.tabpageExtraConnect.ResumeLayout(false);
+            this.groupBoxVcXsrv.ResumeLayout(false);
+            this.groupBoxVcXsrv.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -853,7 +911,12 @@
 
 		// Token: 0x040000EC RID: 236
 		private global::System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textSessionPublicKey;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.GroupBox groupBoxVcXsrv;
+        private System.Windows.Forms.Button buttonShowVcXsrvPassword;
+        private System.Windows.Forms.TextBox textBoxVcXsrvPassword;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBoxVcXsrvUserName;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.CheckBox checkBoxUsePublicKey;
     }
 }

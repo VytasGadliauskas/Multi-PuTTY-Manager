@@ -67,11 +67,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(123, 44);
+            this.label3.Location = new System.Drawing.Point(83, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 15);
+            this.label3.Size = new System.Drawing.Size(316, 15);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Original (Version 1.2.1109) / Modified";
+            this.label3.Text = "Original (Version 1.2.1109) / from 2024 year new version 2.0";
             // 
             // frmHelpAbout
             // 
@@ -85,6 +85,7 @@
             this.Controls.Add(this.btOK);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmHelpAbout";

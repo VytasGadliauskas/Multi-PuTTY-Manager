@@ -36,7 +36,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				result = null;
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 			return result;
 		}
 
@@ -55,7 +57,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000087 RID: 135 RVA: 0x00007BE8 File Offset: 0x00005DE8
@@ -84,7 +88,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				MessageBox.Show("btFileBrowser_Click\n" + ex.ToString());
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000089 RID: 137 RVA: 0x00007C9C File Offset: 0x00005E9C
@@ -114,7 +120,9 @@ namespace SessionManagement
 				catch (Exception ex)
 				{
 					this.loadCommand = false;
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -151,7 +159,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				result = null;
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 			return result;
 		}
 
@@ -176,7 +186,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x0600008C RID: 140 RVA: 0x00007FD4 File Offset: 0x000061D4
@@ -190,7 +202,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -221,7 +235,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -237,7 +253,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000091 RID: 145 RVA: 0x000081E4 File Offset: 0x000063E4
@@ -252,7 +270,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 			this.loadCommand = false;
 			this.txtFileName.Text = "";
 			this.dataGridCommands.Focus();
@@ -282,7 +302,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000093 RID: 147 RVA: 0x00008308 File Offset: 0x00006508
@@ -306,7 +328,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000094 RID: 148 RVA: 0x0000839C File Offset: 0x0000659C

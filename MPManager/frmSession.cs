@@ -62,12 +62,16 @@ namespace SessionManagement
 				this.sess.sessionUserName = this.txtSessionUserName.Text;
 				this.sess.sessionPassword = this.txtSessionPassword.Text;
 				//// Vytas Gadliauskas public key
-                this.sess.publicKey = this.textSessionPublicKey.Text;
+                this.sess.publicKey = this.checkBoxUsePublicKey.Checked;
 				this.sess.ftpUserName = this.txtFTPUserName.Text;
 				this.sess.ftpPassword = this.txtFTPPassword.Text;
 				this.sess.sftpUserName = this.txtSFTPUserName.Text;
 				this.sess.sftpPassword = this.txtSFTPPassword.Text;
-				this.sess.postLogin = this.checkPostLogin.Checked;
+                //// Vytas Gadliauskas  XWindows VcXsrv
+				this.sess.vcXsrvUserName = this.textBoxVcXsrvUserName.Text;
+				this.sess.vcXsrvPassword = this.textBoxVcXsrvPassword.Text;
+
+                this.sess.postLogin = this.checkPostLogin.Checked;
 				this.sess.connectionTimeout = int.Parse(this.numConnectionTimeout.Value.ToString());
 				this.sess.usernameTimeout = int.Parse(this.numUsernameTimeout.Value.ToString());
 				this.sess.passwordTimeout = int.Parse(this.numPasswordTimeout.Value.ToString());
@@ -79,11 +83,16 @@ namespace SessionManagement
 					Global.saveLatestCreatePuttySettingToRegistry();
 				}
 				this.createOrUpdateSession(this.sess);
+				// Vytas Gadliauskas - save after session details change
+				
+
 				base.Close();
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000D5 RID: 213 RVA: 0x0000B6B4 File Offset: 0x000098B4
@@ -110,8 +119,11 @@ namespace SessionManagement
 			this.txtFTPPassword.Text = this.sess.ftpPassword;
 			this.txtSFTPUserName.Text = this.sess.sftpUserName;
 			this.txtSFTPPassword.Text = this.sess.sftpPassword;
+			//// Vytas Gadliauskas XWindows VcXsrv
+			this.textBoxVcXsrvUserName.Text = this.sess.vcXsrvUserName;
+			this.textBoxVcXsrvPassword.Text = this.sess.vcXsrvPassword;
 			//// Vytas Gadliauskas public key
-			this.textSessionPublicKey.Text = this.sess.publicKey;
+			this.checkBoxUsePublicKey.Checked = this.sess.publicKey;
 			this.numConnectionTimeout.Value = this.sess.connectionTimeout;
 			this.numUsernameTimeout.Value = this.sess.usernameTimeout;
 			this.numPasswordTimeout.Value = this.sess.passwordTimeout;
@@ -160,7 +172,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000D8 RID: 216 RVA: 0x0000BA0C File Offset: 0x00009C0C
@@ -364,5 +378,17 @@ namespace SessionManagement
 		// Token: 0x0200000F RID: 15
 		// (Invoke) Token: 0x060000EA RID: 234
 		public delegate void CreateOrUpdateSession(Session sess);
-	}
+
+        private void buttonShowVcXsrvPassword_Click(object sender, EventArgs e)
+        {
+            if (this.textBoxVcXsrvPassword.PasswordChar == '*')
+            {
+                this.textBoxVcXsrvPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                this.textBoxVcXsrvPassword.PasswordChar = '*';
+            }
+        }
+    }
 }

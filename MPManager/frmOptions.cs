@@ -30,6 +30,7 @@ namespace SessionManagement
 					Global.strDefaultDatabaseLocation = this.txtDatabaseLocation.Text;
 					Global.strPuttyLocation = this.txtPuttyLocation.Text;
 					Global.strWinSCPLocation = this.txtWinSCPLocation.Text;
+					Global.strVcXsrvLocation = this.textBoxVcXsrvlocation.Text;
 					if (this.radLeft.Checked)
 					{
 						Global.strSessionManagerPosition = "Left";
@@ -47,7 +48,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -57,6 +60,8 @@ namespace SessionManagement
 			this.txtDatabaseLocation.Text = Global.strDefaultDatabaseLocation;
 			this.txtPuttyLocation.Text = Global.strPuttyLocation;
 			this.txtWinSCPLocation.Text = Global.strWinSCPLocation;
+			// Vytas Gadliauskas added VcXsrv XWindows
+			this.textBoxVcXsrvlocation.Text = Global.strVcXsrvLocation;
 			if (Global.strSessionManagerPosition == "Left")
 			{
 				this.radLeft.Checked = true;
@@ -93,7 +98,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				MessageBox.Show("btDatabaseBrowser_Click\n" + ex.ToString());
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000A0 RID: 160 RVA: 0x0000919C File Offset: 0x0000739C
@@ -114,7 +121,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				MessageBox.Show("btPuttyBrowser_Click\n" + ex.ToString());
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000A1 RID: 161 RVA: 0x00009228 File Offset: 0x00007428
@@ -135,7 +144,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				MessageBox.Show("btWinSCPBrowser_Click\n" + ex.ToString());
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x04000089 RID: 137
@@ -147,5 +158,28 @@ namespace SessionManagement
 		// Token: 0x02000009 RID: 9
 		// (Invoke) Token: 0x060000A5 RID: 165
 		public delegate void DisplaySessionManager();
-	}
+
+		// Vytas Gadliauskas added XWindows connection, VcXsrv exe settings 
+        private void buttonVcXsrvBrowser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "XLaunch (xlaunch.exe)|xlaunch.exe|Binaries Files (*.exe)|*.exe|All Files (*.*)|*.*";
+                openFileDialog.FilterIndex = 0;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = openFileDialog.FileName;
+                    this.textBoxVcXsrvlocation.Text = fileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("btWinSCPBrowser_Click\n" + ex.ToString());
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+    }
 }
