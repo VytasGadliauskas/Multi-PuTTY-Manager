@@ -29,7 +29,7 @@ namespace SessionManagement
             {
                 if ( textBoxDBPassword.Text.Equals(AESoperations.Decrypt(textBoxDBPassword.Text, Global.strEnscriptedDatabasePassword)))
                 {
-                    Global.strDatabasePassword = textBoxDBPassword.Text;
+                    Global.DatabasePassword = textBoxDBPassword.Text;
                     boolAllowClose = true;
                     this.Close();
 

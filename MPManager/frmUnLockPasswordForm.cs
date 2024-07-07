@@ -25,7 +25,7 @@ namespace SessionManagement
         {
             if (textBoxPassword.Text.Length >= 8)
             {
-                Global.strDatabasePassword = textBoxPassword.Text;
+                Global.DatabasePassword = textBoxPassword.Text;
                 this.Close();
             }
             else 

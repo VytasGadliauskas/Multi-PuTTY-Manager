@@ -32,6 +32,7 @@
             WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.contextForDocPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeAllButThis = new System.Windows.Forms.ToolStripMenuItem();
             this.contextCloseSession = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +77,12 @@
             this.mnuToolsPuttyConfiguration = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuToolsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemPortScanner = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemImportFromCsvFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemImportFromXmlFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHomepage = new System.Windows.Forms.ToolStripMenuItem();
@@ -452,7 +459,11 @@
             this.mnuToolsPuTTYSessions,
             this.mnuToolsPuttyConfiguration,
             this.toolStripSeparator1,
-            this.mnuToolsOption});
+            this.mnuToolsOption,
+            this.toolStripSeparator13,
+            this.toolStripMenuItemPortScanner,
+            this.toolStripSeparator14,
+            this.toolStripMenuItem1});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 19);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -483,6 +494,48 @@
             this.mnuToolsOption.Size = new System.Drawing.Size(184, 22);
             this.mnuToolsOption.Text = "Options...";
             this.mnuToolsOption.Click += new System.EventHandler(this.mnuToolsOption_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(181, 6);
+            // 
+            // toolStripMenuItemPortScanner
+            // 
+            this.toolStripMenuItemPortScanner.Enabled = false;
+            this.toolStripMenuItemPortScanner.Name = "toolStripMenuItemPortScanner";
+            this.toolStripMenuItemPortScanner.Size = new System.Drawing.Size(184, 22);
+            this.toolStripMenuItemPortScanner.Text = "Port Scanner";
+            this.toolStripMenuItemPortScanner.Click += new System.EventHandler(this.toolStripMenuItemPortScanner_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(181, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemImportFromCsvFile,
+            this.toolStripMenuItemImportFromXmlFile});
+            this.toolStripMenuItem1.Enabled = false;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
+            this.toolStripMenuItem1.Text = "Import";
+            // 
+            // toolStripMenuItemImportFromCsvFile
+            // 
+            this.toolStripMenuItemImportFromCsvFile.Enabled = false;
+            this.toolStripMenuItemImportFromCsvFile.Name = "toolStripMenuItemImportFromCsvFile";
+            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemImportFromCsvFile.Text = "From CSV file";
+            // 
+            // toolStripMenuItemImportFromXmlFile
+            // 
+            this.toolStripMenuItemImportFromXmlFile.Enabled = false;
+            this.toolStripMenuItemImportFromXmlFile.Name = "toolStripMenuItemImportFromXmlFile";
+            this.toolStripMenuItemImportFromXmlFile.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemImportFromXmlFile.Text = "From MPManager XML file";
             // 
             // mnuHelp
             // 
@@ -920,6 +973,7 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.mnuMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnuMain;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1194,5 +1248,11 @@
         private System.Windows.Forms.ToolStripMenuItem closeAllButThis;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripButton toolStripButtonLock;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPortScanner;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromCsvFile;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromXmlFile;
     }
 }

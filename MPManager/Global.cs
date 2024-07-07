@@ -3,6 +3,7 @@ using System.Collections;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -10,6 +11,7 @@ using Microsoft.Win32;
 ////    
 ////   2024.05.20 Modified by Vytas Gadliauskas   https://github.com/VytasGadliauskas/Multi-PuTTY-Manager
 ////   Added global variables 
+///    2024.06.01 Modified by Vytas Gadliauskas,  added XWindows VcXsrv support
 
 namespace SessionManagement
 {
@@ -73,7 +75,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x0600014D RID: 333 RVA: 0x000128E4 File Offset: 0x00010AE4
@@ -93,7 +97,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x0600014E RID: 334 RVA: 0x00012960 File Offset: 0x00010B60
@@ -116,7 +122,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x0600014F RID: 335 RVA: 0x00012A14 File Offset: 0x00010C14
@@ -135,7 +143,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000150 RID: 336 RVA: 0x00012A80 File Offset: 0x00010C80
@@ -161,7 +171,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000151 RID: 337 RVA: 0x00012B28 File Offset: 0x00010D28
@@ -180,7 +192,8 @@ namespace SessionManagement
 						registryKey3.SetValue("Database", Global.strDefaultDatabaseLocation);
 						registryKey3.SetValue("Putty", Global.strPuttyLocation);
 						registryKey3.SetValue("WinSCP", Global.strWinSCPLocation);
-						registryKey3.SetValue("SessionManagerPosition", Global.strSessionManagerPosition);
+                        registryKey3.SetValue("VcXsrv", Global.strVcXsrvLocation);
+                        registryKey3.SetValue("SessionManagerPosition", Global.strSessionManagerPosition);
 						registryKey3.Close();
 						registryKey2.Close();
 						registryKey.Close();
@@ -190,7 +203,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000152 RID: 338 RVA: 0x00012C04 File Offset: 0x00010E04
@@ -212,7 +227,8 @@ namespace SessionManagement
 					registryKey3.SetValue("Database", "", RegistryValueKind.String);
 					registryKey3.SetValue("Putty", "", RegistryValueKind.String);
 					registryKey3.SetValue("WinSCP", "", RegistryValueKind.String);
-					registryKey3.SetValue("QuickPuttySetting", "Default Settings", RegistryValueKind.String);
+                    registryKey3.SetValue("VcXsrv", "", RegistryValueKind.String);
+                    registryKey3.SetValue("QuickPuttySetting", "Default Settings", RegistryValueKind.String);
 					registryKey3.SetValue("CreatePuttySetting", "Default Settings", RegistryValueKind.String);
 					registryKey3.SetValue("QuickConnectionTimeout", "2000", RegistryValueKind.String);
 					registryKey3.SetValue("QuickUsernameTimeout", "1000", RegistryValueKind.String);
@@ -223,7 +239,16 @@ namespace SessionManagement
 					Global.strDefaultDatabaseLocation = registryKey3.GetValue("Database").ToString();
 					Global.strPuttyLocation = registryKey3.GetValue("Putty").ToString();
 					Global.strWinSCPLocation = registryKey3.GetValue("WinSCP").ToString();
-					Global.strQuickPuttySetting = registryKey3.GetValue("QuickPuttySetting").ToString();
+					if (registryKey3.GetValue("VcXsrv") != null)
+					{
+						Global.strVcXsrvLocation = registryKey3.GetValue("VcXsrv").ToString();
+					}
+					else 
+					{
+						Global.strVcXsrvLocation = "";
+
+                    }
+                    Global.strQuickPuttySetting = registryKey3.GetValue("QuickPuttySetting").ToString();
 					Global.strQuickPuttyProtocol = registryKey3.GetValue("QuickPuttyProtocol").ToString();
 					Global.strCreatePuttySetting = registryKey3.GetValue("CreatePuttySetting").ToString();
 					Global.strViewToolbarsQuickSession = registryKey3.GetValue("ViewToolbarsQuickSession").ToString();
@@ -242,7 +267,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				MessageBox.Show("readInfoFromWindowRegistry\n" + ex.ToString());
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000153 RID: 339 RVA: 0x00012E6C File Offset: 0x0001106C
@@ -288,7 +315,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000154 RID: 340 RVA: 0x00013024 File Offset: 0x00011224
@@ -388,15 +417,58 @@ namespace SessionManagement
 		// Token: 0x04000136 RID: 310
 		private static uint WM_CHAR = 258u;
 
-		////////////////////// Vytas Gadliauskas added global variables
-		public static string strDatabasePassword;
-        public static string strEnscriptedDatabasePassword;
+        ////////////////////// Vytas Gadliauskas added global variables
+        public static string strVcXsrvLocation;              // XWindows
+        public static SecureString strDatabasePassword = new SecureString();      // Password inputed by user to enscript/descipt
+
+		public static string DatabasePassword
+		{
+			get
+			{
+				return ConvertToUnsecureString(strDatabasePassword);
+			}
+			set
+			{
+                strDatabasePassword = ConvertToSecureString(value);
+			}
+		}
+
+        public static string strEnscriptedDatabasePassword;  // Password readed from xml file 
 		public static frmMain frmThis;
-		public static string strDefaultEnscriptionPassword = "@Copyright20240522";
+		public static string strDefaultEnscriptionPassword = "@Copyright20240522";     
 
 		//  none/0       = original  MPManager
 		//  1 and more   = MPManager secure   
 		public static string strMPManagerDBVersion;
 
+        // Vytas Gadliauskas string to SecureString
+        public static SecureString ConvertToSecureString(string password)
+        {
+            if (password == null)
+                throw new ArgumentNullException("password - null");
+
+            var securePassword = new SecureString();
+
+            foreach (char c in password)
+                securePassword.AppendChar(c);
+
+            //  securePassword.MakeReadOnly();
+            return securePassword;
+        }
+
+        // Vytas Gadliauskas SecureString to string
+        public static string ConvertToUnsecureString(SecureString secstrPassword)
+        {
+            IntPtr unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secstrPassword);
+                return Marshal.PtrToStringUni(unmanagedString);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
+        }
     }
 }

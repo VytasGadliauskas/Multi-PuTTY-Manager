@@ -26,9 +26,9 @@ namespace SessionManagement
 			this.lbLocation.Text = location;
 
 			////  Vytas Gadliauskas filling Database Password txtBox text
-			if (!String.IsNullOrEmpty(Global.strDatabasePassword)) 
+			if (!String.IsNullOrEmpty(Global.DatabasePassword)) 
 			{
-				textBoxDBPassword.Text = Global.strDatabasePassword;
+				textBoxDBPassword.Text = Global.DatabasePassword;
 			}
 		}
 
@@ -77,8 +77,8 @@ namespace SessionManagement
 		{
 			if (this.txtDatabaseName.Text.Trim() != "")
 			{ 
-			    Global.strDatabasePassword = textBoxDBPassword.Text;
-				Global.strEnscriptedDatabasePassword = AESoperations.Encrypt(Global.strDatabasePassword, Global.strDatabasePassword);
+			    Global.DatabasePassword = textBoxDBPassword.Text;
+				Global.strEnscriptedDatabasePassword = AESoperations.Encrypt(Global.DatabasePassword, Global.DatabasePassword);
             }
 			this.renameDatabase(this.databaseID, this.txtDatabaseName.Text);
 			base.Close();
@@ -113,7 +113,7 @@ namespace SessionManagement
 		//////     Vytas Gadliauskas
         private void textBoxDBPassword_TextChanged(object sender, EventArgs e)
         {
-            if (this.textBoxDBPassword.Text != Global.strDatabasePassword && this.textBoxDBPassword.Text.Trim() != "")
+            if (this.textBoxDBPassword.Text != Global.DatabasePassword && this.textBoxDBPassword.Text.Trim() != "")
             {
                 this.btOK.Enabled = true;
             }

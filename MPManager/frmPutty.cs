@@ -70,7 +70,17 @@ namespace SessionManagement
 					str = str + " -P " + this.session.sessionPort.ToString();
 				}
 				this.info = new ProcessStartInfo(Global.strPuttyLocation);
-				this.info.Arguments = str + " " + this.session.sessionHost;
+
+				// Vytas Gadliauskas - added public key connection support
+				if (this.session.publicKey && !"".Equals(this.session.sessionUserName))
+				{
+                    this.info.Arguments = str + " " +  this.session.sessionUserName+"@"+this.session.sessionHost;
+                }
+				else 
+				{
+				   this.info.Arguments = str + " " + this.session.sessionHost;
+				}
+				
 				this.info.UseShellExecute = false;
 				this.info.CreateNoWindow = false;
 				this.info.WindowStyle = ProcessWindowStyle.Hidden;
@@ -90,7 +100,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000B1 RID: 177 RVA: 0x0000A51C File Offset: 0x0000871C
@@ -113,11 +125,14 @@ namespace SessionManagement
 			{
 				if (this.session.sessionUserName != "" && this.session.sessionPassword != "")
 				{
-					Thread.Sleep(this.session.connectionTimeout);
-					this.runCommand(this.session.sessionUserName);
-					Thread.Sleep(this.session.usernameTimeout);
-					this.runCommand(this.session.sessionPassword);
-					Thread.Sleep(this.session.passwordTimeout);
+					if (this.session.publicKey == false) 
+					{ 
+				    	Thread.Sleep(this.session.connectionTimeout);
+				    	this.runCommand(this.session.sessionUserName);
+				    	Thread.Sleep(this.session.usernameTimeout);
+				    	this.runCommand(this.session.sessionPassword);
+				    	Thread.Sleep(this.session.passwordTimeout);
+			    	}
 					if (this.session.postLogin)
 					{
 						for (int i = 0; i < this.session.postLoginCommands.Count; i++)
@@ -133,7 +148,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				this.autoThread.Abort();
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000B3 RID: 179 RVA: 0x0000A6A8 File Offset: 0x000088A8
@@ -163,7 +180,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000B5 RID: 181 RVA: 0x0000A734 File Offset: 0x00008934
@@ -190,7 +209,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				this.multiCommandsThread.Abort();
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000B6 RID: 182 RVA: 0x0000A800 File Offset: 0x00008A00
@@ -215,7 +236,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -234,7 +257,9 @@ namespace SessionManagement
 				catch (Exception ex)
 				{
 					this.multiCommandsThread.Abort();
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -247,7 +272,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000B9 RID: 185 RVA: 0x0000A960 File Offset: 0x00008B60
@@ -306,7 +333,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -329,7 +358,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				result = null;
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 			return result;
 		}
 
@@ -356,7 +387,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				result = null;
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 			return result;
 		}
 

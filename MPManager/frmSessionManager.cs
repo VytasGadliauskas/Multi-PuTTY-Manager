@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Xml;
 using SessionManagement.Properties;
 using WeifenLuo.WinFormsUI.Docking;
+// using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 ////   Original MPManager author:  Angelo Simone Scotto KidFashion https://github.com/KidFashion/Multi-PuTTY-Manager
 ////    
@@ -66,6 +67,9 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				result = text;
+
+				// Vytas Gadliauskas added exception logging
+				Logs.writeLog(ex.Message);
 			}
 			return result;
 		}
@@ -154,8 +158,11 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
+
 
 		// Token: 0x060000F6 RID: 246 RVA: 0x0000E670 File Offset: 0x0000C870
 		public void modifyExistingSession(TreeNode selectedNode, Session sess)
@@ -167,21 +174,21 @@ namespace SessionManagement
 			}
 		}
 
-		// Token: 0x060000F7 RID: 247 RVA: 0x0000E6B8 File Offset: 0x0000C8B8
-		private void treeSessions_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
-		{
-			if (int.Parse(e.Node.Name) > 0)
-			{
-				Session session = this.findSessionFromAvailableSessions(int.Parse(e.Node.Name));
-				if (session != null)
-				{
-					this.openSession(session);
-				}
-			}
-		}
+        // Token: 0x060000F7 RID: 247 RVA: 0x0000E6B8 File Offset: 0x0000C8B8
+        private void treeSessions_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (int.Parse(e.Node.Name) > 0)
+            {
+                Session session = this.findSessionFromAvailableSessions(int.Parse(e.Node.Name));
+                if (session != null)
+                {
+                    this.openSession(session);
+                }
+            }
+        }
 
-		// Token: 0x060000F8 RID: 248 RVA: 0x0000E70C File Offset: 0x0000C90C
-		private void contextConnect_Click(object sender, EventArgs e)
+        // Token: 0x060000F8 RID: 248 RVA: 0x0000E70C File Offset: 0x0000C90C
+        private void contextConnect_Click(object sender, EventArgs e)
 		{
 			Session session = this.findSessionFromAvailableSessions(int.Parse(this.treeSessions.SelectedNode.Name));
 			if (session != null)
@@ -247,7 +254,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x060000FB RID: 251 RVA: 0x0000E8FC File Offset: 0x0000CAFC
@@ -475,7 +484,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000101 RID: 257 RVA: 0x0000EF38 File Offset: 0x0000D138
@@ -495,9 +506,9 @@ namespace SessionManagement
 
                 ///  Vytas Gadliauskas write to database password
                 ///  if database pasword not set then do not write 
-                if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                if (!String.IsNullOrEmpty(Global.DatabasePassword))
 				{
-					xmlTextWriter.WriteAttributeString("password", AESoperations.Encrypt(Global.strDatabasePassword, Global.strDatabasePassword));
+					xmlTextWriter.WriteAttributeString("password", AESoperations.Encrypt(Global.DatabasePassword, Global.DatabasePassword));
 				}
 
 				xmlTextWriter.WriteAttributeString("name", treeNode.Text);
@@ -514,8 +525,8 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-				// Vytas Gadliauskas to debug
-                // MessageBox.Show(ex.Message, "saveDatabaseToXMLFile");
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
             }
 		}
 
@@ -562,7 +573,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000103 RID: 259 RVA: 0x0000F1A4 File Offset: 0x0000D3A4
@@ -613,9 +626,9 @@ namespace SessionManagement
 				///  if database password is not set enscripting with defaul password 
 				if (!sess.sessionPassword.Equals(""))
 				{
-					if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+					if (!String.IsNullOrEmpty(Global.DatabasePassword))
 					{
-						writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sessionPassword));
+						writer.WriteValue(AESoperations.Encrypt(Global.DatabasePassword, sess.sessionPassword));
 					}
 					else
 					{
@@ -632,17 +645,7 @@ namespace SessionManagement
                 writer.WriteRaw("\r\n");
                 writer.WriteRaw("\t\t\t");
                 writer.WriteStartElement("publickey");
-                if (!sess.sessionPassword.Equals(""))
-                {
-                    if (!String.IsNullOrEmpty(Global.strDatabasePassword))
-                    {
-                        writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.publicKey));
-                    }
-                    else
-                    {
-                        writer.WriteValue(AESoperations.Encrypt(Global.strDefaultEnscriptionPassword, sess.publicKey));
-                    }
-                }
+                writer.WriteValue(sess.publicKey);
                 writer.WriteEndElement();
 
                 writer.WriteRaw("\r\n");
@@ -741,9 +744,9 @@ namespace SessionManagement
                 //// Vytas Gadliauskas  enscripting session password to XML
                 if (!sess.ftpPassword.Equals(""))
                 {
-                    if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                    if (!String.IsNullOrEmpty(Global.DatabasePassword))
                     {
-                        writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.ftpPassword));
+                        writer.WriteValue(AESoperations.Encrypt(Global.DatabasePassword, sess.ftpPassword));
                     }
                     else
                     {
@@ -764,11 +767,11 @@ namespace SessionManagement
 				writer.WriteRaw("\t\t\t");
 				writer.WriteStartElement("sftppassword");
                 //// Vytas Gadliauskas  enscripting session password to XML
-                if (!sess.ftpPassword.Equals(""))
+                if (!sess.sftpPassword.Equals(""))
                 {
-                    if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+                    if (!String.IsNullOrEmpty(Global.DatabasePassword))
                     {
-                        writer.WriteValue(AESoperations.Encrypt(Global.strDatabasePassword, sess.sftpPassword));
+                        writer.WriteValue(AESoperations.Encrypt(Global.DatabasePassword, sess.sftpPassword));
                     }
                     else
                     {
@@ -780,10 +783,38 @@ namespace SessionManagement
                     writer.WriteValue(sess.sftpPassword);
                 }
 				writer.WriteEndElement();
-			}
+                //// Vytas Gadliauskas session XWindows username/password to XML
+                writer.WriteRaw("\r\n");
+                writer.WriteRaw("\t\t\t");
+                writer.WriteStartElement("vcxsrvusername");
+                writer.WriteValue(sess.vcXsrvUserName);
+                writer.WriteEndElement();
+                writer.WriteRaw("\r\n");
+                writer.WriteRaw("\t\t\t");
+                writer.WriteStartElement("vcxsrvpassword");
+                if (!sess.vcXsrvPassword.Equals(""))
+                {
+                    if (!String.IsNullOrEmpty(Global.DatabasePassword))
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.DatabasePassword, sess.vcXsrvPassword));
+                    }
+                    else
+                    {
+                        writer.WriteValue(AESoperations.Encrypt(Global.strDefaultEnscriptionPassword, sess.vcXsrvPassword));
+                    }
+                }
+                else
+                {
+                    writer.WriteValue(sess.vcXsrvPassword);
+                }
+                writer.WriteEndElement();
+
+            }
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000104 RID: 260 RVA: 0x0000F7C0 File Offset: 0x0000D9C0
@@ -877,9 +908,9 @@ namespace SessionManagement
 									{ 
 										if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
 										{
-											if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+											if (!String.IsNullOrEmpty(Global.DatabasePassword))
 											{
-												sess.sessionPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSessionPassword);
+												sess.sessionPassword = AESoperations.Decrypt(Global.DatabasePassword, tempSessionPassword);
 											}
 											else
 											{
@@ -892,25 +923,10 @@ namespace SessionManagement
                                         }
                                     }
 							    	break;
-                                //// Vytas Gadliauskas public key from XML database
-                                case "publickey":
+                            //// Vytas Gadliauskas public key from XML database
+                            case "publickey":
                                     reader.Read();
-                                    string tempSessionPublicKey = reader.Value;
-                                    if (tempSessionPublicKey.Contains("\r\n"))
-                                    {
-                                        sess.publicKey = "";
-                                    }
-                                    else
-                                    {
-                                            if (!String.IsNullOrEmpty(Global.strDatabasePassword))
-                                            {
-                                                sess.publicKey = AESoperations.Decrypt(Global.strDatabasePassword, tempSessionPublicKey);
-                                            }
-                                            else
-                                            {
-                                                sess.publicKey = AESoperations.Decrypt(Global.strDefaultEnscriptionPassword, tempSessionPublicKey);
-                                            }
-                                    }
+                                    sess.publicKey = bool.Parse(reader.Value);
                                     break;
 
                             case "connectiontimeout":
@@ -964,9 +980,9 @@ namespace SessionManagement
                                 {
 										if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
 										{
-											if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+											if (!String.IsNullOrEmpty(Global.DatabasePassword))
 											{
-												sess.ftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempFtpPassword);
+												sess.ftpPassword = AESoperations.Decrypt(Global.DatabasePassword, tempFtpPassword);
 											}
 											else
 											{
@@ -1000,9 +1016,9 @@ namespace SessionManagement
                                 {
 										if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
 										{
-											if (!String.IsNullOrEmpty(Global.strDatabasePassword))
+											if (!String.IsNullOrEmpty(Global.DatabasePassword))
 											{
-												sess.sftpPassword = AESoperations.Decrypt(Global.strDatabasePassword, tempSftpPassword);
+												sess.sftpPassword = AESoperations.Decrypt(Global.DatabasePassword, tempSftpPassword);
 											}
 											else
 											{
@@ -1015,7 +1031,45 @@ namespace SessionManagement
                                         }
                                 }
 								break;
-							}
+                                ////  Vytas Gadliauskas  XWindows VcXsrv  username/password from XML
+                                case "vcxsrvusername":
+                                    reader.Read();
+                                    sess.vcXsrvUserName = reader.Value;
+                                    if (sess.vcXsrvUserName.Contains("\r\n"))
+                                    {
+                                        sess.vcXsrvUserName = "";
+                                    }
+                                    break;
+                                case "vcxsrvpassword":
+                                    reader.Read();
+                                    //// Vytas Gadliauskas descypting session password from XML
+                                    string tempVcXsrvPassword = reader.Value;
+                                    if (tempVcXsrvPassword.Contains("\r\n"))
+                                    {
+                                        sess.vcXsrvPassword = "";
+                                    }
+                                    else
+                                    {
+                                        if (!String.IsNullOrEmpty(Global.strMPManagerDBVersion))
+                                        {
+                                            if (!String.IsNullOrEmpty(Global.DatabasePassword))
+                                            {
+                                                sess.vcXsrvPassword = AESoperations.Decrypt(Global.DatabasePassword, tempVcXsrvPassword);
+                                            }
+                                            else
+                                            {
+                                                sess.vcXsrvPassword = AESoperations.Decrypt(Global.strDefaultEnscriptionPassword, tempVcXsrvPassword);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            sess.vcXsrvPassword = tempVcXsrvPassword;
+                                        }
+                                    }
+                                    break;
+
+
+                            }
 						}
 						else if (reader.NodeType == XmlNodeType.EndElement)
 						{
@@ -1028,7 +1082,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -1082,7 +1138,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x0600010A RID: 266 RVA: 0x0000FF00 File Offset: 0x0000E100
@@ -1200,7 +1258,9 @@ namespace SessionManagement
 					}
 					catch (Exception ex)
 					{
-					}
+                        // Vytas Gadliauskas added exception logging
+                        Logs.writeLog(ex.Message);
+                    }
 				}
 			}
 		}
@@ -1235,7 +1295,10 @@ namespace SessionManagement
 			catch (Exception ex)
 			{
 				result = text;
-			}
+
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 			return result;
 		}
 
@@ -1264,7 +1327,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000113 RID: 275 RVA: 0x00010448 File Offset: 0x0000E648
@@ -1294,7 +1359,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000114 RID: 276 RVA: 0x0001050C File Offset: 0x0000E70C
@@ -1331,7 +1398,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000115 RID: 277 RVA: 0x000105F8 File Offset: 0x0000E7F8
@@ -1358,7 +1427,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000116 RID: 278 RVA: 0x00010698 File Offset: 0x0000E898
@@ -1395,7 +1466,9 @@ namespace SessionManagement
 						}
 						catch (Exception ex)
 						{
-						}
+                            // Vytas Gadliauskas added exception logging
+                            Logs.writeLog(ex.Message);
+                        }
 					}
 				}
 			}
@@ -1427,7 +1500,9 @@ namespace SessionManagement
 					}
 					catch (Exception ex)
 					{
-					}
+                        // Vytas Gadliauskas added exception logging
+                        Logs.writeLog(ex.Message);
+                    }
 				}
 			}
 		}
@@ -1461,7 +1536,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000119 RID: 281 RVA: 0x00010990 File Offset: 0x0000EB90
@@ -1559,7 +1636,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -1619,7 +1698,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000121 RID: 289 RVA: 0x00010D8C File Offset: 0x0000EF8C
@@ -1727,7 +1808,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x0600012E RID: 302 RVA: 0x00010F50 File Offset: 0x0000F150
@@ -1827,7 +1910,9 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 			}
 		}
 
@@ -1847,7 +1932,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x06000134 RID: 308 RVA: 0x0001121C File Offset: 0x0000F41C
@@ -1908,7 +1995,9 @@ namespace SessionManagement
 			}
 			catch (Exception ex)
 			{
-			}
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
 		}
 
 		// Token: 0x040000ED RID: 237
@@ -1993,9 +2082,96 @@ namespace SessionManagement
 				}
 				catch (Exception ex)
 				{
-				}
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
 				return int.Parse(treeNode.Name) - int.Parse(treeNode2.Name);
 			}
 		}
-	}
+
+        // Vytas Gadliauskas added session search function, find button
+        private void toolStripButtonSessionSearch_Click(object sender, EventArgs e)
+        {
+			if (!"".Equals(toolStripTextBoxSessionSearch.Text)) 
+			{
+                foreach (TreeNode treeNode in this.treeSessions.Nodes)
+				{
+					markSessionSearchRecursive(treeNode);
+                }
+			}
+        }
+
+        // Vytas Gadliauskas added session search function, resets search button
+        private void toolStripButtonSearchReset_Click(object sender, EventArgs e)
+        {
+			toolStripTextBoxSessionSearch.Text = "";
+            foreach (TreeNode treeNode in this.treeSessions.Nodes)
+            {
+				unMarkSessionSearchRecursive(treeNode);
+            }
+        }
+
+        // Vytas Gadliauskas added session search function, mark selected finds
+        private void markSessionSearchRecursive(TreeNode treeNode)
+        {
+
+			if (treeNode.Text.Equals((toolStripTextBoxSessionSearch.Text)))
+			{
+				treeNode.BackColor = Color.Yellow;
+				treeSessions.SelectedNode = treeNode;
+			}
+			else
+			{
+                treeNode.BackColor = Color.White;
+            }
+
+            foreach (TreeNode tn in treeNode.Nodes)
+            {
+                markSessionSearchRecursive(tn);
+            }
+        }
+
+        // Vytas Gadliauskas added session search function, resets search results
+        private void unMarkSessionSearchRecursive(TreeNode treeNode)
+        {
+            treeNode.BackColor = Color.White;
+
+            foreach (TreeNode tn in treeNode.Nodes)
+            {
+                unMarkSessionSearchRecursive(tn);
+            }
+        }
+
+        // Vytas Gadliauskas added session search function, ENTER on search text
+        private void toolStripTextBoxSessionSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+				if (!"".Equals(toolStripTextBoxSessionSearch.Text))
+				{
+					foreach (TreeNode treeNode in this.treeSessions.Nodes)
+					{
+						markSessionSearchRecursive(treeNode);
+					}
+				}
+				else 
+				{
+                    foreach (TreeNode treeNode in this.treeSessions.Nodes)
+                    {
+                        unMarkSessionSearchRecursive(treeNode);
+                    }
+                }
+            }
+        }
+
+		/// / Vytas Gadliauskas Xwindows start
+        private void toolStripMenuItemXwindowsStart_Click(object sender, EventArgs e)
+        {
+            Session session = this.findSessionFromAvailableSessions(int.Parse(this.treeSessions.SelectedNode.Name));
+            if (session != null)
+            {
+				XWindows.connect(session);
+            }
+        }
+    }
 }

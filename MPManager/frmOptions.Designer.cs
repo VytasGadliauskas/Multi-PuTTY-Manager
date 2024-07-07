@@ -19,6 +19,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabpageGeneral = new System.Windows.Forms.TabPage();
+            this.groupBoxVcXsrv = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buttonVcXsrvBrowser = new System.Windows.Forms.Button();
+            this.textBoxVcXsrvlocation = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupSessionManagerPosition = new System.Windows.Forms.GroupBox();
             this.radRight = new System.Windows.Forms.RadioButton();
             this.radLeft = new System.Windows.Forms.RadioButton();
@@ -41,6 +46,7 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabpageGeneral.SuspendLayout();
+            this.groupBoxVcXsrv.SuspendLayout();
             this.groupSessionManagerPosition.SuspendLayout();
             this.groupWinSCP.SuspendLayout();
             this.groupPutty.SuspendLayout();
@@ -55,11 +61,12 @@
             this.tabMain.Margin = new System.Windows.Forms.Padding(4);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(547, 409);
+            this.tabMain.Size = new System.Drawing.Size(547, 511);
             this.tabMain.TabIndex = 0;
             // 
             // tabpageGeneral
             // 
+            this.tabpageGeneral.Controls.Add(this.groupBoxVcXsrv);
             this.tabpageGeneral.Controls.Add(this.groupSessionManagerPosition);
             this.tabpageGeneral.Controls.Add(this.groupWinSCP);
             this.tabpageGeneral.Controls.Add(this.groupPutty);
@@ -68,17 +75,70 @@
             this.tabpageGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.tabpageGeneral.Name = "tabpageGeneral";
             this.tabpageGeneral.Padding = new System.Windows.Forms.Padding(4);
-            this.tabpageGeneral.Size = new System.Drawing.Size(539, 379);
+            this.tabpageGeneral.Size = new System.Drawing.Size(539, 481);
             this.tabpageGeneral.TabIndex = 0;
             this.tabpageGeneral.Text = "General";
             this.tabpageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxVcXsrv
+            // 
+            this.groupBoxVcXsrv.Controls.Add(this.label7);
+            this.groupBoxVcXsrv.Controls.Add(this.buttonVcXsrvBrowser);
+            this.groupBoxVcXsrv.Controls.Add(this.textBoxVcXsrvlocation);
+            this.groupBoxVcXsrv.Controls.Add(this.label8);
+            this.groupBoxVcXsrv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxVcXsrv.Location = new System.Drawing.Point(18, 297);
+            this.groupBoxVcXsrv.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxVcXsrv.Name = "groupBoxVcXsrv";
+            this.groupBoxVcXsrv.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxVcXsrv.Size = new System.Drawing.Size(505, 79);
+            this.groupBoxVcXsrv.TabIndex = 4;
+            this.groupBoxVcXsrv.TabStop = false;
+            this.groupBoxVcXsrv.Text = "XWindows";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(78, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(281, 15);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "(For example: C:\\Program Files\\VcXsrv\\xlaunch.exe)";
+            // 
+            // buttonVcXsrvBrowser
+            // 
+            this.buttonVcXsrvBrowser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonVcXsrvBrowser.Image = ((System.Drawing.Image)(resources.GetObject("buttonVcXsrvBrowser.Image")));
+            this.buttonVcXsrvBrowser.Location = new System.Drawing.Point(468, 25);
+            this.buttonVcXsrvBrowser.Name = "buttonVcXsrvBrowser";
+            this.buttonVcXsrvBrowser.Size = new System.Drawing.Size(26, 26);
+            this.buttonVcXsrvBrowser.TabIndex = 2;
+            this.buttonVcXsrvBrowser.UseVisualStyleBackColor = true;
+            this.buttonVcXsrvBrowser.Click += new System.EventHandler(this.buttonVcXsrvBrowser_Click);
+            // 
+            // textBoxVcXsrvlocation
+            // 
+            this.textBoxVcXsrvlocation.Location = new System.Drawing.Point(81, 25);
+            this.textBoxVcXsrvlocation.Name = "textBoxVcXsrvlocation";
+            this.textBoxVcXsrvlocation.Size = new System.Drawing.Size(381, 23);
+            this.textBoxVcXsrvlocation.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 15);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Location";
             // 
             // groupSessionManagerPosition
             // 
             this.groupSessionManagerPosition.Controls.Add(this.radRight);
             this.groupSessionManagerPosition.Controls.Add(this.radLeft);
             this.groupSessionManagerPosition.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupSessionManagerPosition.Location = new System.Drawing.Point(17, 293);
+            this.groupSessionManagerPosition.Location = new System.Drawing.Point(17, 397);
             this.groupSessionManagerPosition.Margin = new System.Windows.Forms.Padding(4);
             this.groupSessionManagerPosition.Name = "groupSessionManagerPosition";
             this.groupSessionManagerPosition.Padding = new System.Windows.Forms.Padding(4);
@@ -269,7 +329,7 @@
             // btOK
             // 
             this.btOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOK.Location = new System.Drawing.Point(364, 414);
+            this.btOK.Location = new System.Drawing.Point(344, 518);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(88, 27);
             this.btOK.TabIndex = 1;
@@ -280,7 +340,7 @@
             // btCancel
             // 
             this.btCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancel.Location = new System.Drawing.Point(458, 414);
+            this.btCancel.Location = new System.Drawing.Point(451, 518);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(88, 27);
             this.btCancel.TabIndex = 2;
@@ -292,12 +352,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 447);
+            this.ClientSize = new System.Drawing.Size(551, 557);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -307,6 +368,8 @@
             this.Load += new System.EventHandler(this.frmOptions_Load);
             this.tabMain.ResumeLayout(false);
             this.tabpageGeneral.ResumeLayout(false);
+            this.groupBoxVcXsrv.ResumeLayout(false);
+            this.groupBoxVcXsrv.PerformLayout();
             this.groupSessionManagerPosition.ResumeLayout(false);
             this.groupSessionManagerPosition.PerformLayout();
             this.groupWinSCP.ResumeLayout(false);
@@ -387,5 +450,10 @@
 
 		// Token: 0x040000A1 RID: 161
 		private global::System.Windows.Forms.RadioButton radLeft;
-	}
+        private System.Windows.Forms.GroupBox groupBoxVcXsrv;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonVcXsrvBrowser;
+        private System.Windows.Forms.TextBox textBoxVcXsrvlocation;
+        private System.Windows.Forms.Label label8;
+    }
 }
