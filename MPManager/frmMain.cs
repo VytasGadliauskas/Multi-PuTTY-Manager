@@ -13,6 +13,7 @@ using System.Threading;
 using System.Windows.Forms;
 using SessionManagement.Properties;
 using WeifenLuo.WinFormsUI.Docking;
+using SessionManagement;
 
 namespace SessionManagement
 {
@@ -108,6 +109,22 @@ namespace SessionManagement
 				this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control, Keys.Tab);
 				this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control | SessionManagement.ModifierKeys.Shift, Keys.Tab);
 
+				//  Vytas Gadliauskas - Check of new application version on startup.
+                try
+                {
+                    string strDownloadUrl = Updates.NewUpdateDownloadUrl(Global.strUrl);
+					if (!"".Equals(strDownloadUrl))
+					{
+						using (FormUpdates formUpdates = new FormUpdates())
+						{
+							formUpdates.strDownloadUrl = strDownloadUrl;
+							formUpdates.ShowDialog();
+						}
+					}
+                }
+                catch (Exception ex)
+                {
+                }
             }
 			catch (Exception ex)
 			{
@@ -1747,6 +1764,23 @@ namespace SessionManagement
                 // Vytas Gadliauskas added exception logging
                 Logs.writeLog(ex.Message);
             }
+        }
+
+        private void checkForNewVersionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+                string strDownloadUrl = Updates.NewUpdateDownloadUrl(Global.strUrl);
+                using (FormUpdates formUpdates = new FormUpdates())
+                {
+                   formUpdates.strDownloadUrl = strDownloadUrl;
+                   formUpdates.ShowDialog();
+                }
+			}
+			catch (Exception ex)
+			{
+				Logs.writeLog(" checkForNewVersionToolStripMenuItem_Click : "+ex.Message);
+			}
         }
     }
 }

@@ -420,6 +420,8 @@ namespace SessionManagement
         ////////////////////// Vytas Gadliauskas added global variables
         public static string strVcXsrvLocation;              // XWindows
         public static SecureString strDatabasePassword = new SecureString();      // Password inputed by user to enscript/descipt
+		public static string strUrl = "https://sourceforge.net/projects/multi-putty-manager-secure//best_release.json";
+		public static string strAppVersion = "2.0.1.zip";     
 
 		public static string DatabasePassword
 		{

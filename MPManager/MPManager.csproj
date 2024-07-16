@@ -87,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AESoperations.cs" />
+    <Compile Include="frmUpdates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdates.Designer.cs">
+      <DependentUpon>frmUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDatabaseProperties.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,7 @@
     </Compile>
     <Compile Include="PuttySession.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="Updates.cs" />
     <Compile Include="XWindows.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPortScanner.resx">
       <DependentUpon>frmPortScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdates.resx">
+      <DependentUpon>frmUpdates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

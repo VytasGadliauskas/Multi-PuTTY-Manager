@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MPManager"
+    "\\MPManager",
+    "\\MPManager\\Properties"
   ],
-  "SelectedNode": "\\MPManager\\frmSessionManager.cs",
+  "SelectedNode": "\\MPManager.sln",
   "PreviewInSolutionExplorer": false
 }

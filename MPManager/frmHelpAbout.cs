@@ -20,5 +20,9 @@ namespace SessionManagement
 			base.Close();
 		}
 
+        private void frmHelpAbout_Load(object sender, EventArgs e)
+        {
+			labelVersion.Text = "Version: " + Global.strAppVersion;
+        }
     }
 }

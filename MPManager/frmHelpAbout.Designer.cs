@@ -21,7 +21,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btOK
@@ -64,14 +64,14 @@
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // label3
+            // labelVersion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(316, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Original (Version 1.2.1109) / from 2024 year new version 2.0";
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(187, 46);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(48, 15);
+            this.labelVersion.TabIndex = 2;
+            this.labelVersion.Text = "Version ";
             // 
             // frmHelpAbout
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 285);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btOK);
@@ -91,6 +91,7 @@
             this.Name = "frmHelpAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About...";
+            this.Load += new System.EventHandler(this.frmHelpAbout_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +113,6 @@
 		private global::System.Windows.Forms.RichTextBox richTextBox1;
 
 		// Token: 0x04000073 RID: 115
-		private global::System.Windows.Forms.Label label3;
+		private global::System.Windows.Forms.Label labelVersion;
     }
 }

@@ -123,6 +123,7 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.checkForNewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextForDocPanel.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.toolStripGlobalCommand.SuspendLayout();
@@ -543,7 +544,8 @@
             this.mnuHelpHelp,
             this.mnuHelpHomepage,
             this.toolStripSeparator4,
-            this.mnuHelpAbout});
+            this.mnuHelpAbout,
+            this.checkForNewVersionToolStripMenuItem});
             this.mnuHelp.Name = "mnuHelp";
             this.mnuHelp.Size = new System.Drawing.Size(44, 19);
             this.mnuHelp.Text = "Help";
@@ -552,26 +554,26 @@
             // mnuHelpHelp
             // 
             this.mnuHelpHelp.Name = "mnuHelpHelp";
-            this.mnuHelpHelp.Size = new System.Drawing.Size(133, 22);
+            this.mnuHelpHelp.Size = new System.Drawing.Size(203, 22);
             this.mnuHelpHelp.Text = "Help";
             this.mnuHelpHelp.Click += new System.EventHandler(this.mnuHelpHelp_Click);
             // 
             // mnuHelpHomepage
             // 
             this.mnuHelpHomepage.Name = "mnuHelpHomepage";
-            this.mnuHelpHomepage.Size = new System.Drawing.Size(133, 22);
+            this.mnuHelpHomepage.Size = new System.Drawing.Size(203, 22);
             this.mnuHelpHomepage.Text = "Homepage";
             this.mnuHelpHomepage.Click += new System.EventHandler(this.mnuHelpHomepage_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(200, 6);
             // 
             // mnuHelpAbout
             // 
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(133, 22);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(203, 22);
             this.mnuHelpAbout.Text = "About...";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
@@ -960,6 +962,13 @@
             this.dockPanelMain.TabIndex = 21;
             this.dockPanelMain.ActiveDocumentChanged += new System.EventHandler(this.dockPanelMain_ActiveDocumentChanged);
             // 
+            // checkForNewVersionToolStripMenuItem
+            // 
+            this.checkForNewVersionToolStripMenuItem.Name = "checkForNewVersionToolStripMenuItem";
+            this.checkForNewVersionToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.checkForNewVersionToolStripMenuItem.Text = "Check for new version ...";
+            this.checkForNewVersionToolStripMenuItem.Click += new System.EventHandler(this.checkForNewVersionToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1254,5 +1263,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromCsvFile;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromXmlFile;
+        private System.Windows.Forms.ToolStripMenuItem checkForNewVersionToolStripMenuItem;
     }
 }
