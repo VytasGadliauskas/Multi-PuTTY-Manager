@@ -82,12 +82,12 @@
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemImportFromCsvFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemImportFromXmlFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHomepage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForNewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripGlobalCommand = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripGlobalCommandCommand = new System.Windows.Forms.ToolStripComboBox();
@@ -123,7 +123,7 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.checkForNewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.contextForDocPanel.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.toolStripGlobalCommand.SuspendLayout();
@@ -517,26 +517,17 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemImportFromCsvFile,
-            this.toolStripMenuItemImportFromXmlFile});
-            this.toolStripMenuItem1.Enabled = false;
+            this.toolStripMenuItemImportFromCsvFile});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
             this.toolStripMenuItem1.Text = "Import";
             // 
             // toolStripMenuItemImportFromCsvFile
             // 
-            this.toolStripMenuItemImportFromCsvFile.Enabled = false;
             this.toolStripMenuItemImportFromCsvFile.Name = "toolStripMenuItemImportFromCsvFile";
-            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(145, 22);
             this.toolStripMenuItemImportFromCsvFile.Text = "From CSV file";
-            // 
-            // toolStripMenuItemImportFromXmlFile
-            // 
-            this.toolStripMenuItemImportFromXmlFile.Enabled = false;
-            this.toolStripMenuItemImportFromXmlFile.Name = "toolStripMenuItemImportFromXmlFile";
-            this.toolStripMenuItemImportFromXmlFile.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItemImportFromXmlFile.Text = "From MPManager XML file";
+            this.toolStripMenuItemImportFromCsvFile.Click += new System.EventHandler(this.toolStripMenuItemImportFromCsvFile_Click);
             // 
             // mnuHelp
             // 
@@ -577,6 +568,13 @@
             this.mnuHelpAbout.Text = "About...";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
+            // checkForNewVersionToolStripMenuItem
+            // 
+            this.checkForNewVersionToolStripMenuItem.Name = "checkForNewVersionToolStripMenuItem";
+            this.checkForNewVersionToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.checkForNewVersionToolStripMenuItem.Text = "Check for new version ...";
+            this.checkForNewVersionToolStripMenuItem.Click += new System.EventHandler(this.checkForNewVersionToolStripMenuItem_Click);
+            // 
             // toolStripGlobalCommand
             // 
             this.toolStripGlobalCommand.BackColor = System.Drawing.SystemColors.Control;
@@ -592,20 +590,20 @@
             this.toolStripGlobalCommandStopMultiCommands});
             this.toolStripGlobalCommand.Location = new System.Drawing.Point(0, 77);
             this.toolStripGlobalCommand.Name = "toolStripGlobalCommand";
-            this.toolStripGlobalCommand.Size = new System.Drawing.Size(1187, 25);
+            this.toolStripGlobalCommand.Size = new System.Drawing.Size(1187, 27);
             this.toolStripGlobalCommand.TabIndex = 16;
             this.toolStripGlobalCommand.Text = "toolStrip1";
             // 
             // toolStripLabel7
             // 
             this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(142, 22);
+            this.toolStripLabel7.Size = new System.Drawing.Size(142, 24);
             this.toolStripLabel7.Text = "Multi Sessions Command";
             // 
             // toolStripGlobalCommandCommand
             // 
             this.toolStripGlobalCommandCommand.Name = "toolStripGlobalCommandCommand";
-            this.toolStripGlobalCommandCommand.Size = new System.Drawing.Size(400, 25);
+            this.toolStripGlobalCommandCommand.Size = new System.Drawing.Size(400, 27);
             this.toolStripGlobalCommandCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripGlobalCommandCommand_KeyPress);
             this.toolStripGlobalCommandCommand.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandCommand_MouseEnter);
             // 
@@ -618,7 +616,7 @@
             this.toolStripSeparator2});
             this.toolStripGlobalCommandSession.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandSession.Name = "toolStripGlobalCommandSession";
-            this.toolStripGlobalCommandSession.Size = new System.Drawing.Size(67, 22);
+            this.toolStripGlobalCommandSession.Size = new System.Drawing.Size(67, 24);
             this.toolStripGlobalCommandSession.Text = "Sessions";
             this.toolStripGlobalCommandSession.ButtonClick += new System.EventHandler(this.toolStripGlobalCommandSession_ButtonClick);
             this.toolStripGlobalCommandSession.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandSession_MouseEnter);
@@ -645,10 +643,10 @@
             // toolStripGlobalCommandRun
             // 
             this.toolStripGlobalCommandRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripGlobalCommandRun.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripGlobalCommandRun.Image = global::SessionManagement.Properties.Resources.RunThread;
             this.toolStripGlobalCommandRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandRun.Name = "toolStripGlobalCommandRun";
-            this.toolStripGlobalCommandRun.Size = new System.Drawing.Size(23, 22);
+            this.toolStripGlobalCommandRun.Size = new System.Drawing.Size(24, 24);
             this.toolStripGlobalCommandRun.ToolTipText = "Run Command";
             this.toolStripGlobalCommandRun.Click += new System.EventHandler(this.toolStripGlobalCommandRun_Click);
             this.toolStripGlobalCommandRun.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandRun_MouseEnter);
@@ -656,20 +654,20 @@
             // toolStripSeparatorStatus
             // 
             this.toolStripSeparatorStatus.Name = "toolStripSeparatorStatus";
-            this.toolStripSeparatorStatus.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparatorStatus.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripGlobalCommandStatus
             // 
             this.toolStripGlobalCommandStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripGlobalCommandStatus.Name = "toolStripGlobalCommandStatus";
-            this.toolStripGlobalCommandStatus.Size = new System.Drawing.Size(39, 22);
+            this.toolStripGlobalCommandStatus.Size = new System.Drawing.Size(39, 24);
             this.toolStripGlobalCommandStatus.Text = "Status";
             // 
             // toolStripGlobalCommandStopMultiCommands
             // 
             this.toolStripGlobalCommandStopMultiCommands.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandStopMultiCommands.Name = "toolStripGlobalCommandStopMultiCommands";
-            this.toolStripGlobalCommandStopMultiCommands.Size = new System.Drawing.Size(131, 22);
+            this.toolStripGlobalCommandStopMultiCommands.Size = new System.Drawing.Size(131, 24);
             this.toolStripGlobalCommandStopMultiCommands.Text = "Stop Multi Commands";
             this.toolStripGlobalCommandStopMultiCommands.Click += new System.EventHandler(this.toolStripGlobalCommandStopMultiCommands_Click);
             this.toolStripGlobalCommandStopMultiCommands.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandStopMultiCommands_MouseEnter);
@@ -909,10 +907,10 @@
             this.dockPanelMain.DockLeftPortion = 0.22D;
             this.dockPanelMain.DockRightPortion = 0.22D;
             this.dockPanelMain.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
-            this.dockPanelMain.Location = new System.Drawing.Point(0, 102);
+            this.dockPanelMain.Location = new System.Drawing.Point(0, 104);
             this.dockPanelMain.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanelMain.Name = "dockPanelMain";
-            this.dockPanelMain.Size = new System.Drawing.Size(1187, 427);
+            this.dockPanelMain.Size = new System.Drawing.Size(1187, 425);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -961,13 +959,6 @@
             this.dockPanelMain.Skin = dockPanelSkin1;
             this.dockPanelMain.TabIndex = 21;
             this.dockPanelMain.ActiveDocumentChanged += new System.EventHandler(this.dockPanelMain_ActiveDocumentChanged);
-            // 
-            // checkForNewVersionToolStripMenuItem
-            // 
-            this.checkForNewVersionToolStripMenuItem.Name = "checkForNewVersionToolStripMenuItem";
-            this.checkForNewVersionToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.checkForNewVersionToolStripMenuItem.Text = "Check for new version ...";
-            this.checkForNewVersionToolStripMenuItem.Click += new System.EventHandler(this.checkForNewVersionToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -1262,7 +1253,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromCsvFile;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromXmlFile;
         private System.Windows.Forms.ToolStripMenuItem checkForNewVersionToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

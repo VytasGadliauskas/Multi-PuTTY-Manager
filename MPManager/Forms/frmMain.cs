@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using SessionManagement.Properties;
 using WeifenLuo.WinFormsUI.Docking;
 using SessionManagement;
+using SessionManagement.Forms;
 
 namespace SessionManagement
 {
@@ -363,6 +364,9 @@ namespace SessionManagement
 				{
 					Process process = Process.Start(new ProcessStartInfo(Global.strWinSCPLocation)
 					{
+						// 
+						//  2024.09.09  Added sess.sessionPort to FTP/SFTP connection
+						//
 						Arguments = string.Concat(new string[]
 						{
 							type,
@@ -371,7 +375,7 @@ namespace SessionManagement
 							":",
 							sess.sftpPassword,
 							"@",
-							sess.sessionHost
+							sess.sessionHost+":"+sess.sessionPort
 						}),
 						UseShellExecute = false,
 						CreateNoWindow = true,
@@ -1781,6 +1785,23 @@ namespace SessionManagement
 			{
 				Logs.writeLog(" checkForNewVersionToolStripMenuItem_Click : "+ex.Message);
 			}
+        }
+
+        //// Vytas Gadliauskas added import from CSV file form <summary>
+
+        private void toolStripMenuItemImportFromCsvFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+				using (frmImportCsv frmImportCsv = new frmImportCsv()) { 
+				    frmImportCsv.ShowDialog();
+				}
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
         }
     }
 }

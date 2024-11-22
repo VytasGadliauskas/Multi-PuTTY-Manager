@@ -10,7 +10,7 @@ namespace SessionManagement
 {
     internal static class Updates
     {
-        public static string NewUpdateDownloadUrl(string urli)
+          public static string NewUpdateDownloadUrl(string urli)
         {
             using (WebClient client = new WebClient())
             {
@@ -27,7 +27,8 @@ namespace SessionManagement
                             {
                                 if (!Global.strAppVersion.Equals(words2[2].Trim()))
                                 {
-                                    return words[i + 34];
+                                   
+                                    return GetDownloadUrlFromUrl(value);
                                 }
                             }
                         }
@@ -36,5 +37,14 @@ namespace SessionManagement
                 return "";
             }
         }
+
+        private static string GetDownloadUrlFromUrl(string value) {
+              int indexStar = value.IndexOf("\"url\": \"") + 8;
+              string subst1 = value.Substring(indexStar);
+              int indexStop = subst1.IndexOf("\",");
+              string subst2 = subst1.Substring(0,indexStop);
+              return subst2;
+        } 
+
     }
 }
