@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 // Vytas Gadliauskas  2024.11.19  add import csv file form
@@ -56,7 +57,16 @@ namespace SessionManagement.Forms
                 if (int.Parse(Global.treeSessions.SelectedNode.Name) <= 0)
                 {
                     int error = 0;
+                    int progressStep = 1;
                     string[] lines = richTextBoxCsvFile.Lines;
+                    if (lines.Length >= 100)
+                    {
+                        progressStep = lines.Length / 100;
+                    }
+                    else 
+                    {
+                        progressStep = 100 / lines.Length;
+                    }
 
                     for (int i = 0; i < lines.Length; i++)
                     {
@@ -77,6 +87,9 @@ namespace SessionManagement.Forms
                     richTextBoxCsvFile.Text = "";
                     richTextBoxCsvFile.Lines = lines;
                     richTextBoxCsvFile.Text += ("\n\n\n ------------------------------------ \n Finished import, errors : " + error);
+                    richTextBoxCsvFile.SelectionStart = richTextBoxCsvFile.Text.Length;
+                    richTextBoxCsvFile.ScrollToCaret();
+
                     toolStripProgressBarImport.Value = 100;
                 }
                 else 
