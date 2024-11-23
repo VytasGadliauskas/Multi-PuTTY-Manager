@@ -125,6 +125,8 @@ namespace SessionManagement
                 }
                 catch (Exception ex)
                 {
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
                 }
             }
 			catch (Exception ex)
@@ -1803,5 +1805,6 @@ namespace SessionManagement
                 Logs.writeLog(ex.Message);
             }
         }
+
     }
 }

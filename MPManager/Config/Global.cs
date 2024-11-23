@@ -472,5 +472,11 @@ namespace SessionManagement
                 Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
             }
         }
+
+        // Vytas Gadliauskas  share treeView and treeNode between Forms  (Sessions and importCSV) 
+        public static TreeNode treeNodeSelected;
+		public static TreeView treeSessions;
+		public static ContextMenuStrip contextForFolder;
+		public static ContextMenuStrip contextForSession;
     }
 }

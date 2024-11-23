@@ -59,6 +59,7 @@
             this.mnuFileNewDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileOpenDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSaveAllDatabases = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemImportFromCsvFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnufileImportDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileCloseAllSessions = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,8 +81,6 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemPortScanner = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemImportFromCsvFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHomepage = new System.Windows.Forms.ToolStripMenuItem();
@@ -314,6 +313,7 @@
             this.mnuFileNewDatabase,
             this.mnuFileOpenDatabase,
             this.mnuSaveAllDatabases,
+            this.toolStripMenuItemImportFromCsvFile,
             this.mnufileImportDatabase,
             this.toolStripSeparator11,
             this.mnuFileCloseAllSessions,
@@ -344,6 +344,13 @@
             this.mnuSaveAllDatabases.Size = new System.Drawing.Size(235, 22);
             this.mnuSaveAllDatabases.Text = "Save all databases";
             this.mnuSaveAllDatabases.Click += new System.EventHandler(this.mnuSaveAllDatabases_Click);
+            // 
+            // toolStripMenuItemImportFromCsvFile
+            // 
+            this.toolStripMenuItemImportFromCsvFile.Name = "toolStripMenuItemImportFromCsvFile";
+            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(235, 22);
+            this.toolStripMenuItemImportFromCsvFile.Text = "Import sessions from CSV file";
+            this.toolStripMenuItemImportFromCsvFile.Click += new System.EventHandler(this.toolStripMenuItemImportFromCsvFile_Click);
             // 
             // mnufileImportDatabase
             // 
@@ -463,8 +470,7 @@
             this.mnuToolsOption,
             this.toolStripSeparator13,
             this.toolStripMenuItemPortScanner,
-            this.toolStripSeparator14,
-            this.toolStripMenuItem1});
+            this.toolStripSeparator14});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 19);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -513,21 +519,6 @@
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
             this.toolStripSeparator14.Size = new System.Drawing.Size(181, 6);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemImportFromCsvFile});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
-            this.toolStripMenuItem1.Text = "Import";
-            // 
-            // toolStripMenuItemImportFromCsvFile
-            // 
-            this.toolStripMenuItemImportFromCsvFile.Name = "toolStripMenuItemImportFromCsvFile";
-            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(145, 22);
-            this.toolStripMenuItemImportFromCsvFile.Text = "From CSV file";
-            this.toolStripMenuItemImportFromCsvFile.Click += new System.EventHandler(this.toolStripMenuItemImportFromCsvFile_Click);
             // 
             // mnuHelp
             // 
@@ -849,8 +840,8 @@
             this.toolStripMenuImportDatabase.Image = global::SessionManagement.Properties.Resources.Import;
             this.toolStripMenuImportDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuImportDatabase.Name = "toolStripMenuImportDatabase";
-            this.toolStripMenuImportDatabase.Size = new System.Drawing.Size(118, 24);
-            this.toolStripMenuImportDatabase.Text = "Import Database";
+            this.toolStripMenuImportDatabase.Size = new System.Drawing.Size(193, 24);
+            this.toolStripMenuImportDatabase.Text = "Import Database from XML file";
             this.toolStripMenuImportDatabase.ToolTipText = "Import database from XML file";
             this.toolStripMenuImportDatabase.Click += new System.EventHandler(this.toolStripMenuImportDatabase_Click);
             this.toolStripMenuImportDatabase.MouseEnter += new System.EventHandler(this.toolStripMenuImportDatabase_MouseEnter);
@@ -1251,9 +1242,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPortScanner;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromCsvFile;
         private System.Windows.Forms.ToolStripMenuItem checkForNewVersionToolStripMenuItem;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromCsvFile;
     }
 }

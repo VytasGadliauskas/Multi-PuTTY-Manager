@@ -99,6 +99,8 @@ namespace SessionManagement
 		private void treeSessions_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
 			this.treeSessions.SelectedNode = e.Node;
+			// Vytas Gadliauskas for sharing selected node between Forms
+			Global.treeNodeSelected = this.treeSessions.SelectedNode;
 		}
 
 		// Token: 0x060000F2 RID: 242 RVA: 0x0000E4F7 File Offset: 0x0000C6F7
@@ -403,7 +405,13 @@ namespace SessionManagement
 				this.expandTreeNode(treeNode);
 				this.treeSessions.SelectedNode = treeNode;
 				xmlTextReader.Close();
-			}
+
+                // Vytas Gadliauskas for sharing treeSerssions between Forms (Sessions and importCSV)  
+                Global.treeSessions = this.treeSessions;
+				Global.treeNodeSelected = treeNode;
+				Global.contextForFolder = this.contextForFolder;
+				Global.contextForSession = this.contextForSession;
+            }
 		}
 
 		// Token: 0x060000FF RID: 255 RVA: 0x0000ED24 File Offset: 0x0000CF24

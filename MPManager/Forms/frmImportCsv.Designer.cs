@@ -77,6 +77,7 @@
             // 
             // toolStripButtonImportCsvToNodeTree
             // 
+            this.toolStripButtonImportCsvToNodeTree.Enabled = false;
             this.toolStripButtonImportCsvToNodeTree.Image = global::SessionManagement.Properties.Resources.Import;
             this.toolStripButtonImportCsvToNodeTree.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonImportCsvToNodeTree.ImageTransparentColor = System.Drawing.Color.Magenta;
