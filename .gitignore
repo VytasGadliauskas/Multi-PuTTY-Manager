@@ -393,3 +393,4 @@ FodyWeavers.xsd
 /.vs/MPManager/FileContentIndex/dba84c29-7b1c-40f4-9054-d2bf1ea1773d.vsidx
 /.vs/MPManager/FileContentIndex/30b1e8ad-abc8-4f35-8f4e-0b1affa281d5.vsidx
 /.vs/MPManager/FileContentIndex/426bca9b-c940-4f38-aa4a-015d848fcf56.vsidx
+*.vsidx
