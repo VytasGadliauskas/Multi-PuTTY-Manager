@@ -1758,12 +1758,10 @@ namespace SessionManagement
         {
             try
             {
-                frmPortScanner frmPortscanner = new frmPortScanner();
-                frmPortscanner.Show(this.dockPanelMain, DockState.Document);
-                if (this.dockPanelMain.DocumentsCount > 0)
-                {
-                    this.dockPanelMain.ContextMenuStrip = this.contextForDocPanel;
-                }
+				using (frmPortScanner frmPortscanner = new frmPortScanner())
+				{
+					frmPortscanner.ShowDialog();
+				}
             }
             catch (Exception ex)
             {
@@ -1795,8 +1793,9 @@ namespace SessionManagement
         {
             try
             {
-				using (frmImportCsv frmImportCsv = new frmImportCsv()) { 
-				    frmImportCsv.ShowDialog();
+				using (frmImportCsv frmImportCsv = new frmImportCsv())
+				{
+					frmImportCsv.ShowDialog();
 				}
             }
             catch (Exception ex)
@@ -1806,5 +1805,45 @@ namespace SessionManagement
             }
         }
 
+		// Vytas Gadliauskas added import drop box
+        private void importDatabaseFromXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.fmSessionManager.openDatabase("xml");
+        }
+
+        // Vytas Gadliauskas added import drop box
+        private void imporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (frmImportCsv frmImportCsv = new frmImportCsv())
+                {
+                    frmImportCsv.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+
+		// Vytas Gadliauskas Macros Form
+
+        private void setupMacrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (frmMacros frmMacros = new frmMacros())
+                {
+                    frmMacros.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
     }
 }
