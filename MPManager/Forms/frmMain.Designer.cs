@@ -100,7 +100,6 @@
             this.toolStripGlobalCommandStatus = new System.Windows.Forms.ToolStripLabel();
             this.toolStripGlobalCommandStopMultiCommands = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButtonMacros = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripQuickConnect = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripQuickConnectProtocol = new System.Windows.Forms.ToolStripComboBox();
@@ -128,6 +127,7 @@
             this.statusBarStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.toolStripDropDownButtonMacros = new System.Windows.Forms.ToolStripDropDownButton();
             this.contextForDocPanel.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.toolStripGlobalCommand.SuspendLayout();
@@ -682,16 +682,6 @@
             this.toolStripSeparator15.Name = "toolStripSeparator15";
             this.toolStripSeparator15.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripDropDownButtonMacros
-            // 
-            this.toolStripDropDownButtonMacros.Image = global::SessionManagement.Properties.Resources.MacroShortcut;
-            this.toolStripDropDownButtonMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripDropDownButtonMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButtonMacros.Name = "toolStripDropDownButtonMacros";
-            this.toolStripDropDownButtonMacros.Size = new System.Drawing.Size(128, 24);
-            this.toolStripDropDownButtonMacros.Text = "Comand macros";
-            this.toolStripDropDownButtonMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // toolStripQuickConnect
             // 
             this.toolStripQuickConnect.BackColor = System.Drawing.SystemColors.Control;
@@ -995,6 +985,16 @@
             this.dockPanelMain.TabIndex = 21;
             this.dockPanelMain.ActiveDocumentChanged += new System.EventHandler(this.dockPanelMain_ActiveDocumentChanged);
             // 
+            // toolStripDropDownButtonMacros
+            // 
+            this.toolStripDropDownButtonMacros.Image = global::SessionManagement.Properties.Resources.MacroShortcut;
+            this.toolStripDropDownButtonMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButtonMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonMacros.Name = "toolStripDropDownButtonMacros";
+            this.toolStripDropDownButtonMacros.Size = new System.Drawing.Size(128, 24);
+            this.toolStripDropDownButtonMacros.Text = "Comand macros";
+            this.toolStripDropDownButtonMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1290,7 +1290,7 @@
         private System.Windows.Forms.ToolStripMenuItem importDatabaseFromXMLFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imporToolStripMenuItemCsvFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonMacros;
         private System.Windows.Forms.ToolStripMenuItem setupMacrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonMacros;
     }
 }

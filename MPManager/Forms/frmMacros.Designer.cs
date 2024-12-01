@@ -33,26 +33,25 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelTotalMacrosNumber = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonNewMacros = new System.Windows.Forms.ToolStripButton();
-            this.listBoxMacorsList = new System.Windows.Forms.ListBox();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.richTextBoxMacroItemEdit = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonUseMacros = new System.Windows.Forms.Button();
-            this.buttonSaveMacros = new System.Windows.Forms.Button();
-            this.buttonDeleteMacros = new System.Windows.Forms.Button();
-            this.textBoxMacrosName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStripMacrosList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteToolStripMenuItemMacrosDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.useMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.useMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteToolStripMenuItemMacrosDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxMacrosName = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSaveMacros = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDeleteMacros = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUseMacros = new System.Windows.Forms.ToolStripButton();
+            this.listBoxMacrosNames = new System.Windows.Forms.ListBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.richTextBoxMacrosCommands = new System.Windows.Forms.RichTextBox();
             this.statusStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.contextMenuStripMacrosList.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -78,125 +77,6 @@
             this.toolStripStatusLabelTotalMacrosNumber.Size = new System.Drawing.Size(13, 17);
             this.toolStripStatusLabelTotalMacrosNumber.Text = "0";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonNewMacros});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(881, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButtonNewMacros
-            // 
-            this.toolStripButtonNewMacros.Image = global::SessionManagement.Properties.Resources.NewWorkItem;
-            this.toolStripButtonNewMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonNewMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonNewMacros.Name = "toolStripButtonNewMacros";
-            this.toolStripButtonNewMacros.Size = new System.Drawing.Size(93, 22);
-            this.toolStripButtonNewMacros.Text = "New Macros";
-            this.toolStripButtonNewMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // listBoxMacorsList
-            // 
-            this.listBoxMacorsList.ContextMenuStrip = this.contextMenuStripMacrosList;
-            this.listBoxMacorsList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listBoxMacorsList.FormattingEnabled = true;
-            this.listBoxMacorsList.Items.AddRange(new object[] {
-            "ExampleMacrosAptPatch",
-            "asdfasfd",
-            "asdfsadsa",
-            "sadsadasdsa"});
-            this.listBoxMacorsList.Location = new System.Drawing.Point(0, 25);
-            this.listBoxMacorsList.Name = "listBoxMacorsList";
-            this.listBoxMacorsList.Size = new System.Drawing.Size(174, 434);
-            this.listBoxMacorsList.TabIndex = 2;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(174, 25);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 434);
-            this.splitter1.TabIndex = 3;
-            this.splitter1.TabStop = false;
-            // 
-            // richTextBoxMacroItemEdit
-            // 
-            this.richTextBoxMacroItemEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxMacroItemEdit.Location = new System.Drawing.Point(177, 25);
-            this.richTextBoxMacroItemEdit.Name = "richTextBoxMacroItemEdit";
-            this.richTextBoxMacroItemEdit.Size = new System.Drawing.Size(704, 434);
-            this.richTextBoxMacroItemEdit.TabIndex = 4;
-            this.richTextBoxMacroItemEdit.Text = "apt update; apt upgrade";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.buttonUseMacros);
-            this.panel1.Controls.Add(this.buttonSaveMacros);
-            this.panel1.Controls.Add(this.buttonDeleteMacros);
-            this.panel1.Controls.Add(this.textBoxMacrosName);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(177, 379);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(704, 80);
-            this.panel1.TabIndex = 5;
-            // 
-            // buttonUseMacros
-            // 
-            this.buttonUseMacros.Image = global::SessionManagement.Properties.Resources.UpdateScript;
-            this.buttonUseMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUseMacros.Location = new System.Drawing.Point(572, 24);
-            this.buttonUseMacros.Name = "buttonUseMacros";
-            this.buttonUseMacros.Size = new System.Drawing.Size(100, 23);
-            this.buttonUseMacros.TabIndex = 4;
-            this.buttonUseMacros.Text = "Use Macros";
-            this.buttonUseMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUseMacros.UseVisualStyleBackColor = true;
-            // 
-            // buttonSaveMacros
-            // 
-            this.buttonSaveMacros.Image = global::SessionManagement.Properties.Resources.Save;
-            this.buttonSaveMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveMacros.Location = new System.Drawing.Point(445, 24);
-            this.buttonSaveMacros.Name = "buttonSaveMacros";
-            this.buttonSaveMacros.Size = new System.Drawing.Size(103, 23);
-            this.buttonSaveMacros.TabIndex = 3;
-            this.buttonSaveMacros.Text = "Save Macros";
-            this.buttonSaveMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSaveMacros.UseVisualStyleBackColor = true;
-            this.buttonSaveMacros.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonDeleteMacros
-            // 
-            this.buttonDeleteMacros.Image = global::SessionManagement.Properties.Resources.DeleteTaskList;
-            this.buttonDeleteMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteMacros.Location = new System.Drawing.Point(310, 23);
-            this.buttonDeleteMacros.Name = "buttonDeleteMacros";
-            this.buttonDeleteMacros.Size = new System.Drawing.Size(104, 23);
-            this.buttonDeleteMacros.TabIndex = 2;
-            this.buttonDeleteMacros.Text = "Delete Macros";
-            this.buttonDeleteMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDeleteMacros.UseVisualStyleBackColor = true;
-            this.buttonDeleteMacros.Click += new System.EventHandler(this.buttonDeleteMacros_Click);
-            // 
-            // textBoxMacrosName
-            // 
-            this.textBoxMacrosName.Location = new System.Drawing.Point(97, 26);
-            this.textBoxMacrosName.Name = "textBoxMacrosName";
-            this.textBoxMacrosName.Size = new System.Drawing.Size(186, 20);
-            this.textBoxMacrosName.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Macros name";
-            // 
             // contextMenuStripMacrosList
             // 
             this.contextMenuStripMacrosList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -207,17 +87,14 @@
             this.contextMenuStripMacrosList.Name = "contextMenuStripMacrosList";
             this.contextMenuStripMacrosList.Size = new System.Drawing.Size(141, 76);
             // 
-            // deleteToolStripMenuItemMacrosDelete
+            // newMacrosToolStripMenuItem
             // 
-            this.deleteToolStripMenuItemMacrosDelete.Image = global::SessionManagement.Properties.Resources.DeleteTaskList;
-            this.deleteToolStripMenuItemMacrosDelete.Name = "deleteToolStripMenuItemMacrosDelete";
-            this.deleteToolStripMenuItemMacrosDelete.Size = new System.Drawing.Size(140, 22);
-            this.deleteToolStripMenuItemMacrosDelete.Text = "Delete";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
+            this.newMacrosToolStripMenuItem.Image = global::SessionManagement.Properties.Resources.NewWorkItem;
+            this.newMacrosToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.newMacrosToolStripMenuItem.Name = "newMacrosToolStripMenuItem";
+            this.newMacrosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.newMacrosToolStripMenuItem.Text = "New Macros";
+            this.newMacrosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // useMacrosToolStripMenuItem
             // 
@@ -228,37 +105,140 @@
             this.useMacrosToolStripMenuItem.Text = "Use Macros";
             this.useMacrosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // newMacrosToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.newMacrosToolStripMenuItem.Image = global::SessionManagement.Properties.Resources.NewWorkItem;
-            this.newMacrosToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.newMacrosToolStripMenuItem.Name = "newMacrosToolStripMenuItem";
-            this.newMacrosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.newMacrosToolStripMenuItem.Text = "New Macros";
-            this.newMacrosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
+            // 
+            // deleteToolStripMenuItemMacrosDelete
+            // 
+            this.deleteToolStripMenuItemMacrosDelete.Image = global::SessionManagement.Properties.Resources.DeleteTaskList;
+            this.deleteToolStripMenuItemMacrosDelete.Name = "deleteToolStripMenuItemMacrosDelete";
+            this.deleteToolStripMenuItemMacrosDelete.Size = new System.Drawing.Size(140, 22);
+            this.deleteToolStripMenuItemMacrosDelete.Text = "Delete";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripLabel1,
+            this.toolStripTextBoxMacrosName,
+            this.toolStripSeparator2,
+            this.toolStripButtonSaveMacros,
+            this.toolStripButtonDeleteMacros,
+            this.toolStripButtonUseMacros});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(881, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::SessionManagement.Properties.Resources.NewWorkItem;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(93, 22);
+            this.toolStripButton1.Text = "New Macros";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(85, 22);
+            this.toolStripLabel1.Text = "Macros name: ";
+            // 
+            // toolStripTextBoxMacrosName
+            // 
+            this.toolStripTextBoxMacrosName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxMacrosName.Name = "toolStripTextBoxMacrosName";
+            this.toolStripTextBoxMacrosName.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonSaveMacros
+            // 
+            this.toolStripButtonSaveMacros.Image = global::SessionManagement.Properties.Resources.Save;
+            this.toolStripButtonSaveMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonSaveMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveMacros.Name = "toolStripButtonSaveMacros";
+            this.toolStripButtonSaveMacros.Size = new System.Drawing.Size(93, 22);
+            this.toolStripButtonSaveMacros.Text = "Save Macros";
+            this.toolStripButtonSaveMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButtonSaveMacros.Click += new System.EventHandler(this.toolStripButtonSaveMacros_Click);
+            // 
+            // toolStripButtonDeleteMacros
+            // 
+            this.toolStripButtonDeleteMacros.Image = global::SessionManagement.Properties.Resources.DeleteTaskList;
+            this.toolStripButtonDeleteMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonDeleteMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDeleteMacros.Name = "toolStripButtonDeleteMacros";
+            this.toolStripButtonDeleteMacros.Size = new System.Drawing.Size(102, 22);
+            this.toolStripButtonDeleteMacros.Text = "Delete Macros";
+            this.toolStripButtonDeleteMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButtonDeleteMacros.Click += new System.EventHandler(this.toolStripButtonDeleteMacros_Click);
+            // 
+            // toolStripButtonUseMacros
+            // 
+            this.toolStripButtonUseMacros.Image = global::SessionManagement.Properties.Resources.MacroShortcut;
+            this.toolStripButtonUseMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUseMacros.Name = "toolStripButtonUseMacros";
+            this.toolStripButtonUseMacros.Size = new System.Drawing.Size(88, 22);
+            this.toolStripButtonUseMacros.Text = "Use Macros";
+            this.toolStripButtonUseMacros.Click += new System.EventHandler(this.toolStripButtonUseMacros_Click);
+            // 
+            // listBoxMacrosNames
+            // 
+            this.listBoxMacrosNames.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxMacrosNames.FormattingEnabled = true;
+            this.listBoxMacrosNames.Location = new System.Drawing.Point(0, 25);
+            this.listBoxMacrosNames.Name = "listBoxMacrosNames";
+            this.listBoxMacrosNames.Size = new System.Drawing.Size(145, 434);
+            this.listBoxMacrosNames.TabIndex = 6;
+            this.listBoxMacrosNames.Click += new System.EventHandler(this.listBoxMacrosNames_Click);
+            this.listBoxMacrosNames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxMacrosNames_MouseDoubleClick);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(145, 25);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 434);
+            this.splitter1.TabIndex = 7;
+            this.splitter1.TabStop = false;
+            // 
+            // richTextBoxMacrosCommands
+            // 
+            this.richTextBoxMacrosCommands.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxMacrosCommands.Location = new System.Drawing.Point(148, 25);
+            this.richTextBoxMacrosCommands.Name = "richTextBoxMacrosCommands";
+            this.richTextBoxMacrosCommands.Size = new System.Drawing.Size(733, 434);
+            this.richTextBoxMacrosCommands.TabIndex = 8;
+            this.richTextBoxMacrosCommands.Text = "";
             // 
             // frmMacros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 481);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.richTextBoxMacroItemEdit);
+            this.Controls.Add(this.richTextBoxMacrosCommands);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.listBoxMacorsList);
+            this.Controls.Add(this.listBoxMacrosNames);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMacros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Macros";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMacros_FormClosing);
+            this.Load += new System.EventHandler(this.frmMacros_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStripMacrosList.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.contextMenuStripMacrosList.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,23 +247,23 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ListBox listBoxMacorsList;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.RichTextBox richTextBoxMacroItemEdit;
-        private System.Windows.Forms.ToolStripButton toolStripButtonNewMacros;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonSaveMacros;
-        private System.Windows.Forms.Button buttonDeleteMacros;
-        private System.Windows.Forms.TextBox textBoxMacrosName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTotalMacrosNumber;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripMacrosList;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItemMacrosDelete;
-        private System.Windows.Forms.Button buttonUseMacros;
         private System.Windows.Forms.ToolStripMenuItem useMacrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem newMacrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxMacrosName;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSaveMacros;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDeleteMacros;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUseMacros;
+        private System.Windows.Forms.ListBox listBoxMacrosNames;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.RichTextBox richTextBoxMacrosCommands;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

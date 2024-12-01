@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\forms\\frmmacros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\mpmanager\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\mpmanager\\forms\\frmmacros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\forms\\frmmacros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\user\\source\\repos\\vytasgadliauskas\\multi-putty-manager\\mpmanager\\forms\\frmmacros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\mpmanager\\forms\\frmmacros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\forms\\frmmacros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,6 +28,20 @@
           "DockedWidth": 200,
           "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmMacros.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMacros.cs",
+              "RelativeDocumentMoniker": "MPManager\\Forms\\frmMacros.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMacros.cs",
+              "RelativeToolTip": "MPManager\\Forms\\frmMacros.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T19:34:28.913Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -38,27 +60,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmMacros.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMacros.cs",
-              "RelativeDocumentMoniker": "MPManager\\Forms\\frmMacros.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMacros.cs",
-              "RelativeToolTip": "MPManager\\Forms\\frmMacros.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAMwBoAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMain.cs",
+              "RelativeDocumentMoniker": "MPManager\\Forms\\frmMain.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMain.cs",
+              "RelativeToolTip": "MPManager\\Forms\\frmMain.cs",
+              "ViewState": "AgIAAEMHAAAAAAAAAAAiwGIHAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T03:24:40.905Z",
+              "WhenOpened": "2024-12-01T01:20:33.776Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMain.cs",
+              "RelativeDocumentMoniker": "MPManager\\Forms\\frmMain.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMain.cs [Design]",
+              "RelativeToolTip": "MPManager\\Forms\\frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T01:20:21.052Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "frmMacros.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMacros.cs",
               "RelativeDocumentMoniker": "MPManager\\Forms\\frmMacros.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\VytasGadliauskas\\Multi-PuTTY-Manager\\MPManager\\Forms\\frmMacros.cs [Design]",
               "RelativeToolTip": "MPManager\\Forms\\frmMacros.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T03:07:53.493Z",
+              "WhenOpened": "2024-11-27T19:33:39.777Z",
               "EditorCaption": " [Design]"
             }
           ]

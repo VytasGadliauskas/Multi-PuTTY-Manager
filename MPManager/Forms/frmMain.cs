@@ -15,6 +15,8 @@ using SessionManagement.Properties;
 using WeifenLuo.WinFormsUI.Docking;
 using SessionManagement;
 using SessionManagement.Forms;
+using SessionManagement.Operations;
+using SessionManagement.Data;
 
 namespace SessionManagement
 {
@@ -63,7 +65,6 @@ namespace SessionManagement
 		// Token: 0x0600000A RID: 10 RVA: 0x0000207C File Offset: 0x0000027C
 		private void frmMain_Load(object sender, EventArgs e)
 		{
-
 			Global.frmThis = this;
 			Global.arrPuttySessionsList = new ArrayList();
 			Global.arrAvailableSessions = new ArrayList();
@@ -128,6 +129,9 @@ namespace SessionManagement
                     // Vytas Gadliauskas added exception logging
                     Logs.writeLog(ex.Message);
                 }
+
+				//  Vytas Gadliauskas - Loading macroses to combobox
+				loadMacrosNamesToComboBox();
             }
 			catch (Exception ex)
 			{
@@ -136,8 +140,10 @@ namespace SessionManagement
             }
 		}
 
-		// Token: 0x0600000B RID: 11 RVA: 0x00002280 File Offset: 0x00000480
-		private void frmMain_Activated(object sender, EventArgs e)
+
+
+        // Token: 0x0600000B RID: 11 RVA: 0x00002280 File Offset: 0x00000480
+        private void frmMain_Activated(object sender, EventArgs e)
 		{
 			try
 			{
@@ -1836,7 +1842,13 @@ namespace SessionManagement
             {
                 using (frmMacros frmMacros = new frmMacros())
                 {
-                    frmMacros.ShowDialog();
+					frmMacros.toolStripComboBox = this.toolStripGlobalCommandCommand;
+
+                    if (frmMacros.ShowDialog() == DialogResult.OK) 
+					{
+
+					}
+					this.loadMacrosNamesToComboBox();
                 }
             }
             catch (Exception ex)
@@ -1844,6 +1856,37 @@ namespace SessionManagement
                 // Vytas Gadliauskas added exception logging
                 Logs.writeLog(ex.Message);
             }
+        }
+
+        //  Vytas Gadliauskas - Loading macroses to combobox
+		private void loadMacrosNamesToComboBox() 
+		{
+            try
+            {
+                MacrosOperations.loadMacrosFromXMLDatabase();
+                this.toolStripDropDownButtonMacros.DropDownItems.Clear();
+                foreach (Macros macros in MacrosOperations.macrosList.Values)
+                {
+                    ToolStripMenuItem toolStripMenuItem = new ToolStripMenuItem();
+                    toolStripMenuItem.Text = macros.name;
+                    toolStripMenuItem.Tag = macros.commands;
+                    toolStripMenuItem.Click += new EventHandler(MenuItemClickHandler);
+
+                    this.toolStripDropDownButtonMacros.DropDownItems.Add(toolStripMenuItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+
+        // Vytas Gadliauskas
+        private void MenuItemClickHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            this.toolStripGlobalCommandCommand.Text = clickedItem.Tag.ToString();
         }
     }
 }
