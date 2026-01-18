@@ -13,6 +13,10 @@ using System.Threading;
 using System.Windows.Forms;
 using SessionManagement.Properties;
 using WeifenLuo.WinFormsUI.Docking;
+using SessionManagement;
+using SessionManagement.Forms;
+using SessionManagement.Operations;
+using SessionManagement.Data;
 
 namespace SessionManagement
 {
@@ -61,7 +65,6 @@ namespace SessionManagement
 		// Token: 0x0600000A RID: 10 RVA: 0x0000207C File Offset: 0x0000027C
 		private void frmMain_Load(object sender, EventArgs e)
 		{
-
 			Global.frmThis = this;
 			Global.arrPuttySessionsList = new ArrayList();
 			Global.arrAvailableSessions = new ArrayList();
@@ -108,6 +111,27 @@ namespace SessionManagement
 				this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control, Keys.Tab);
 				this.hook.RegisterHotKey(SessionManagement.ModifierKeys.Control | SessionManagement.ModifierKeys.Shift, Keys.Tab);
 
+				//  Vytas Gadliauskas - Check of new application version on startup.
+                try
+                {
+                    string strDownloadUrl = Updates.NewUpdateDownloadUrl(Global.strUrl);
+					if (!"".Equals(strDownloadUrl))
+					{
+						using (FormUpdates formUpdates = new FormUpdates())
+						{
+							formUpdates.strDownloadUrl = strDownloadUrl;
+							formUpdates.ShowDialog();
+						}
+					}
+                }
+                catch (Exception ex)
+                {
+                    // Vytas Gadliauskas added exception logging
+                    Logs.writeLog(ex.Message);
+                }
+
+				//  Vytas Gadliauskas - Loading macroses to combobox
+				loadMacrosNamesToComboBox();
             }
 			catch (Exception ex)
 			{
@@ -116,8 +140,10 @@ namespace SessionManagement
             }
 		}
 
-		// Token: 0x0600000B RID: 11 RVA: 0x00002280 File Offset: 0x00000480
-		private void frmMain_Activated(object sender, EventArgs e)
+
+
+        // Token: 0x0600000B RID: 11 RVA: 0x00002280 File Offset: 0x00000480
+        private void frmMain_Activated(object sender, EventArgs e)
 		{
 			try
 			{
@@ -346,6 +372,9 @@ namespace SessionManagement
 				{
 					Process process = Process.Start(new ProcessStartInfo(Global.strWinSCPLocation)
 					{
+						// 
+						//  2024.09.09  Added sess.sessionPort to FTP/SFTP connection
+						//
 						Arguments = string.Concat(new string[]
 						{
 							type,
@@ -354,7 +383,7 @@ namespace SessionManagement
 							":",
 							sess.sftpPassword,
 							"@",
-							sess.sessionHost
+							sess.sessionHost+":"+sess.sessionPort
 						}),
 						UseShellExecute = false,
 						CreateNoWindow = true,
@@ -1735,11 +1764,67 @@ namespace SessionManagement
         {
             try
             {
-                frmPortScanner frmPortscanner = new frmPortScanner();
-                frmPortscanner.Show(this.dockPanelMain, DockState.Document);
-                if (this.dockPanelMain.DocumentsCount > 0)
+				using (frmPortScanner frmPortscanner = new frmPortScanner())
+				{
+					frmPortscanner.ShowDialog();
+				}
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+
+        private void checkForNewVersionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+                string strDownloadUrl = Updates.NewUpdateDownloadUrl(Global.strUrl);
+                using (FormUpdates formUpdates = new FormUpdates())
                 {
-                    this.dockPanelMain.ContextMenuStrip = this.contextForDocPanel;
+                   formUpdates.strDownloadUrl = strDownloadUrl;
+                   formUpdates.ShowDialog();
+                }
+			}
+			catch (Exception ex)
+			{
+				Logs.writeLog(" checkForNewVersionToolStripMenuItem_Click : "+ex.Message);
+			}
+        }
+
+        //// Vytas Gadliauskas added import from CSV file form <summary>
+
+        private void toolStripMenuItemImportFromCsvFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+				using (frmImportCsv frmImportCsv = new frmImportCsv())
+				{
+					frmImportCsv.ShowDialog();
+				}
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+
+		// Vytas Gadliauskas added import drop box
+        private void importDatabaseFromXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.fmSessionManager.openDatabase("xml");
+        }
+
+        // Vytas Gadliauskas added import drop box
+        private void imporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (frmImportCsv frmImportCsv = new frmImportCsv())
+                {
+                    frmImportCsv.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -1747,6 +1832,61 @@ namespace SessionManagement
                 // Vytas Gadliauskas added exception logging
                 Logs.writeLog(ex.Message);
             }
+        }
+
+		// Vytas Gadliauskas Macros Form
+
+        private void setupMacrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (frmMacros frmMacros = new frmMacros())
+                {
+					frmMacros.toolStripComboBox = this.toolStripGlobalCommandCommand;
+
+                    if (frmMacros.ShowDialog() == DialogResult.OK) 
+					{
+
+					}
+					this.loadMacrosNamesToComboBox();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+
+        //  Vytas Gadliauskas - Loading macroses to combobox
+		private void loadMacrosNamesToComboBox() 
+		{
+            try
+            {
+                MacrosOperations.loadMacrosFromXMLDatabase();
+                this.toolStripDropDownButtonMacros.DropDownItems.Clear();
+                foreach (Macros macros in MacrosOperations.macrosList.Values)
+                {
+                    ToolStripMenuItem toolStripMenuItem = new ToolStripMenuItem();
+                    toolStripMenuItem.Text = macros.name;
+                    toolStripMenuItem.Tag = macros.commands;
+                    toolStripMenuItem.Click += new EventHandler(MenuItemClickHandler);
+
+                    this.toolStripDropDownButtonMacros.DropDownItems.Add(toolStripMenuItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Vytas Gadliauskas added exception logging
+                Logs.writeLog(ex.Message);
+            }
+        }
+
+        // Vytas Gadliauskas
+        private void MenuItemClickHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            this.toolStripGlobalCommandCommand.Text = clickedItem.Tag.ToString();
         }
     }
 }

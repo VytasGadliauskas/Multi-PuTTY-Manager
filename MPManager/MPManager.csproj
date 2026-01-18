@@ -65,13 +65,41 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
@@ -86,82 +114,103 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AESoperations.cs" />
-    <Compile Include="frmDatabaseProperties.cs">
+    <Compile Include="Data\Macros.cs" />
+    <Compile Include="Data\SourceForgeRelease.cs" />
+    <Compile Include="Forms\frmImportCsv.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDatabaseProperties.Designer.cs">
+    <Compile Include="Forms\frmImportCsv.Designer.cs">
+      <DependentUpon>frmImportCsv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMacros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMacros.Designer.cs">
+      <DependentUpon>frmMacros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operations\AESoperations.cs" />
+    <Compile Include="Forms\frmUpdates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUpdates.Designer.cs">
+      <DependentUpon>frmUpdates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDatabaseProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDatabaseProperties.Designer.cs">
       <DependentUpon>frmDatabaseProperties.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHelpAbout.cs">
+    <Compile Include="Forms\frmHelpAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHelpAbout.Designer.cs">
+    <Compile Include="Forms\frmHelpAbout.Designer.cs">
       <DependentUpon>frmHelpAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMultiCommands.cs">
+    <Compile Include="Forms\frmMultiCommands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMultiCommands.Designer.cs">
+    <Compile Include="Forms\frmMultiCommands.Designer.cs">
       <DependentUpon>frmMultiCommands.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUnLockPasswordForm.cs">
+    <Compile Include="Forms\frmUnLockPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUnLockPasswordForm.Designer.cs">
+    <Compile Include="Forms\frmUnLockPasswordForm.Designer.cs">
       <DependentUpon>frmUnLockPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOptions.cs">
+    <Compile Include="Forms\frmOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOptions.Designer.cs">
+    <Compile Include="Forms\frmOptions.Designer.cs">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPutty.cs">
+    <Compile Include="Forms\frmPutty.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPutty.Designer.cs">
+    <Compile Include="Forms\frmPutty.Designer.cs">
       <DependentUpon>frmPutty.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPuttySessions.cs">
+    <Compile Include="Forms\frmPuttySessions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPuttySessions.Designer.cs">
+    <Compile Include="Forms\frmPuttySessions.Designer.cs">
       <DependentUpon>frmPuttySessions.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSession.cs">
+    <Compile Include="Forms\frmSession.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSession.Designer.cs">
+    <Compile Include="Forms\frmSession.Designer.cs">
       <DependentUpon>frmSession.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSessionManager.cs">
+    <Compile Include="Forms\frmSessionManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSessionManager.Designer.cs">
+    <Compile Include="Forms\frmSessionManager.Designer.cs">
       <DependentUpon>frmSessionManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs" />
-    <Compile Include="KeyboardHook.cs" />
-    <Compile Include="KeyPressedEventArgs.cs" />
-    <Compile Include="Logs.cs" />
-    <Compile Include="ModifierKeys.cs" />
-    <Compile Include="frmPasswordForm.cs">
+    <Compile Include="Config\Global.cs" />
+    <Compile Include="Operations\KeyboardHook.cs" />
+    <Compile Include="Operations\KeyPressedEventArgs.cs" />
+    <Compile Include="Operations\Logs.cs" />
+    <Compile Include="Operations\MacrosOperations.cs" />
+    <Compile Include="Operations\ModifierKeys.cs" />
+    <Compile Include="Forms\frmPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPasswordForm.Designer.cs">
+    <Compile Include="Forms\frmPasswordForm.Designer.cs">
       <DependentUpon>frmPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPortScanner.cs">
+    <Compile Include="Forms\frmPortScanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPortScanner.Designer.cs">
+    <Compile Include="Forms\frmPortScanner.Designer.cs">
       <DependentUpon>frmPortScanner.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -176,46 +225,56 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PuttySession.cs" />
-    <Compile Include="Session.cs" />
-    <Compile Include="XWindows.cs" />
+    <Compile Include="Data\PuttySession.cs" />
+    <Compile Include="Data\Session.cs" />
+    <Compile Include="Operations\Updates.cs" />
+    <Compile Include="Operations\XWindows.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmDatabaseProperties.resx">
+    <EmbeddedResource Include="Forms\frmDatabaseProperties.resx">
       <DependentUpon>frmDatabaseProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHelpAbout.resx">
+    <EmbeddedResource Include="Forms\frmHelpAbout.resx">
       <DependentUpon>frmHelpAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPuttySessions.resx">
+    <EmbeddedResource Include="Forms\frmImportCsv.resx">
+      <DependentUpon>frmImportCsv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMacros.resx">
+      <DependentUpon>frmMacros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPuttySessions.resx">
       <DependentUpon>frmPuttySessions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUnLockPasswordForm.resx">
+    <EmbeddedResource Include="Forms\frmUnLockPasswordForm.resx">
       <DependentUpon>frmUnLockPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOptions.resx">
+    <EmbeddedResource Include="Forms\frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSession.resx">
+    <EmbeddedResource Include="Forms\frmSession.resx">
       <DependentUpon>frmSession.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPortScanner.resx">
+    <EmbeddedResource Include="Forms\frmPortScanner.resx">
       <DependentUpon>frmPortScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUpdates.resx">
+      <DependentUpon>frmUpdates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="frmMain.resx">
+    <None Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </None>
     <EmbeddedResource Include="frmMain.resources" />
     <EmbeddedResource Include="frmMultiCommands.resources" />
-    <EmbeddedResource Include="frmPasswordForm.resx">
+    <EmbeddedResource Include="Forms\frmPasswordForm.resx">
       <DependentUpon>frmPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSessionManager.resx">
+    <EmbeddedResource Include="Forms\frmSessionManager.resx">
       <DependentUpon>frmSessionManager.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -223,6 +282,7 @@
     <None Include="app.manifest" />
     <None Include="MPManager_1_TemporaryKey.pfx" />
     <None Include="MPManager_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -260,8 +320,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MPManager.ico" />
+    <None Include="Resources\UpdateScript.png" />
+    <None Include="Resources\Save2.png" />
+    <None Include="Resources\DeleteTaskList.png" />
+    <None Include="Resources\NewWorkItem.png" />
+    <None Include="Resources\MacroShortcut.png" />
+    <None Include="Resources\RunThread.png" />
     <None Include="Resources\ResetView.png" />
     <None Include="Resources\Search.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

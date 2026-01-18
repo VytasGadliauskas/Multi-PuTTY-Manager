@@ -420,6 +420,8 @@ namespace SessionManagement
         ////////////////////// Vytas Gadliauskas added global variables
         public static string strVcXsrvLocation;              // XWindows
         public static SecureString strDatabasePassword = new SecureString();      // Password inputed by user to enscript/descipt
+		public static string strUrl = "https://sourceforge.net/projects/multi-putty-manager-secure//best_release.json";
+		public static string strAppVersion = "2.0.4.zip";     
 
 		public static string DatabasePassword
 		{
@@ -470,5 +472,11 @@ namespace SessionManagement
                 Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
             }
         }
+
+        // Vytas Gadliauskas  share treeView and treeNode between Forms  (Sessions and importCSV) 
+        public static TreeNode treeNodeSelected;
+		public static TreeView treeSessions;
+		public static ContextMenuStrip contextForFolder;
+		public static ContextMenuStrip contextForSession;
     }
 }

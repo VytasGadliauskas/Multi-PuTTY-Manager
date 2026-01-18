@@ -59,6 +59,7 @@
             this.mnuFileNewDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileOpenDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSaveAllDatabases = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemImportFromCsvFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnufileImportDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileCloseAllSessions = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,14 +81,13 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemPortScanner = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemImportFromCsvFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemImportFromXmlFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpHomepage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForNewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripGlobalCommand = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripGlobalCommandCommand = new System.Windows.Forms.ToolStripComboBox();
@@ -99,6 +99,7 @@
             this.toolStripSeparatorStatus = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripGlobalCommandStatus = new System.Windows.Forms.ToolStripLabel();
             this.toolStripGlobalCommandStopMultiCommands = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripQuickConnect = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripQuickConnectProtocol = new System.Windows.Forms.ToolStripComboBox();
@@ -116,13 +117,17 @@
             this.toolStripMenuOpenDatabase = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenuSaveDatabase = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuImportDatabase = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.importDatabaseFromXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imporToolStripMenuItemCsvFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuDisconnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonLock = new System.Windows.Forms.ToolStripButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.toolStripDropDownButtonMacros = new System.Windows.Forms.ToolStripDropDownButton();
             this.contextForDocPanel.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.toolStripGlobalCommand.SuspendLayout();
@@ -313,6 +318,7 @@
             this.mnuFileNewDatabase,
             this.mnuFileOpenDatabase,
             this.mnuSaveAllDatabases,
+            this.toolStripMenuItemImportFromCsvFile,
             this.mnufileImportDatabase,
             this.toolStripSeparator11,
             this.mnuFileCloseAllSessions,
@@ -343,6 +349,13 @@
             this.mnuSaveAllDatabases.Size = new System.Drawing.Size(235, 22);
             this.mnuSaveAllDatabases.Text = "Save all databases";
             this.mnuSaveAllDatabases.Click += new System.EventHandler(this.mnuSaveAllDatabases_Click);
+            // 
+            // toolStripMenuItemImportFromCsvFile
+            // 
+            this.toolStripMenuItemImportFromCsvFile.Name = "toolStripMenuItemImportFromCsvFile";
+            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(235, 22);
+            this.toolStripMenuItemImportFromCsvFile.Text = "Import sessions from CSV file";
+            this.toolStripMenuItemImportFromCsvFile.Click += new System.EventHandler(this.toolStripMenuItemImportFromCsvFile_Click);
             // 
             // mnufileImportDatabase
             // 
@@ -463,7 +476,7 @@
             this.toolStripSeparator13,
             this.toolStripMenuItemPortScanner,
             this.toolStripSeparator14,
-            this.toolStripMenuItem1});
+            this.setupMacrosToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 19);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -502,7 +515,6 @@
             // 
             // toolStripMenuItemPortScanner
             // 
-            this.toolStripMenuItemPortScanner.Enabled = false;
             this.toolStripMenuItemPortScanner.Name = "toolStripMenuItemPortScanner";
             this.toolStripMenuItemPortScanner.Size = new System.Drawing.Size(184, 22);
             this.toolStripMenuItemPortScanner.Text = "Port Scanner";
@@ -513,29 +525,12 @@
             this.toolStripSeparator14.Name = "toolStripSeparator14";
             this.toolStripSeparator14.Size = new System.Drawing.Size(181, 6);
             // 
-            // toolStripMenuItem1
+            // setupMacrosToolStripMenuItem
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemImportFromCsvFile,
-            this.toolStripMenuItemImportFromXmlFile});
-            this.toolStripMenuItem1.Enabled = false;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
-            this.toolStripMenuItem1.Text = "Import";
-            // 
-            // toolStripMenuItemImportFromCsvFile
-            // 
-            this.toolStripMenuItemImportFromCsvFile.Enabled = false;
-            this.toolStripMenuItemImportFromCsvFile.Name = "toolStripMenuItemImportFromCsvFile";
-            this.toolStripMenuItemImportFromCsvFile.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItemImportFromCsvFile.Text = "From CSV file";
-            // 
-            // toolStripMenuItemImportFromXmlFile
-            // 
-            this.toolStripMenuItemImportFromXmlFile.Enabled = false;
-            this.toolStripMenuItemImportFromXmlFile.Name = "toolStripMenuItemImportFromXmlFile";
-            this.toolStripMenuItemImportFromXmlFile.Size = new System.Drawing.Size(216, 22);
-            this.toolStripMenuItemImportFromXmlFile.Text = "From MPManager XML file";
+            this.setupMacrosToolStripMenuItem.Name = "setupMacrosToolStripMenuItem";
+            this.setupMacrosToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.setupMacrosToolStripMenuItem.Text = "Setup Macros";
+            this.setupMacrosToolStripMenuItem.Click += new System.EventHandler(this.setupMacrosToolStripMenuItem_Click);
             // 
             // mnuHelp
             // 
@@ -543,7 +538,8 @@
             this.mnuHelpHelp,
             this.mnuHelpHomepage,
             this.toolStripSeparator4,
-            this.mnuHelpAbout});
+            this.mnuHelpAbout,
+            this.checkForNewVersionToolStripMenuItem});
             this.mnuHelp.Name = "mnuHelp";
             this.mnuHelp.Size = new System.Drawing.Size(44, 19);
             this.mnuHelp.Text = "Help";
@@ -552,28 +548,35 @@
             // mnuHelpHelp
             // 
             this.mnuHelpHelp.Name = "mnuHelpHelp";
-            this.mnuHelpHelp.Size = new System.Drawing.Size(133, 22);
+            this.mnuHelpHelp.Size = new System.Drawing.Size(203, 22);
             this.mnuHelpHelp.Text = "Help";
             this.mnuHelpHelp.Click += new System.EventHandler(this.mnuHelpHelp_Click);
             // 
             // mnuHelpHomepage
             // 
             this.mnuHelpHomepage.Name = "mnuHelpHomepage";
-            this.mnuHelpHomepage.Size = new System.Drawing.Size(133, 22);
+            this.mnuHelpHomepage.Size = new System.Drawing.Size(203, 22);
             this.mnuHelpHomepage.Text = "Homepage";
             this.mnuHelpHomepage.Click += new System.EventHandler(this.mnuHelpHomepage_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(200, 6);
             // 
             // mnuHelpAbout
             // 
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(133, 22);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(203, 22);
             this.mnuHelpAbout.Text = "About...";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
+            // 
+            // checkForNewVersionToolStripMenuItem
+            // 
+            this.checkForNewVersionToolStripMenuItem.Name = "checkForNewVersionToolStripMenuItem";
+            this.checkForNewVersionToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.checkForNewVersionToolStripMenuItem.Text = "Check for new version ...";
+            this.checkForNewVersionToolStripMenuItem.Click += new System.EventHandler(this.checkForNewVersionToolStripMenuItem_Click);
             // 
             // toolStripGlobalCommand
             // 
@@ -587,23 +590,25 @@
             this.toolStripGlobalCommandRun,
             this.toolStripSeparatorStatus,
             this.toolStripGlobalCommandStatus,
-            this.toolStripGlobalCommandStopMultiCommands});
+            this.toolStripGlobalCommandStopMultiCommands,
+            this.toolStripSeparator15,
+            this.toolStripDropDownButtonMacros});
             this.toolStripGlobalCommand.Location = new System.Drawing.Point(0, 77);
             this.toolStripGlobalCommand.Name = "toolStripGlobalCommand";
-            this.toolStripGlobalCommand.Size = new System.Drawing.Size(1187, 25);
+            this.toolStripGlobalCommand.Size = new System.Drawing.Size(1187, 27);
             this.toolStripGlobalCommand.TabIndex = 16;
             this.toolStripGlobalCommand.Text = "toolStrip1";
             // 
             // toolStripLabel7
             // 
             this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(142, 22);
+            this.toolStripLabel7.Size = new System.Drawing.Size(142, 24);
             this.toolStripLabel7.Text = "Multi Sessions Command";
             // 
             // toolStripGlobalCommandCommand
             // 
             this.toolStripGlobalCommandCommand.Name = "toolStripGlobalCommandCommand";
-            this.toolStripGlobalCommandCommand.Size = new System.Drawing.Size(400, 25);
+            this.toolStripGlobalCommandCommand.Size = new System.Drawing.Size(400, 27);
             this.toolStripGlobalCommandCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripGlobalCommandCommand_KeyPress);
             this.toolStripGlobalCommandCommand.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandCommand_MouseEnter);
             // 
@@ -616,7 +621,7 @@
             this.toolStripSeparator2});
             this.toolStripGlobalCommandSession.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandSession.Name = "toolStripGlobalCommandSession";
-            this.toolStripGlobalCommandSession.Size = new System.Drawing.Size(67, 22);
+            this.toolStripGlobalCommandSession.Size = new System.Drawing.Size(67, 24);
             this.toolStripGlobalCommandSession.Text = "Sessions";
             this.toolStripGlobalCommandSession.ButtonClick += new System.EventHandler(this.toolStripGlobalCommandSession_ButtonClick);
             this.toolStripGlobalCommandSession.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandSession_MouseEnter);
@@ -643,10 +648,10 @@
             // toolStripGlobalCommandRun
             // 
             this.toolStripGlobalCommandRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripGlobalCommandRun.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripGlobalCommandRun.Image = global::SessionManagement.Properties.Resources.RunThread;
             this.toolStripGlobalCommandRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandRun.Name = "toolStripGlobalCommandRun";
-            this.toolStripGlobalCommandRun.Size = new System.Drawing.Size(23, 22);
+            this.toolStripGlobalCommandRun.Size = new System.Drawing.Size(24, 24);
             this.toolStripGlobalCommandRun.ToolTipText = "Run Command";
             this.toolStripGlobalCommandRun.Click += new System.EventHandler(this.toolStripGlobalCommandRun_Click);
             this.toolStripGlobalCommandRun.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandRun_MouseEnter);
@@ -654,23 +659,28 @@
             // toolStripSeparatorStatus
             // 
             this.toolStripSeparatorStatus.Name = "toolStripSeparatorStatus";
-            this.toolStripSeparatorStatus.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparatorStatus.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripGlobalCommandStatus
             // 
             this.toolStripGlobalCommandStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripGlobalCommandStatus.Name = "toolStripGlobalCommandStatus";
-            this.toolStripGlobalCommandStatus.Size = new System.Drawing.Size(39, 22);
+            this.toolStripGlobalCommandStatus.Size = new System.Drawing.Size(39, 24);
             this.toolStripGlobalCommandStatus.Text = "Status";
             // 
             // toolStripGlobalCommandStopMultiCommands
             // 
             this.toolStripGlobalCommandStopMultiCommands.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGlobalCommandStopMultiCommands.Name = "toolStripGlobalCommandStopMultiCommands";
-            this.toolStripGlobalCommandStopMultiCommands.Size = new System.Drawing.Size(131, 22);
+            this.toolStripGlobalCommandStopMultiCommands.Size = new System.Drawing.Size(131, 24);
             this.toolStripGlobalCommandStopMultiCommands.Text = "Stop Multi Commands";
             this.toolStripGlobalCommandStopMultiCommands.Click += new System.EventHandler(this.toolStripGlobalCommandStopMultiCommands_Click);
             this.toolStripGlobalCommandStopMultiCommands.MouseEnter += new System.EventHandler(this.toolStripGlobalCommandStopMultiCommands_MouseEnter);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripQuickConnect
             // 
@@ -794,7 +804,7 @@
             this.toolStripMenuOpenDatabase,
             this.toolStripMenuSaveDatabase,
             this.toolStripSeparator,
-            this.toolStripMenuImportDatabase,
+            this.toolStripDropDownButton1,
             this.toolStripMenuDisconnect,
             this.toolStripSeparator12,
             this.toolStripButtonLock});
@@ -843,17 +853,32 @@
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripMenuImportDatabase
+            // toolStripDropDownButton1
             // 
-            this.toolStripMenuImportDatabase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolStripMenuImportDatabase.Image = global::SessionManagement.Properties.Resources.Import;
-            this.toolStripMenuImportDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuImportDatabase.Name = "toolStripMenuImportDatabase";
-            this.toolStripMenuImportDatabase.Size = new System.Drawing.Size(118, 24);
-            this.toolStripMenuImportDatabase.Text = "Import Database";
-            this.toolStripMenuImportDatabase.ToolTipText = "Import database from XML file";
-            this.toolStripMenuImportDatabase.Click += new System.EventHandler(this.toolStripMenuImportDatabase_Click);
-            this.toolStripMenuImportDatabase.MouseEnter += new System.EventHandler(this.toolStripMenuImportDatabase_MouseEnter);
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importDatabaseFromXMLFileToolStripMenuItem,
+            this.imporToolStripMenuItemCsvFile});
+            this.toolStripDropDownButton1.Image = global::SessionManagement.Properties.Resources.Import;
+            this.toolStripDropDownButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(76, 24);
+            this.toolStripDropDownButton1.Text = "Import";
+            this.toolStripDropDownButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // importDatabaseFromXMLFileToolStripMenuItem
+            // 
+            this.importDatabaseFromXMLFileToolStripMenuItem.Name = "importDatabaseFromXMLFileToolStripMenuItem";
+            this.importDatabaseFromXMLFileToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.importDatabaseFromXMLFileToolStripMenuItem.Text = "Import database from XML file";
+            this.importDatabaseFromXMLFileToolStripMenuItem.Click += new System.EventHandler(this.importDatabaseFromXMLFileToolStripMenuItem_Click);
+            // 
+            // imporToolStripMenuItemCsvFile
+            // 
+            this.imporToolStripMenuItemCsvFile.Name = "imporToolStripMenuItemCsvFile";
+            this.imporToolStripMenuItemCsvFile.Size = new System.Drawing.Size(235, 22);
+            this.imporToolStripMenuItemCsvFile.Text = "Import sessions from CSV file";
+            this.imporToolStripMenuItemCsvFile.Click += new System.EventHandler(this.imporToolStripMenuItem_Click);
             // 
             // toolStripMenuDisconnect
             // 
@@ -907,10 +932,10 @@
             this.dockPanelMain.DockLeftPortion = 0.22D;
             this.dockPanelMain.DockRightPortion = 0.22D;
             this.dockPanelMain.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
-            this.dockPanelMain.Location = new System.Drawing.Point(0, 102);
+            this.dockPanelMain.Location = new System.Drawing.Point(0, 104);
             this.dockPanelMain.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanelMain.Name = "dockPanelMain";
-            this.dockPanelMain.Size = new System.Drawing.Size(1187, 427);
+            this.dockPanelMain.Size = new System.Drawing.Size(1187, 425);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -959,6 +984,16 @@
             this.dockPanelMain.Skin = dockPanelSkin1;
             this.dockPanelMain.TabIndex = 21;
             this.dockPanelMain.ActiveDocumentChanged += new System.EventHandler(this.dockPanelMain_ActiveDocumentChanged);
+            // 
+            // toolStripDropDownButtonMacros
+            // 
+            this.toolStripDropDownButtonMacros.Image = global::SessionManagement.Properties.Resources.MacroShortcut;
+            this.toolStripDropDownButtonMacros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButtonMacros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonMacros.Name = "toolStripDropDownButtonMacros";
+            this.toolStripDropDownButtonMacros.Size = new System.Drawing.Size(128, 24);
+            this.toolStripDropDownButtonMacros.Text = "Comand macros";
+            this.toolStripDropDownButtonMacros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmMain
             // 
@@ -1210,9 +1245,6 @@
 		// Token: 0x04000055 RID: 85
 		private global::System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
 
-		// Token: 0x04000056 RID: 86
-		private global::System.Windows.Forms.ToolStripButton toolStripMenuImportDatabase;
-
 		// Token: 0x04000057 RID: 87
 		private global::System.Windows.Forms.ToolStripMenuItem mnuToolsPuTTYSessions;
 
@@ -1251,8 +1283,14 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPortScanner;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem checkForNewVersionToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromCsvFile;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImportFromXmlFile;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem importDatabaseFromXMLFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imporToolStripMenuItemCsvFile;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripMenuItem setupMacrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonMacros;
     }
 }
