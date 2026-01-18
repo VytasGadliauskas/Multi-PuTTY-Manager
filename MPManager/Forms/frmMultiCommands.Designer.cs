@@ -176,7 +176,6 @@
 			base.Controls.Add(this.groupBox1);
 			this.Font = new global::System.Drawing.Font("Segoe UI", 9.75f, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point, 0);
 			base.FormBorderStyle = global::System.Windows.Forms.FormBorderStyle.FixedSingle;
-			base.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
 			base.MaximizeBox = false;
 			base.MinimizeBox = false;
 			base.Name = "frmMultiCommands";

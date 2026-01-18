@@ -59,5 +59,17 @@ namespace SessionManagement
         {
             boolAllowClose = true;
         }
+
+        private void btShowPassword_Click(object sender, EventArgs e)
+        {
+            if (this.textBoxDBPassword.PasswordChar == '*')
+            {
+                this.textBoxDBPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                this.textBoxDBPassword.PasswordChar = '*';
+            }
+        }
     }
 }

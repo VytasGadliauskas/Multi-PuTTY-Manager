@@ -25,13 +25,25 @@ namespace SessionManagement
         {
             if (textBoxPassword.Text.Length >= 8)
             {
-                Global.DatabasePassword = textBoxPassword.Text;
-                this.Close();
+                if (textBoxPassword.Text == textBoxPasswordRepeat.Text)
+                {
+                    Global.DatabasePassword = textBoxPassword.Text;
+                    this.Close();
+                }
+                else 
+                {
+                    label2.ForeColor = Color.Red;
+                }     
             }
             else 
             {
                 label1.ForeColor = Color.Red;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

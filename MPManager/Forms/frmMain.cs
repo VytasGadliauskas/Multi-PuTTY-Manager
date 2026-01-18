@@ -130,8 +130,7 @@ namespace SessionManagement
                     Logs.writeLog(ex.Message);
                 }
 
-				//  Vytas Gadliauskas - Loading macroses to combobox
-				loadMacrosNamesToComboBox();
+
             }
 			catch (Exception ex)
 			{
@@ -1840,15 +1839,12 @@ namespace SessionManagement
         {
             try
             {
-                using (frmMacros frmMacros = new frmMacros())
+                using (frmMultiCommands frmMCommands = new frmMultiCommands())
                 {
-					frmMacros.toolStripComboBox = this.toolStripGlobalCommandCommand;
-
-                    if (frmMacros.ShowDialog() == DialogResult.OK) 
-					{
-
-					}
-					this.loadMacrosNamesToComboBox();
+                    new frmMultiCommands
+                    {
+                        runMultiCommands = new frmMultiCommands.RunMultiCommands(this.runMultiCommandsOnMultiSessions)
+                    }.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -1858,31 +1854,7 @@ namespace SessionManagement
             }
         }
 
-        //  Vytas Gadliauskas - Loading macroses to combobox
-		private void loadMacrosNamesToComboBox() 
-		{
-            try
-            {
-                MacrosOperations.loadMacrosFromXMLDatabase();
-                this.toolStripDropDownButtonMacros.DropDownItems.Clear();
-                foreach (Macros macros in MacrosOperations.macrosList.Values)
-                {
-                    ToolStripMenuItem toolStripMenuItem = new ToolStripMenuItem();
-                    toolStripMenuItem.Text = macros.name;
-                    toolStripMenuItem.Tag = macros.commands;
-                    toolStripMenuItem.Click += new EventHandler(MenuItemClickHandler);
 
-                    this.toolStripDropDownButtonMacros.DropDownItems.Add(toolStripMenuItem);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Vytas Gadliauskas added exception logging
-                Logs.writeLog(ex.Message);
-            }
-        }
-
-        // Vytas Gadliauskas
         private void MenuItemClickHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;

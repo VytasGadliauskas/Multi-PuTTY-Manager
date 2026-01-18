@@ -30,41 +30,52 @@ namespace SessionManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPortScanner));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.maskedTextBoxStopIP = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxStartIP = new System.Windows.Forms.MaskedTextBox();
-            this.buttonAddSessions = new System.Windows.Forms.Button();
+            this.maskedTextBoxEnd = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.buttonScann = new System.Windows.Forms.Button();
             this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridViewScanTable = new System.Windows.Forms.DataGridView();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Host = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Protocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Port = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UseSshKey = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAddSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScanTable)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.maskedTextBoxStopIP);
-            this.panel1.Controls.Add(this.maskedTextBoxStartIP);
-            this.panel1.Controls.Add(this.buttonAddSessions);
+            this.panel1.Controls.Add(this.maskedTextBoxEnd);
+            this.panel1.Controls.Add(this.maskedTextBox7);
+            this.panel1.Controls.Add(this.maskedTextBox6);
+            this.panel1.Controls.Add(this.maskedTextBox5);
+            this.panel1.Controls.Add(this.maskedTextBox4);
+            this.panel1.Controls.Add(this.maskedTextBox3);
+            this.panel1.Controls.Add(this.maskedTextBox2);
+            this.panel1.Controls.Add(this.maskedTextBox1);
             this.panel1.Controls.Add(this.buttonScann);
             this.panel1.Controls.Add(this.numericUpDownPort);
             this.panel1.Controls.Add(this.label3);
@@ -73,51 +84,100 @@ namespace SessionManagement
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 92);
+            this.panel1.Size = new System.Drawing.Size(567, 92);
             this.panel1.TabIndex = 0;
             // 
-            // maskedTextBoxStopIP
+            // maskedTextBoxEnd
             // 
-            this.maskedTextBoxStopIP.Location = new System.Drawing.Point(111, 51);
-            this.maskedTextBoxStopIP.Mask = "###.###.###.###";
-            this.maskedTextBoxStopIP.Name = "maskedTextBoxStopIP";
-            this.maskedTextBoxStopIP.Size = new System.Drawing.Size(102, 20);
-            this.maskedTextBoxStopIP.TabIndex = 10;
+            this.maskedTextBoxEnd.Location = new System.Drawing.Point(219, 51);
+            this.maskedTextBoxEnd.Mask = "000";
+            this.maskedTextBoxEnd.Name = "maskedTextBoxEnd";
+            this.maskedTextBoxEnd.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBoxEnd.TabIndex = 5;
             // 
-            // maskedTextBoxStartIP
+            // maskedTextBox7
             // 
-            this.maskedTextBoxStartIP.Location = new System.Drawing.Point(112, 18);
-            this.maskedTextBoxStartIP.Mask = "###.###.###.###";
-            this.maskedTextBoxStartIP.Name = "maskedTextBoxStartIP";
-            this.maskedTextBoxStartIP.Size = new System.Drawing.Size(101, 20);
-            this.maskedTextBoxStartIP.TabIndex = 9;
+            this.maskedTextBox7.Location = new System.Drawing.Point(183, 51);
+            this.maskedTextBox7.Mask = "000";
+            this.maskedTextBox7.Name = "maskedTextBox7";
+            this.maskedTextBox7.ReadOnly = true;
+            this.maskedTextBox7.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox7.TabIndex = 15;
             // 
-            // buttonAddSessions
+            // maskedTextBox6
             // 
-            this.buttonAddSessions.Enabled = false;
-            this.buttonAddSessions.Location = new System.Drawing.Point(531, 20);
-            this.buttonAddSessions.Name = "buttonAddSessions";
-            this.buttonAddSessions.Size = new System.Drawing.Size(75, 52);
-            this.buttonAddSessions.TabIndex = 8;
-            this.buttonAddSessions.Text = "Add sessions";
-            this.buttonAddSessions.UseVisualStyleBackColor = true;
+            this.maskedTextBox6.Location = new System.Drawing.Point(147, 51);
+            this.maskedTextBox6.Mask = "000";
+            this.maskedTextBox6.Name = "maskedTextBox6";
+            this.maskedTextBox6.ReadOnly = true;
+            this.maskedTextBox6.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox6.TabIndex = 14;
+            // 
+            // maskedTextBox5
+            // 
+            this.maskedTextBox5.Location = new System.Drawing.Point(111, 51);
+            this.maskedTextBox5.Mask = "000";
+            this.maskedTextBox5.Name = "maskedTextBox5";
+            this.maskedTextBox5.ReadOnly = true;
+            this.maskedTextBox5.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox5.TabIndex = 13;
+            // 
+            // maskedTextBox4
+            // 
+            this.maskedTextBox4.Location = new System.Drawing.Point(219, 19);
+            this.maskedTextBox4.Mask = "000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox4.TabIndex = 4;
+            this.maskedTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox4_KeyDown);
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(183, 19);
+            this.maskedTextBox3.Mask = "000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox3.TabIndex = 3;
+            this.maskedTextBox3.TextChanged += new System.EventHandler(this.maskedTextBox3_TextChanged);
+            this.maskedTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox3_KeyDown);
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(147, 19);
+            this.maskedTextBox2.Mask = "000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox2.TabIndex = 2;
+            this.maskedTextBox2.TextChanged += new System.EventHandler(this.maskedTextBox2_TextChanged);
+            this.maskedTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox2_KeyDown);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(111, 19);
+            this.maskedTextBox1.Mask = "000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(30, 20);
+            this.maskedTextBox1.TabIndex = 1;
+            this.maskedTextBox1.ValidatingType = typeof(int);
+            this.maskedTextBox1.TextChanged += new System.EventHandler(this.maskedTextBox1_TextChanged);
+            this.maskedTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox1_KeyDown);
             // 
             // buttonScann
             // 
-            this.buttonScann.Location = new System.Drawing.Point(423, 18);
+            this.buttonScann.Location = new System.Drawing.Point(463, 22);
             this.buttonScann.Name = "buttonScann";
-            this.buttonScann.Size = new System.Drawing.Size(75, 56);
-            this.buttonScann.TabIndex = 4;
+            this.buttonScann.Size = new System.Drawing.Size(75, 48);
+            this.buttonScann.TabIndex = 7;
             this.buttonScann.Text = "Scann";
             this.buttonScann.UseVisualStyleBackColor = true;
             this.buttonScann.Click += new System.EventHandler(this.buttonScann_Click);
             // 
             // numericUpDownPort
             // 
-            this.numericUpDownPort.Location = new System.Drawing.Point(330, 20);
+            this.numericUpDownPort.Location = new System.Drawing.Point(368, 19);
             this.numericUpDownPort.Name = "numericUpDownPort";
             this.numericUpDownPort.Size = new System.Drawing.Size(65, 20);
-            this.numericUpDownPort.TabIndex = 3;
+            this.numericUpDownPort.TabIndex = 6;
             this.numericUpDownPort.Value = new decimal(new int[] {
             22,
             0,
@@ -127,10 +187,10 @@ namespace SessionManagement
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(242, 24);
+            this.label3.Location = new System.Drawing.Point(280, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 16;
             this.label3.Text = "Port To Scann :";
             // 
             // label2
@@ -139,7 +199,7 @@ namespace SessionManagement
             this.label2.Location = new System.Drawing.Point(16, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 12;
             this.label2.Text = "Stop IP Address :";
             // 
             // label1
@@ -148,23 +208,30 @@ namespace SessionManagement
             this.label1.Location = new System.Drawing.Point(16, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 11;
             this.label1.Text = "Start IP Address :";
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 368);
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1005, 22);
-            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Size = new System.Drawing.Size(567, 22);
+            this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripProgressBar1
+            // toolStripStatusLabel1
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
+            this.toolStripStatusLabel1.Text = "Status:";
+            // 
+            // toolStripStatusLabelStatus
+            // 
+            this.toolStripStatusLabelStatus.Name = "toolStripStatusLabelStatus";
+            this.toolStripStatusLabelStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // dataGridViewScanTable
             // 
@@ -181,13 +248,8 @@ namespace SessionManagement
             this.dataGridViewScanTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name,
             this.Host,
-            this.Protocol,
-            this.Port,
-            this.Username,
-            this.Password,
-            this.UseSshKey,
-            this.Description,
-            this.Add});
+            this.Port});
+            this.dataGridViewScanTable.ContextMenuStrip = this.contextMenuStrip;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,12 +261,12 @@ namespace SessionManagement
             this.dataGridViewScanTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewScanTable.Location = new System.Drawing.Point(0, 92);
             this.dataGridViewScanTable.Name = "dataGridViewScanTable";
-            this.dataGridViewScanTable.Size = new System.Drawing.Size(1005, 276);
-            this.dataGridViewScanTable.TabIndex = 5;
+            this.dataGridViewScanTable.Size = new System.Drawing.Size(567, 314);
+            this.dataGridViewScanTable.TabIndex = 8;
             // 
             // Name
             // 
-            this.Name.HeaderText = "Name";
+            this.Name.HeaderText = "IP";
             this.Name.Name = "Name";
             // 
             // Host
@@ -212,61 +274,57 @@ namespace SessionManagement
             this.Host.HeaderText = "Host";
             this.Host.Name = "Host";
             // 
-            // Protocol
-            // 
-            this.Protocol.HeaderText = "Protocol";
-            this.Protocol.Name = "Protocol";
-            // 
             // Port
             // 
             this.Port.HeaderText = "Port";
             this.Port.Name = "Port";
             // 
-            // Username
+            // contextMenuStrip
             // 
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAddSession});
+            this.contextMenuStrip.Name = "contextMenuStripAddSession";
+            this.contextMenuStrip.Size = new System.Drawing.Size(139, 26);
+            this.contextMenuStrip.Text = "Add session";
             // 
-            // Password
+            // toolStripMenuItemAddSession
             // 
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
+            this.toolStripMenuItemAddSession.Name = "toolStripMenuItemAddSession";
+            this.toolStripMenuItemAddSession.Size = new System.Drawing.Size(138, 22);
+            this.toolStripMenuItemAddSession.Text = "Add Session";
+            this.toolStripMenuItemAddSession.Click += new System.EventHandler(this.toolStripMenuItemAddSession_Click);
             // 
-            // UseSshKey
+            // richTextBoxLog
             // 
-            this.UseSshKey.HeaderText = "UseSshKey";
-            this.UseSshKey.Name = "UseSshKey";
+            this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.richTextBoxLog.Location = new System.Drawing.Point(0, 310);
+            this.richTextBoxLog.Name = "richTextBoxLog";
+            this.richTextBoxLog.Size = new System.Drawing.Size(567, 96);
+            this.richTextBoxLog.TabIndex = 9;
+            this.richTextBoxLog.Text = "";
+            this.richTextBoxLog.TextChanged += new System.EventHandler(this.richTextBoxLog_TextChanged);
             // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
-            // Add
-            // 
-            this.Add.HeaderText = "Add";
-            this.Add.Name = "Add";
             // 
             // frmPortScanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 390);
+            this.ClientSize = new System.Drawing.Size(567, 428);
+            this.Controls.Add(this.richTextBoxLog);
             this.Controls.Add(this.dataGridViewScanTable);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-           // this.Name = "frmPortScanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PortScanner";
-            this.Load += new System.EventHandler(this.frmPortScanner_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScanTable)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,22 +336,26 @@ namespace SessionManagement
         private Label label2;
         private Label label1;
         private StatusStrip statusStrip1;
-        private ToolStripProgressBar toolStripProgressBar1;
         private Label label3;
         private NumericUpDown numericUpDownPort;
         private DataGridView dataGridViewScanTable;
+        private Button buttonScann;
         private DataGridViewTextBoxColumn Name;
         private DataGridViewTextBoxColumn Host;
-        private DataGridViewTextBoxColumn Protocol;
         private DataGridViewTextBoxColumn Port;
-        private DataGridViewTextBoxColumn Username;
-        private DataGridViewTextBoxColumn Password;
-        private DataGridViewCheckBoxColumn UseSshKey;
-        private DataGridViewTextBoxColumn Description;
-        private DataGridViewCheckBoxColumn Add;
-        private Button buttonScann;
-        private Button buttonAddSessions;
-        private MaskedTextBox maskedTextBoxStopIP;
-        private MaskedTextBox maskedTextBoxStartIP;
+        private MaskedTextBox maskedTextBoxEnd;
+        private MaskedTextBox maskedTextBox7;
+        private MaskedTextBox maskedTextBox6;
+        private MaskedTextBox maskedTextBox5;
+        private MaskedTextBox maskedTextBox4;
+        private MaskedTextBox maskedTextBox3;
+        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox maskedTextBox1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel toolStripStatusLabelStatus;
+        private RichTextBox richTextBoxLog;
+        private ContextMenuStrip contextMenuStrip;
+        private ToolStripMenuItem toolStripMenuItemAddSession;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

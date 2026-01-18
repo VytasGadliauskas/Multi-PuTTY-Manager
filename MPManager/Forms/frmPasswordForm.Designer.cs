@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPasswordForm));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDBPassword = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.btShowPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,7 +55,7 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(172, 78);
+            this.buttonOK.Location = new System.Drawing.Point(204, 77);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 2;
@@ -72,13 +74,24 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // btShowPassword
+            // 
+            this.btShowPassword.Image = ((System.Drawing.Image)(resources.GetObject("btShowPassword.Image")));
+            this.btShowPassword.Location = new System.Drawing.Point(253, 35);
+            this.btShowPassword.Name = "btShowPassword";
+            this.btShowPassword.Size = new System.Drawing.Size(26, 26);
+            this.btShowPassword.TabIndex = 23;
+            this.btShowPassword.UseVisualStyleBackColor = true;
+            this.btShowPassword.Click += new System.EventHandler(this.btShowPassword_Click);
+            // 
             // frmPasswordForm
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 120);
+            this.ClientSize = new System.Drawing.Size(294, 117);
             this.ControlBox = false;
+            this.Controls.Add(this.btShowPassword);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.textBoxDBPassword);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.TextBox textBoxDBPassword;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button btShowPassword;
     }
 }

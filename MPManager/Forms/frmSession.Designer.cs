@@ -391,16 +391,36 @@
             // numPasswordTimeout
             // 
             this.numPasswordTimeout.Location = new System.Drawing.Point(321, 28);
+            this.numPasswordTimeout.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numPasswordTimeout.Name = "numPasswordTimeout";
             this.numPasswordTimeout.Size = new System.Drawing.Size(67, 23);
             this.numPasswordTimeout.TabIndex = 11;
+            this.numPasswordTimeout.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // numConnectionTimeout
             // 
             this.numConnectionTimeout.Location = new System.Drawing.Point(107, 28);
+            this.numConnectionTimeout.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numConnectionTimeout.Name = "numConnectionTimeout";
             this.numConnectionTimeout.Size = new System.Drawing.Size(67, 23);
             this.numConnectionTimeout.TabIndex = 9;
+            this.numConnectionTimeout.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             // 
             // label20
             // 
@@ -414,9 +434,19 @@
             // numUsernameTimeout
             // 
             this.numUsernameTimeout.Location = new System.Drawing.Point(107, 61);
+            this.numUsernameTimeout.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numUsernameTimeout.Name = "numUsernameTimeout";
             this.numUsernameTimeout.Size = new System.Drawing.Size(67, 23);
             this.numUsernameTimeout.TabIndex = 10;
+            this.numUsernameTimeout.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // label17
             // 
@@ -430,9 +460,19 @@
             // numCommandTimeout
             // 
             this.numCommandTimeout.Location = new System.Drawing.Point(321, 63);
+            this.numCommandTimeout.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numCommandTimeout.Name = "numCommandTimeout";
             this.numCommandTimeout.Size = new System.Drawing.Size(67, 23);
             this.numCommandTimeout.TabIndex = 12;
+            this.numCommandTimeout.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // groupPostLoginCommand
             // 

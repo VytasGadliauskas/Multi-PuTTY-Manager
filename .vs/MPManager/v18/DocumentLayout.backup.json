@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vytas\\source\\repos\\Multi-PuTTY-Manager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|c:\\users\\vytas\\source\\repos\\multi-putty-manager\\mpmanager\\config\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56370DE7-BDBD-4725-870E-9AA873F4F2AA}|MPManager\\MPManager.csproj|solutionrelative:mpmanager\\config\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Global.cs",
+              "DocumentMoniker": "C:\\Users\\vytas\\source\\repos\\Multi-PuTTY-Manager\\MPManager\\Config\\Global.cs",
+              "RelativeDocumentMoniker": "MPManager\\Config\\Global.cs",
+              "ToolTip": "C:\\Users\\vytas\\source\\repos\\Multi-PuTTY-Manager\\MPManager\\Config\\Global.cs",
+              "RelativeToolTip": "MPManager\\Config\\Global.cs",
+              "ViewState": "AgIAAJ8BAAAAAAAAAAAUwK0BAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T19:17:52.164Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
